@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: px2rem(8) 0;
+  height: px2rem(28);
+}
+
+.logo {
+  width: px2rem(62);
+  height: 100%;
+  margin-left: px2rem(18);
+}
+
+.other {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  font-size: px2rem(20);
+  margin-top: px2rem(5);
+  margin-right: px2rem(22);
+}
+
+.avatar {
+  width: px2rem(24);
+  height: px2rem(24);
+  margin-top: px2rem(2);
+  margin-right: px2rem(12);
+
+  svg {
+    border-radius: 50%;
+  }
+}
