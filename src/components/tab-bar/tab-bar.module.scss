@@ -21,9 +21,11 @@
 }
 
 .list {
+  flex: 1;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  height: px2rem(38);
   overflow-x: auto;
 
   &::-webkit-scrollbar {
@@ -32,6 +34,7 @@
 }
 
 .subList {
+  height: auto;
   background-color: #f9f9f9;
 }
 
