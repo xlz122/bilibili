@@ -18,53 +18,72 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-arrow-down {
+  color: #aaa;;
+}
 .icon-arrow-down:before {
   content: "\e900";
-  color: #aaa;
 }
 
+.icon-arrow-right {
+  color: #aaa;
+}
 .icon-arrow-right:before {
   content: "\e901";
-  color: #aaa;
 }
 
+.icon-arrow-up {
+  color: #aaa;
+}
 .icon-arrow-up:before {
   content: "\e902";
-  color: #aaa;
 }
 
-
+.icon-barrage-count {
+  color: #fff;
+}
 .icon-barrage-count:before {
   content: "\e903";
-  color: #fff;
 }
 
+.icon-play-count {
+  color: #fff;
+}
 .icon-play-count:before {
   content: "\e904";
-  color: #fff;
 }
 
-.icon-ranking:before {
-  content: "\e905";
+.icon-ranking {
   color: #ffa726;
 }
+.icon-ranking:before {
+  content: "\e905";
+}
 
-.icon-search:before {
-  content: "\e906";
+.icon-search {
   color: #ccc;
 }
+.icon-search:before {
+  content: "\e906";
+}
 
-.icon-sex-man:before {
-  content: "\e907";
+.icon-sex-man {
   color: #89cff0;
 }
-
-.icon-sex-secrecy:before {
-  content: "\e908";
-  color: #ce21e8;
+.icon-sex-man:before {
+  content: "\e907";
 }
 
+.icon-sex-secrecy {
+  color: #ce21e8;
+}
+.icon-sex-secrecy:before {
+  content: "\e908";
+}
+
+.icon-sex-woman {
+  color: #fb7299;
+}
 .icon-sex-woman:before {
   content: "\e909";
-  color: #fb7299;
 }

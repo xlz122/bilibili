@@ -1,0 +1,41 @@
+.searchHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: px2rem(7) px2rem(12.5) 0;
+}
+
+.inputView {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: px2rem(28);
+  line-height: px2rem(28);
+  padding-right: px2rem(10);
+  background-color: #f4f4f4;
+  border-radius: 2px;
+}
+
+.inputIcon {
+  padding-left: px2rem(12);
+  padding-right: px2rem(8);
+  font-size: px2rem(18);
+  color: #aaa;
+}
+
+.inputText {
+  width: 100%;
+  height: 100%;
+  background-color: #f4f4f4;
+  border: none;
+  outline: none;
+}
+
+.cancelText {
+  padding-left: px2rem(18);
+  font-size: px2rem(14.2);
+  color: #fb7299;
+}
