@@ -1,5 +1,5 @@
 export type ResponseType<T = any> = {
-  code?: number;
+  code?: number | string;
   data?: T;
   msg?: string;
 };
