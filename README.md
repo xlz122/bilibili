@@ -42,6 +42,13 @@ yarn dev
 yarn build
 ```
 
+## 项目效果图
+
+|首页|搜索|直播|排行榜|
+|---|---|---|---|
+|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/movies.jpg)|![](./public/design-sketch/videos.jpg)|![](./public/design-sketch/mine.jpg)|
+
+
 ## 写在最后
 
 * 本项目仅用于学习使用，切勿用于商业用途，否则产生的法律后果与作者无关。
