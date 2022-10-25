@@ -7,12 +7,12 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: px2rem(15) 0;
+  padding-top: px2rem(15);
 }
 
 .titleText {
-  margin-left: px2rem(12);
-  font-size: px2rem(16);
+  margin-left: px2rem(16);
+  font-size: px2rem(15);
   color: #212121;
 }
 
@@ -21,6 +21,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-right: px2rem(12);
 }
 
 .leftIcon {
@@ -28,11 +29,10 @@
 }
 
 .moreText {
-  margin: 0 px2rem(7) 0 px2rem(6);
-  font-size: px2rem(14.1);
-  color: #ffa726;
+  margin: 0 px2rem(5) 0 px2rem(6);
+  font-size: px2rem(13.2);
 }
 
 .rightIcon {
-  font-size: px2rem(14.1);
+  font-size: px2rem(13.2);
 }

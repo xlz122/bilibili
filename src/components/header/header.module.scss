@@ -3,8 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: px2rem(8) 0;
   height: px2rem(28);
+  padding: px2rem(8) 0;
 }
 
 .logo {
@@ -21,9 +21,9 @@
 }
 
 .search {
-  font-size: px2rem(20);
-  margin-top: px2rem(5);
+  margin-top: px2rem(8.5);
   margin-right: px2rem(22);
+  font-size: px2rem(20);
 }
 
 .avatar {

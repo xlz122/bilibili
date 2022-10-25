@@ -25,6 +25,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  margin-left: px2rem(2);
   height: px2rem(38);
   overflow-x: auto;
 
@@ -41,15 +42,15 @@
 .item {
   height: px2rem(38);
   line-height: px2rem(38);
-  padding: 0 px2rem(16);
+  margin: 0 px2rem(16);
   font-size: px2rem(14);
   color: '#505050';
   flex-shrink: 0;
 }
 
 .itemIcon {
-  margin: 0 px2rem(9);
-  font-weight: 800;
+  margin: 0 px2rem(11);
+  font-weight: 1000;
   font-size: px2rem(14);
 }
 
@@ -63,8 +64,8 @@
     left: 50%;
     bottom: px2rem(2);
     transform: translateX(-50%);
-    width: 45%;
-    border-bottom: px2rem(3) solid #fb7299;
+    width: 100%;
+    border-bottom: px2rem(2.6) solid #fb7299;
     border-radius: 6px;
   }
 }
