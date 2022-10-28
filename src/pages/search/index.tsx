@@ -46,7 +46,7 @@ function Search(props: Props): React.ReactElement {
               className={styles.clearIcon}
               width={16}
               height={16}
-              src={'/images/search-close.png'}
+              src={'/images/search-cancel.png'}
               alt=""
             />
           )}

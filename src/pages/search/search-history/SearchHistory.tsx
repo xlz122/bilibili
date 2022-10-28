@@ -16,7 +16,7 @@ function SearchHistory(props: Props): React.ReactElement {
       <div className={styles.searchHot}>
         <h2 className={styles.hotTitle}>大家都在搜</h2>
         <ul className={styles.hotList}>
-          {props.list.map((item, index) => {
+          {props?.list?.map((item, index) => {
             return (
               <li className={styles.hotItem} key={index}>
                 {item.keyword}

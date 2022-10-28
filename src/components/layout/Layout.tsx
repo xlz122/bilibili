@@ -1,13 +1,13 @@
+import React from 'react';
 import Head from 'next/head';
-import type { ReactNode, ReactElement } from 'react';
 import Header from '@components/header/Header';
 import Footer from '@components/footer/Footer';
 
 type Props = {
-  children: ReactNode;
+  children: React.ReactNode;
 };
 
-function Layout(props: Props): ReactElement {
+function Layout(props: Props): React.ReactElement {
   return (
     <>
       <Head>
