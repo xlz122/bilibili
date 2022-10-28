@@ -1,6 +1,6 @@
-import type { ReactElement } from 'react';
+import React from 'react';
 
-function Footer(): ReactElement {
+function Footer(): React.ReactElement {
   return <div></div>;
 }
 

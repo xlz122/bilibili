@@ -21,7 +21,7 @@ function Search(props: Props): React.ReactElement {
   const router = useRouter();
 
   const cancel = () => {
-    router.back();
+    router.push({ pathname: '/' });
   };
 
   const [searchValue, setSearchValue] = useState('');
@@ -32,8 +32,8 @@ function Search(props: Props): React.ReactElement {
 
   return (
     <>
-      <div className={styles.searchHeader}>
-        <div className={styles.inputView}>
+      <div className={styles.search}>
+        <div className={styles.searchInput}>
           <i className={`icon-search ${styles.inputIcon}`} />
           <input
             className={styles.inputText}
@@ -46,7 +46,7 @@ function Search(props: Props): React.ReactElement {
               className={styles.clearIcon}
               width={16}
               height={16}
-              src={'/images/search-close.png'}
+              src={'/images/search-cancel.png'}
               alt=""
             />
           )}
@@ -61,7 +61,7 @@ function Search(props: Props): React.ReactElement {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<{ props: Props }> {
   const res: ResponseType<Props['search']['default']> = await searchDefatult({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
   });

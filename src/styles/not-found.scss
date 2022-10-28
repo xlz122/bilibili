@@ -1,14 +1,13 @@
 .not-found {
-  min-height: calc(100vh - 170.5px);
-  padding-top: 50px;
-  text-align: center;
-
-  .title {
-    font-weight: 700;
-    font-size: 98px;
-  }
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
 
   .msg {
-    font-size: 20px;
+    font-size: 16px;
+    color: #a0a0a0;
+    text-align: center;
   }
 }

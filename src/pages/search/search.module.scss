@@ -1,4 +1,4 @@
-.searchHeader {
+.search {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -6,7 +6,7 @@
   margin: px2rem(7) px2rem(12.5) 0;
 }
 
-.inputView {
+.searchInput {
   flex: 1;
   display: flex;
   flex-direction: row;

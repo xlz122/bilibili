@@ -25,15 +25,15 @@ export const ranking = ({ baseUrl }: BaseParams): AxiosPromise => {
   });
 };
 
-type RankingRegion = {
+type RankingRegion = BaseParams & {
   rid: number;
   day: number;
-} & BaseParams;
+};
 
 /**
- * @description 导航分类 - 热门推荐列表
+ * @description 分类 - 热门推荐列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } rid - 接口基础url(服务端渲染)
+ * @param { String } rid - 分类id
  * @param { String } day - 天数
  */
 export const rankingRegion = ({
@@ -50,15 +50,15 @@ export const rankingRegion = ({
   });
 };
 
-type RankingArchive = {
+type RankingArchive = BaseParams & {
   tid: number;
   page: number;
-} & BaseParams;
+};
 
 /**
- * @description 导航分类 - 最新视频列表
+ * @description 分类 - 最新视频列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } tid - 接口基础url(服务端渲染)
+ * @param { String } tid - 分类id
  * @param { String } page - 页数
  */
 export const rankingArchive = ({

@@ -1,17 +1,18 @@
-import type { ReactElement } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Logo from '@/components/header/logo/Logo';
 import Avatar from '@/components/header/avatar/Avatar';
 import styles from './header.module.scss';
 
-function Header(): ReactElement {
+function Header(): React.ReactElement {
   const router = useRouter();
 
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>
+      <Link className={styles.logo} href="/">
         <Logo />
-      </div>
+      </Link>
       <div className={styles.other}>
         <div
           className={styles.search}
@@ -19,7 +20,10 @@ function Header(): ReactElement {
         >
           <i className="icon-search" />
         </div>
-        <div className={styles.avatar}>
+        <div
+          className={styles.avatar}
+          onClick={() => router.push({ pathname: '/space' })}
+        >
           <Avatar />
         </div>
       </div>

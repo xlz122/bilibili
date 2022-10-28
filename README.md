@@ -13,6 +13,8 @@
 
 本项目是一个仿写B站web移动端项目
 
+接口及接口文档请查看[bilibili-api](https://github.com/xlz122/bilibili-api)
+
 ## 项目使用技术栈
 
 * React全家桶
@@ -44,9 +46,9 @@ yarn build
 
 ## 项目效果图
 
-|首页|搜索|直播|排行榜|
+|首页|直播|搜索|我的|
 |---|---|---|---|
-|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/movies.jpg)|![](./public/design-sketch/videos.jpg)|![](./public/design-sketch/mine.jpg)|
+|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/live.jpg)|![](./public/design-sketch/search.jpg)|![](./public/design-sketch/space.jpg)|
 
 
 ## 写在最后

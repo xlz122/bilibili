@@ -1,13 +1,12 @@
-import type { ReactElement } from 'react';
+import React from 'react';
+import Image from 'next/image';
 
-function NotFound(): ReactElement {
+function NotFound(): React.ReactElement {
   return (
-    <>
-      <div className="not-found">
-        <h1 className="title">404</h1>
-        <h3 className="msg">页面不存在，或已被删除！</h3>
-      </div>
-    </>
+    <div className="not-found">
+      <Image width={300} height={169} src={'/images/error_01.png'} alt="" />
+      <p className="msg">Σ(oﾟдﾟoﾉ) 无法找到该页面~</p>
+    </div>
   );
 }
 

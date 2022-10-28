@@ -17,14 +17,16 @@ export type VideoItem = {
 function VideoList(props: Props): React.ReactElement {
   return (
     <div className={styles.list}>
-      {props.list.map((item, index) => {
+      {props?.list?.map((item, index) => {
         return (
           <div className={styles.item} key={index}>
             <div className={styles.itemCover}>
               <Image
                 className={styles.itemImage}
-                layout="fill"
                 src={item?.pic || ''}
+                fill
+                sizes="50%"
+                priority
                 alt=""
               />
               <div className={styles.infoView}>

@@ -1,0 +1,47 @@
+.space {
+  height: 100%;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: px2rem(129);
+}
+
+.tab {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: px2rem(37);
+  border-top: 1px solid #979797;
+  background-color: #fff;
+}
+
+.tabItem {
+  flex: 1;
+  height: 100%;
+  line-height: px2rem(37);
+  font-size: px2rem(14);
+  text-align: center;
+}
+
+.itemText {
+  display: inline-block;
+  height: 100%;
+}
+
+.itemActiveText {
+  position: relative;
+  color: #fb7299;
+
+  &::after {
+    position: absolute;
+    left: 0;
+    bottom: 0.2rem;
+    content: "";
+    width: 100%;
+    height: 0.11rem;
+    border-radius: 0.055rem;
+    background-color: #fb7299;
+  }
+}

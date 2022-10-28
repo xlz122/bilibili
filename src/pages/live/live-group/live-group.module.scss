@@ -1,0 +1,126 @@
+.page {
+  background-color: #fff;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: px2rem(12);
+}
+
+.titleText {
+  margin-left: px2rem(16);
+  font-size: px2rem(15);
+  color: #212121;
+}
+
+.more {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-right: px2rem(12);
+}
+
+.moreText {
+  margin: 0 px2rem(5) 0 px2rem(6);
+  font-size: px2rem(13.2);
+  color: #919799;
+}
+
+.rightIcon {
+  font-size: px2rem(13.2);
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: px2rem(8) px2rem(6) px2rem(8);
+  border-bottom: px2rem(12) solid #f4f4f4;
+}
+
+.item {
+  width: 50%;
+  padding: 0 px2rem(5) px2rem(8);
+  box-sizing: border-box;
+}
+
+.itemCover {
+  position: relative;
+  width: 100%;
+  height: px2rem(105);
+}
+
+.itemImage {
+  border-radius: 8px;
+}
+
+.infoView {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: px2rem(5) px2rem(6);
+  box-sizing: border-box;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemText {
+  margin-left: px2rem(3);
+  font-size: px2rem(11);
+  color: #ffffff;
+}
+
+.itemTitle {
+  height: px2rem(32);
+  line-height: px2rem(16);
+  margin-top: px2rem(5);
+  font-size: px2rem(12);
+  color: #212121;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 这里是超出几行省略 */
+  -webkit-line-clamp: 2;
+}
+
+.operate {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: px2rem(12) px2rem(4) px2rem(20);
+}
+
+.operateItem {
+  width:  50%;
+}
+
+.operateBtn {
+  width: 90%;
+  height: px2rem(38);
+  margin: 0 5%;
+  border: 1px solid #d3d3d3;
+  background-color: #fff;
+  color: #fb7299;
+  outline: none;
+  border-radius: 6px;
+}
