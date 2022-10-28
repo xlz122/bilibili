@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import type { InputChange } from '@/types';
+import { searchDefatult, searchHot } from '@/api/search';
+import type { ResponseType, InputChange } from '@/types';
+import type { HotItem } from './search-history/SearchHistory';
 import SearchDetail from './search-detail/SearchDetail';
 import SearchHistory from './search-history/SearchHistory';
 import styles from './search.module.scss';
 
-function Search(): React.ReactElement {
+type Props = {
+  search: {
+    default: {
+      show_name?: string;
+    };
+    hot: HotItem[];
+  };
+};
+
+function Search(props: Props): React.ReactElement {
   const router = useRouter();
 
   const cancel = () => {
@@ -28,7 +39,7 @@ function Search(): React.ReactElement {
             className={styles.inputText}
             value={searchValue}
             onChange={handleInputChange}
-            placeholder="搜索视频、UP主或AV号"
+            placeholder={props?.search?.default?.show_name}
           />
           {searchValue && (
             <Image
@@ -45,9 +56,37 @@ function Search(): React.ReactElement {
         </span>
       </div>
       {searchValue && <SearchDetail />}
-      {!searchValue && <SearchHistory />}
+      {!searchValue && <SearchHistory list={props?.search?.hot} />}
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const res: ResponseType<Props['search']['default']> = await searchDefatult({
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
+  });
+  const res2: ResponseType = await searchHot({
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
+  });
+
+  const props: Props = {
+    search: {
+      default: {},
+      hot: []
+    }
+  };
+
+  if (res?.code === 0) {
+    props.search.default = res.data!;
+  }
+
+  if (res2?.code === 0) {
+    props.search.hot = (res2.list as HotItem[]).slice(0, 3);
+  }
+
+  return {
+    props
+  };
 }
 
 Search.getLayout = function getLayout(page: React.ReactElement) {
