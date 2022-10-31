@@ -18,7 +18,7 @@ function TabBar(): React.ReactElement {
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link className={styles.navItemLink} href="/">
+          <Link className={styles.navItemLink} href="/channel/1/1">
             频道
           </Link>
         </li>
@@ -33,7 +33,7 @@ function TabBar(): React.ReactElement {
           </Link>
         </li>
         <li className={styles.navItem}>
-          <Link className={styles.navItemLink} href="/">
+          <Link className={styles.navItemLink} href="/space">
             我的
           </Link>
         </li>

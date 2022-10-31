@@ -9,7 +9,10 @@ function Header(): ReactElement {
 
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>
+      <div
+        className={styles.logo}
+        onClick={() => router.push({ pathname: '/' })}
+      >
         <Logo />
       </div>
       <div className={styles.other}>
@@ -19,7 +22,10 @@ function Header(): ReactElement {
         >
           <i className="icon-search" />
         </div>
-        <div className={styles.avatar}>
+        <div
+          className={styles.avatar}
+          onClick={() => router.push({ pathname: '/space' })}
+        >
           <Avatar />
         </div>
       </div>

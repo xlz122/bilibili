@@ -48,7 +48,7 @@ yarn build
 
 |首页|搜索|直播|排行榜|
 |---|---|---|---|
-|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/movies.jpg)|![](./public/design-sketch/videos.jpg)|![](./public/design-sketch/mine.jpg)|
+|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/search.jpg)|![](./public/design-sketch/live.jpg)|![](./public/design-sketch/live.jpg)|
 
 
 ## 写在最后

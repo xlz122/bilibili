@@ -23,8 +23,10 @@ function VideoList(props: Props): React.ReactElement {
             <div className={styles.itemCover}>
               <Image
                 className={styles.itemImage}
-                layout="fill"
                 src={item?.pic || ''}
+                fill
+                sizes="50%"
+                priority
                 alt=""
               />
               <div className={styles.infoView}>
