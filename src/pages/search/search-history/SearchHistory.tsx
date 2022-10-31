@@ -36,27 +36,27 @@ function SearchHistory(props: Props): React.ReactElement {
               src={'/images/search-history.png'}
               alt=""
             />
+            <span className={styles.historyItemText}>雾山五行</span>
+          </li>
+          <li className={styles.historyItem}>
+            <Image
+              className={styles.historyItemIcon}
+              width={15}
+              height={15}
+              src={'/images/search-history.png'}
+              alt=""
+            />
+            <span className={styles.historyItemText}>百妖谱</span>
+          </li>
+          <li className={styles.historyItem}>
+            <Image
+              className={styles.historyItemIcon}
+              width={15}
+              height={15}
+              src={'/images/search-history.png'}
+              alt=""
+            />
             <span className={styles.historyItemText}>一人之下</span>
-          </li>
-          <li className={styles.historyItem}>
-            <Image
-              className={styles.historyItemIcon}
-              width={15}
-              height={15}
-              src={'/images/search-history.png'}
-              alt=""
-            />
-            <span className={styles.historyItemText}>二次增高</span>
-          </li>
-          <li className={styles.historyItem}>
-            <Image
-              className={styles.historyItemIcon}
-              width={15}
-              height={15}
-              src={'/images/search-history.png'}
-              alt=""
-            />
-            <span className={styles.historyItemText}>哈</span>
           </li>
         </ul>
       </div>

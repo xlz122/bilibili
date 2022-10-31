@@ -21,7 +21,7 @@ function Search(props: Props): React.ReactElement {
   const router = useRouter();
 
   const cancel = () => {
-    router.back();
+    router.push({ pathname: '/' });
   };
 
   const [searchValue, setSearchValue] = useState('');

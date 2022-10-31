@@ -24,10 +24,14 @@
 
 .navItem {
   width: px2rem(60);
-  height: px2rem(40);
+  height: px2rem(36);
   line-height: px2rem(40);
-  font-size: px2rem(16);
+  font-size: px2rem(15);
   text-align: center;
+  
+  a {
+    color: #000;
+  }
 }
 
 .navActiveItem {

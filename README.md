@@ -13,6 +13,8 @@
 
 本项目是一个仿写B站web移动端项目
 
+接口及接口文档请查看[bilibili-api](https://github.com/xlz122/bilibili-api)
+
 ## 项目使用技术栈
 
 * React全家桶

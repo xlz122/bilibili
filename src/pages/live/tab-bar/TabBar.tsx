@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Logo from '@/components/header/logo/Logo';
+import Image from 'next/image';
 import styles from './tab-bar.module.scss';
 
 function TabBar(): React.ReactElement {
@@ -8,7 +8,7 @@ function TabBar(): React.ReactElement {
     <div className={styles.page}>
       <div className={styles.header}>
         <div className={styles.logo}>
-          <Logo />
+          <Image width={60} height={27} src={'/images/logo-pink.png'} alt="" />
         </div>
       </div>
       <ul className={styles.nav}>
