@@ -17,7 +17,7 @@ export type VideoItem = {
 function VideoList(props: Props): React.ReactElement {
   return (
     <div className={styles.list}>
-      {props.list.map((item, index) => {
+      {props?.list?.map((item, index) => {
         return (
           <div className={styles.item} key={index}>
             <div className={styles.itemCover}>

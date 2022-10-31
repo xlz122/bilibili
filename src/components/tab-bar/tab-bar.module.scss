@@ -46,6 +46,10 @@
   font-size: px2rem(14);
   color: '#505050';
   flex-shrink: 0;
+
+  a {
+    color: #505050;
+  }
 }
 
 .itemIcon {
@@ -57,6 +61,10 @@
 .activeItem {
   position: relative;
   color: #fb7299;
+
+  a {
+    color: #fb7299;
+  }
 
   &::after {
     content: "";
