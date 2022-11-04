@@ -113,7 +113,7 @@ function TabBar(): React.ReactElement {
             );
           })}
           <div className={styles.item}>
-            <Link className={styles.itemLink} href="/live">
+            <Link className={styles.itemLink} href="/live" prefetch={false}>
               直播
             </Link>
           </div>

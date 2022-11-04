@@ -14,7 +14,7 @@ function Index(props: Props): React.ReactElement {
   return <VideoList list={props.list} />;
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<{ props: Props }> {
   const res: ResponseType<{ list: Props['list'] }> = await ranking({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
   });

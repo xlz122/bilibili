@@ -22,7 +22,10 @@ function Live(props: Props): React.ReactElement {
   );
 }
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: Props;
+  revalidate: number;
+}> {
   const res: ResponseType = await liveIndex({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
   });
@@ -39,7 +42,7 @@ export async function getStaticProps() {
 
   return {
     props,
-    revalidate: 10
+    revalidate: 60
   };
 }
 

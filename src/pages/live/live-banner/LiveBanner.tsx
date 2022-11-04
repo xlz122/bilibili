@@ -19,7 +19,7 @@ function LiveBanner(props: Props): React.ReactElement {
   return (
     <div className={styles.page}>
       <Image
-        src={(props.banner.list && props.banner.list[0]?.pic) || ''}
+        src={(props?.banner?.list && props?.banner?.list[0]?.pic) || ''}
         fill
         sizes="100%"
         priority

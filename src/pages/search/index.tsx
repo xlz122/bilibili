@@ -61,7 +61,7 @@ function Search(props: Props): React.ReactElement {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<{ props: Props }> {
   const res: ResponseType<Props['search']['default']> = await searchDefatult({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
   });
