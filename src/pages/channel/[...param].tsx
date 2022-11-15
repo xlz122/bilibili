@@ -2,11 +2,11 @@ import React from 'react';
 import { rankingRegion, rankingArchive } from '@api/home';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types/index';
-import type { VideoItem } from '@/components/video-list/VideoList';
+import type { VideoItem } from '@/pages/home/video-list/VideoList';
 import Layout from '@components/layout/Layout';
-import TabBar from '@components/tab-bar/TabBar';
-import Panel from '@components/panel/Panel';
-import VideoList from '@components/video-list/VideoList';
+import TabBar from '@/pages/home/tab-bar/TabBar';
+import Panel from '@/pages/home/panel/Panel';
+import VideoList from '@/pages/home/video-list/VideoList';
 
 type Props = {
   region: VideoItem[];
@@ -52,7 +52,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     });
 
     props.archive = archive?.data?.archives || [];
-  } catch (err) {
+  } catch {
     return {
       notFound: true
     };

@@ -77,6 +77,7 @@ function LiveGroup(props: Props): React.ReactElement {
   return (
     <div className={styles.page}>
       {props?.list?.map((item, index) => {
+        // 第一项分类不展示
         if (index === 0) {
           return null;
         }
