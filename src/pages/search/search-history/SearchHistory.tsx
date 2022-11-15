@@ -12,7 +12,7 @@ export type HotItem = {
 
 function SearchHistory(props: Props): React.ReactElement {
   return (
-    <div className={styles.page}>
+    <div className={styles.history}>
       <div className={styles.searchHot}>
         <h2 className={styles.hotTitle}>大家都在搜</h2>
         <ul className={styles.hotList}>

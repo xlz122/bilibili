@@ -17,7 +17,7 @@ export type BannerType = {
 
 function LiveBanner(props: Props): React.ReactElement {
   return (
-    <div className={styles.page}>
+    <div className={styles.banner}>
       <Image
         src={(props?.banner?.list && props?.banner?.list[0]?.pic) || ''}
         fill

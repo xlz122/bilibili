@@ -9,7 +9,12 @@ function TabBar(): React.ReactElement {
       <div className={styles.header}>
         <div className={styles.logo}>
           <Link href="/">
-            <Image width={60} height={27} src={'/images/logo-pink.png'} alt="" />
+            <Image
+              width={60}
+              height={27}
+              src={'/images/logo-pink.png'}
+              alt=""
+            />
           </Link>
         </div>
       </div>

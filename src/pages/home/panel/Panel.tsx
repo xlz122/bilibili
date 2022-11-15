@@ -4,8 +4,8 @@ import styles from './panel.module.scss';
 type Props = {
   title?: string;
   subTitle?: string;
-  leftIcon?: boolean;
-  moreColor?: string;
+  subIcon?: boolean;
+  subColor?: string;
   children?: React.ReactNode;
 };
 
@@ -18,17 +18,17 @@ function Panel(props: Props): React.ReactElement {
           className={styles.more}
           style={{
             visibility: props.subTitle ? 'visible' : 'hidden',
-            color: props.moreColor
+            color: props.subColor
           }}
         >
           <i
-            className={`icon-ranking ${styles.leftIcon}`}
-            style={{ visibility: props.leftIcon ? 'visible' : 'hidden' }}
+            className={`icon-ranking ${styles.subIcon}`}
+            style={{ visibility: props.subIcon ? 'visible' : 'hidden' }}
           ></i>
           <div className={styles.moreText}>{props.subTitle}</div>
           <i
-            className={`icon-arrow-right ${styles.rightIcon}`}
-            style={{ color: props.moreColor }}
+            className={`icon-arrow-right ${styles.moreIcon}`}
+            style={{ color: props.subColor }}
           ></i>
         </div>
       </div>

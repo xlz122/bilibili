@@ -25,10 +25,10 @@ export const ranking = ({ baseUrl }: BaseParams): AxiosPromise => {
   });
 };
 
-type RankingRegion = {
+type RankingRegion = BaseParams & {
   rid: number;
   day: number;
-} & BaseParams;
+};
 
 /**
  * @description 分类 - 热门推荐列表
@@ -50,10 +50,10 @@ export const rankingRegion = ({
   });
 };
 
-type RankingArchive = {
+type RankingArchive = BaseParams & {
   tid: number;
   page: number;
-} & BaseParams;
+};
 
 /**
  * @description 分类 - 最新视频列表

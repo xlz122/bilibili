@@ -1,20 +1,18 @@
-import type { ReactElement } from 'react';
+import React from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 import Logo from '@/components/header/logo/Logo';
 import Avatar from '@/components/header/avatar/Avatar';
 import styles from './header.module.scss';
 
-function Header(): ReactElement {
+function Header(): React.ReactElement {
   const router = useRouter();
 
   return (
     <div className={styles.header}>
-      <div
-        className={styles.logo}
-        onClick={() => router.push({ pathname: '/' })}
-      >
+      <Link className={styles.logo} href="/">
         <Logo />
-      </div>
+      </Link>
       <div className={styles.other}>
         <div
           className={styles.search}

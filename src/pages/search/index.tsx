@@ -32,8 +32,8 @@ function Search(props: Props): React.ReactElement {
 
   return (
     <>
-      <div className={styles.searchHeader}>
-        <div className={styles.inputView}>
+      <div className={styles.search}>
+        <div className={styles.searchInput}>
           <i className={`icon-search ${styles.inputIcon}`} />
           <input
             className={styles.inputText}

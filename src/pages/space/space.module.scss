@@ -1,8 +1,8 @@
-.page {
+.space {
   height: 100%;
 }
 
-.coverImage {
+.cover {
   position: relative;
   width: 100%;
   height: px2rem(129);
@@ -25,12 +25,12 @@
   text-align: center;
 }
 
-.tabItemText {
+.itemText {
   display: inline-block;
   height: 100%;
 }
 
-.tabActiveItem {
+.itemActiveText {
   position: relative;
   color: #fb7299;
 
