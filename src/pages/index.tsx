@@ -24,7 +24,7 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
   };
 
   if (res.code === 0) {
-    props.list = res?.data?.list || [];
+    props.list = res?.data?.list?.slice(0, 20) || [];
   }
 
   return {

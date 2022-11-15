@@ -17,10 +17,6 @@ type List = {
 type Tab = {
   navIndex: number;
   navSubIndex: number;
-  subList: {
-    rid: number;
-    name: string;
-  }[];
 };
 
 function TabBar(): React.ReactElement {
@@ -45,8 +41,7 @@ function TabBar(): React.ReactElement {
 
   const [tab, setTab] = useState<Tab>({
     navIndex: -1,
-    navSubIndex: -1,
-    subList: []
+    navSubIndex: -1
   });
 
   useEffect(() => {
@@ -56,34 +51,21 @@ function TabBar(): React.ReactElement {
 
     const index = list.findIndex(item => item.tid === Number(param[0]));
     const subIndex = list[index]?.children?.findIndex(
-      item => item.rid === Number(param[1])
+      item => item.rid === (Number(param[1]) || Number(param[0]))
     );
-    const subList = list[index]?.children;
 
-    setTab({ ...tab, navIndex: index, navSubIndex: subIndex, subList });
+    setTab({ navIndex: index, navSubIndex: subIndex });
   }, [list]);
 
-  useEffect(() => {
-    if (router.pathname === '/') {
-      setTab({ ...tab, navIndex: -1, navSubIndex: -1, subList: [] });
-    }
-  }, [router.pathname]);
-
-  const tabChange = (index: number, tid: number): void => {
+  const tabChange = (index: number): void => {
     setTab({
-      ...tab,
       navIndex: index,
-      navSubIndex: 0,
-      subList: list[index].children!
+      navSubIndex: 0
     });
-
-    router.push({ pathname: `/channel/${tid}/${tid}` });
   };
 
-  const tabSubChange = (index: number, rid: number): void => {
+  const tabSubChange = (index: number): void => {
     setTab({ ...tab, navSubIndex: index });
-
-    router.push({ pathname: `/channel/${param[0]}/${rid}` });
   };
 
   return (
@@ -94,6 +76,7 @@ function TabBar(): React.ReactElement {
             className={`${styles.item} ${
               tab.navIndex === -1 ? styles.activeItem : ''
             }`}
+            onClick={() => tabChange(-1)}
           >
             <Link className={styles.itemLink} href="/">
               首页
@@ -106,9 +89,11 @@ function TabBar(): React.ReactElement {
                   index === tab.navIndex ? styles.activeItem : ''
                 }`}
                 key={index}
-                onClick={() => tabChange(index, item.tid)}
+                onClick={() => tabChange(index)}
               >
-                {item.name}
+                <Link className={styles.itemLink} href={`/channel/${item.tid}`}>
+                  {item.name}
+                </Link>
               </div>
             );
           })}
@@ -122,16 +107,21 @@ function TabBar(): React.ReactElement {
       </div>
       <div className={styles.group}>
         <div className={`${styles.list} ${styles.subList}`}>
-          {tab.subList?.map((item, index) => {
+          {list[tab.navIndex]?.children?.map((item, index) => {
             return (
               <div
                 className={`${styles.item} ${
                   index === tab.navSubIndex ? styles.activeItem : ''
                 }`}
                 key={index}
-                onClick={() => tabSubChange(index, item.rid)}
+                onClick={() => tabSubChange(index)}
               >
-                {item.name}
+                <Link
+                  className={styles.itemLink}
+                  href={`/channel/${param[0]}/${item.rid}`}
+                >
+                  {item.name}
+                </Link>
               </div>
             );
           })}
