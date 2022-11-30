@@ -12,7 +12,7 @@ const securityHeaders = [
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_URL,
   // 资产资源前缀
-  assetPrefix: process.env.NEXT_PUBLIC_BASE_URL,
+  // assetPrefix: process.env.NEXT_PUBLIC_BASE_URL,
   reactStrictMode: true,
   swcMinify: true,
   // 图片基础路径

@@ -9,29 +9,32 @@ function faultTolerant(name: string) {
   if (localStorage.getItem(name) as string) {
     return JSON.parse(localStorage.getItem(name) as string);
   }
+
+  return false;
 }
 
 export type RoutineState = {
-  msg: string;
+  searchHistory: string[];
 };
 
 const initialState: RoutineState = {
-  msg: ''
+  searchHistory: faultTolerant('searchHistory') || []
 };
 
 const routineSlice = createSlice({
   name: 'routine',
   initialState,
   reducers: {
-    setMsg: (
+    setSearchHistory: (
       state: RoutineState,
-      action: PayloadAction<RoutineState['msg']>
+      action: PayloadAction<RoutineState['searchHistory']>
     ) => {
-      state.msg = action.payload;
+      state.searchHistory = action.payload;
+      localStorage.setItem('searchHistory', JSON.stringify(action.payload));
     }
   }
 });
 
-export const { setMsg } = routineSlice.actions;
+export const { setSearchHistory } = routineSlice.actions;
 
 export default routineSlice.reducer;

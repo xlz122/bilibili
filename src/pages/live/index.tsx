@@ -1,11 +1,14 @@
 import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 import { liveIndex } from '@/api/live';
 import type { ResponseType } from '@/types/index';
-import type { BannerType } from './live-banner/LiveBanner';
-import type { ListItemType } from './live-group/LiveGroup';
-import TabBar from './tab-bar/TabBar';
-import LiveBanner from './live-banner/LiveBanner';
-import LiveGroup from './live-group/LiveGroup';
+import type { BannerType } from '@/page-component/live/banner/Banner';
+import type { ListItemType } from '@/page-component/live/group/Group';
+import TabBar from '@/page-component/live/tab-bar/TabBar';
+import LiveBanner from '@/page-component/live/banner/Banner';
+import LiveGroup from '@/page-component/live/group/Group';
+import styles from './live.module.scss';
 
 type Props = {
   banner: BannerType;
@@ -15,6 +18,18 @@ type Props = {
 function Live(props: Props): React.ReactElement {
   return (
     <>
+      <div className={styles.header}>
+        <div className={styles.logo}>
+          <Link href="/">
+            <Image
+              width={60}
+              height={27}
+              src={'/images/logo-pink.png'}
+              alt=""
+            />
+          </Link>
+        </div>
+      </div>
       <TabBar />
       <LiveBanner banner={props.banner} />
       <LiveGroup list={props.list} />

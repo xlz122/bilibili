@@ -1,26 +1,74 @@
 import React from 'react';
+import Image from 'next/image';
+import { formatTenThousand } from '@utils/utils';
 import { rankingRegion, rankingArchive } from '@api/home';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types/index';
-import type { VideoItem } from '@/pages/home/video-list/VideoList';
 import Layout from '@components/layout/Layout';
-import TabBar from '@/pages/home/tab-bar/TabBar';
-import Panel from '@/pages/home/panel/Panel';
-import VideoList from '@/pages/home/video-list/VideoList';
+import TabBar from '@/page-component/home/tab-bar/TabBar';
+import Panel from '@/page-component/home/panel/Panel';
+import styles from './channel.module.scss';
 
 type Props = {
-  region: VideoItem[];
-  archive: VideoItem[];
+  region: ItemType[];
+  archive: ItemType[];
+};
+
+type ItemType = {
+  pic?: string;
+  play: number;
+  video_review: number;
+  title?: string;
 };
 
 function Channel(props: Props): React.ReactElement {
+  const RenderItem = ({ item }: { item: ItemType }) => {
+    return (
+      <div className={styles.item}>
+        <div className={styles.itemCover}>
+          <Image
+            className={styles.itemImage}
+            src={item?.pic || ''}
+            fill
+            sizes="50%"
+            priority
+            alt=""
+          />
+          <div className={styles.info}>
+            <div className={styles.infoItem}>
+              <i className={`icon-play-count ${styles.itemIcon}`}></i>
+              <span className={styles.itemText}>
+                {formatTenThousand(item.play)}
+              </span>
+            </div>
+            <div className={styles.infoItem}>
+              <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
+              <span className={styles.itemText}>
+                {formatTenThousand(item.video_review)}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.itemTitle}>{item?.title}</div>
+      </div>
+    );
+  };
+
   return (
     <>
       <Panel title="热门推荐">
-        <VideoList list={props.region} />
+        <div className={styles.list}>
+          {props?.region?.map((item, index) => {
+            return <RenderItem key={index} item={item} />;
+          })}
+        </div>
       </Panel>
       <Panel title="最新视频">
-        <VideoList list={props.archive} />
+        <div className={styles.list}>
+          {props?.archive?.map((item, index) => {
+            return <RenderItem key={index} item={item} />;
+          })}
+        </div>
       </Panel>
     </>
   );

@@ -45,3 +45,24 @@
     background-color: #fb7299;
   }
 }
+
+.history {
+  padding-top: 80px;
+  text-align: center;
+}
+
+.contribute {
+  padding: px2rem(84) px2rem(47) 0;
+}
+
+.contributeImage {
+  position: relative;
+  width: 100%;
+  height: px2rem(159);
+}
+
+.contributeText {
+  font-size: px2rem(16);
+  color: #999;
+  text-align: center;
+}

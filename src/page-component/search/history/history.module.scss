@@ -1,0 +1,74 @@
+.searchHistory {
+  height: 100%;
+}
+
+.searchHot {
+  margin-left: px2rem(14);
+  margin-top: px2rem(15);
+  margin-bottom: px2rem(24);
+}
+
+.hotTitle {
+  font-weight: 400;
+  font-size: px2rem(14);
+  color: #999;
+}
+
+.hotList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.hotItem {
+  padding: px2rem(6) px2rem(12);
+  margin-top: px2rem(11);
+  margin-right: px2rem(9);
+  border: 1px solid #ccc;
+  border-radius: 20px;
+}
+
+.history {
+  border-top: px2rem(10) solid #f4f4f4;
+}
+
+.historyTitle {
+  margin-left: px2rem(12);
+  padding-top: px2rem(12.5);
+  padding-bottom: px2rem(10);
+  font-size: px2rem(14);
+  color: #999;
+}
+
+.historyList {
+  margin-left: px2rem(14);
+}
+
+.historyItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: px2rem(10.5);
+  padding-bottom: px2rem(11);
+  border-bottom: 1px solid #ccc;
+}
+
+.historyItemIcon {
+  width: px2rem(15);
+  height: px2rem(15);
+}
+
+.historyItemText {
+  margin-left: px2rem(8);
+  font-size: px2rem(14);
+  color: #505050;
+}
+
+.clearHistory {
+  height: px2rem(46);
+  line-height: px2rem(46);
+  font-size: px2rem(14);
+  color: #999;
+  text-align: center;
+}

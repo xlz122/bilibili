@@ -11,9 +11,9 @@
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 -n ./.changelog.config.js"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^1.9.0",
+    "@reduxjs/toolkit": "^1.9.1",
     "axios": "^1.2.0",
-    "next": "13.0.5",
+    "next": "13.0.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.5"
@@ -21,13 +21,13 @@
   "devDependencies": {
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
-    "@types/node": "18.11.9",
-    "@types/react": "18.0.25",
+    "@types/node": "18.11.10",
+    "@types/react": "18.0.26",
     "@types/react-dom": "18.0.9",
     "conventional-changelog": "^3.1.25",
     "conventional-changelog-cli": "^2.2.2",
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.5",
+    "eslint": "8.29.0",
+    "eslint-config-next": "13.0.6",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "husky": "^8.0.2",
