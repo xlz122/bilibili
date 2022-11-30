@@ -9,7 +9,13 @@ function Space(): React.ReactElement {
   return (
     <div className={styles.space}>
       <div className={styles.cover}>
-        <Image src={'/images/space-bg.png'} fill sizes="100%" priority alt="" />
+        <Image
+          src={'/images/space/space-bg.png'}
+          fill
+          sizes="100%"
+          priority
+          alt=""
+        />
       </div>
       <div className={styles.tab}>
         <div className={styles.tabItem}>
@@ -33,6 +39,21 @@ function Space(): React.ReactElement {
           </span>
         </div>
       </div>
+      {tabIndex === 0 && <div className={styles.history}>暂无历史记录</div>}
+      {tabIndex === 1 && (
+        <div className={styles.contribute}>
+          <div className={styles.contributeImage}>
+            <Image
+              src={'/images/space/space-contribute.png'}
+              fill
+              sizes="50%"
+              priority
+              alt=""
+            />
+          </div>
+          <div className={styles.contributeText}>小哔睡着了~</div>
+        </div>
+      )}
     </div>
   );
 }

@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { searchDefatult, searchHot } from '@/api/search';
 import type { ResponseType, InputChange } from '@/types';
-import type { HotItem } from './search-history/SearchHistory';
-import SearchDetail from './search-detail/SearchDetail';
-import SearchHistory from './search-history/SearchHistory';
+import type { HotItem } from '@/page-component/search/history/History';
+import SearchDetail from '@/page-component/search/detail/Detail';
+import SearchHistory from '@/page-component/search/history/History';
 import styles from './search.module.scss';
 
 type Props = {
@@ -46,12 +46,12 @@ function Search(props: Props): React.ReactElement {
               className={styles.clearIcon}
               width={16}
               height={16}
-              src={'/images/search-cancel.png'}
+              src={'/images/search/search-clear.png'}
               alt=""
             />
           )}
         </div>
-        <span className={styles.cancelText} onClick={cancel}>
+        <span className={styles.searchCancel} onClick={cancel}>
           取消
         </span>
       </div>

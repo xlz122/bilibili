@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import Head from 'next/head';
-import store from '@/store/index';
 import { Provider } from 'react-redux';
+import store from '@/store/index';
 import adapter from '@/utils/adapter';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';

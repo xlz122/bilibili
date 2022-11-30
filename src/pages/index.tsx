@@ -1,17 +1,63 @@
 import React from 'react';
+import Image from 'next/image';
+import { formatTenThousand } from '@utils/utils';
 import { ranking } from '@api/home';
 import type { ResponseType } from '@/types/index';
-import type { VideoItem } from '@/pages/home/video-list/VideoList';
 import Layout from '@components/layout/Layout';
-import TabBar from '@/pages/home/tab-bar/TabBar';
-import VideoList from '@/pages/home/video-list/VideoList';
+import TabBar from '@/page-component/home/tab-bar/TabBar';
+import styles from './index.module.scss';
 
 type Props = {
-  list: VideoItem[];
+  list: ItemType[];
+};
+
+type ItemType = {
+  pic?: string;
+  play: number;
+  video_review: number;
+  title?: string;
 };
 
 function Index(props: Props): React.ReactElement {
-  return <VideoList list={props.list} />;
+  const RenderItem = ({ item }: { item: ItemType }) => {
+    return (
+      <div className={styles.item}>
+        <div className={styles.itemCover}>
+          <Image
+            className={styles.itemImage}
+            src={item?.pic || ''}
+            fill
+            sizes="50%"
+            priority
+            alt=""
+          />
+          <div className={styles.info}>
+            <div className={styles.infoItem}>
+              <i className={`icon-play-count ${styles.itemIcon}`}></i>
+              <span className={styles.itemText}>
+                {formatTenThousand(item.play)}
+              </span>
+            </div>
+            <div className={styles.infoItem}>
+              <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
+              <span className={styles.itemText}>
+                {formatTenThousand(item.video_review)}
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.itemTitle}>{item?.title}</div>
+      </div>
+    );
+  };
+
+  return (
+    <div className={styles.list}>
+      {props?.list?.map((item, index) => {
+        return <RenderItem key={index} item={item} />;
+      })}
+    </div>
+  );
 }
 
 export async function getServerSideProps(): Promise<{ props: Props }> {
