@@ -8,3 +8,4 @@ export type ResponseType<T = any> = {
 };
 
 export type InputChange = ChangeEvent<HTMLInputElement>;
+export type InputEnter = React.KeyboardEvent<HTMLInputElement> & InputChange;

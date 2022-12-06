@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { searchDefatult, searchHot } from '@/api/search';
-import type { ResponseType, InputChange } from '@/types';
+import type { RootState } from '@/store';
+import type { ResponseType, InputChange, InputEnter } from '@/types';
 import type { HotItem } from '@/page-component/search/history/History';
 import SearchDetail from '@/page-component/search/detail/Detail';
 import SearchHistory from '@/page-component/search/history/History';
@@ -19,6 +21,11 @@ type Props = {
 
 function Search(props: Props): React.ReactElement {
   const router = useRouter();
+  const store = useStore();
+
+  const searchHistory = useSelector(
+    (state: RootState) => state.routine.searchHistory
+  );
 
   const cancel = () => {
     router.push({ pathname: '/' });
@@ -30,6 +37,20 @@ function Search(props: Props): React.ReactElement {
     setSearchValue(e.target.value);
   };
 
+  // 回车
+  const handleEnterKey = (e: InputEnter): boolean | undefined => {
+    if (!e.target.value) {
+      return false;
+    }
+
+    if (e.nativeEvent.code === 'Enter') {
+      store.dispatch({
+        type: 'routine/setSearchHistory',
+        payload: Array.from(new Set([...searchHistory, e.target.value]))
+      });
+    }
+  };
+
   return (
     <>
       <div className={styles.search}>
@@ -39,6 +60,7 @@ function Search(props: Props): React.ReactElement {
             className={styles.inputText}
             value={searchValue}
             onChange={handleInputChange}
+            onKeyPress={handleEnterKey}
             placeholder={props?.search?.default?.show_name}
           />
           {searchValue && (
