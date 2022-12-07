@@ -6,8 +6,9 @@ import { searchDefatult, searchHot } from '@/api/search';
 import type { RootState } from '@/store';
 import type { ResponseType, InputChange, InputEnter } from '@/types';
 import type { HotItem } from '@/page-component/search/history/History';
-import SearchDetail from '@/page-component/search/detail/Detail';
 import SearchHistory from '@/page-component/search/history/History';
+import SearchSuggest from '@/page-component/search/suggest/Suggest';
+import SearchDetail from '@/page-component/search/detail/Detail';
 import styles from './search.module.scss';
 
 type Props = {
@@ -23,6 +24,7 @@ function Search(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
+  const { keyword } = router.query;
   const searchHistory = useSelector(
     (state: RootState) => state.routine.searchHistory
   );
@@ -32,18 +34,49 @@ function Search(props: Props): React.ReactElement {
   };
 
   const [searchValue, setSearchValue] = useState('');
-
   const handleInputChange = (e: InputChange): void => {
+    if (!e.target.value) {
+      router.push({ pathname: '/search' });
+    }
+
     setSearchValue(e.target.value);
   };
 
-  // 回车
+  // 清空搜索
+  const handleClear = (): void => {
+    router.push({ pathname: '/search' });
+    setSearchValue('');
+  };
+
+  // 搜索
+  const handleSearch = (value: string): void => {
+    setSearchValue(value);
+
+    router.push({
+      pathname: '/search',
+      query: { keyword: value }
+    });
+
+    store.dispatch({
+      type: 'routine/setSearchHistory',
+      payload: Array.from(new Set([...searchHistory, value]))
+    });
+  };
+
+  // 搜索回车
   const handleEnterKey = (e: InputEnter): boolean | undefined => {
     if (!e.target.value) {
       return false;
     }
 
     if (e.nativeEvent.code === 'Enter') {
+      router.push({
+        pathname: '/search',
+        query: {
+          keyword: e.target.value
+        }
+      });
+
       store.dispatch({
         type: 'routine/setSearchHistory',
         payload: Array.from(new Set([...searchHistory, e.target.value]))
@@ -69,6 +102,7 @@ function Search(props: Props): React.ReactElement {
               width={16}
               height={16}
               src={'/images/search/search-clear.png'}
+              onClick={handleClear}
               alt=""
             />
           )}
@@ -77,8 +111,13 @@ function Search(props: Props): React.ReactElement {
           取消
         </span>
       </div>
-      {searchValue && <SearchDetail />}
-      {!searchValue && <SearchHistory list={props?.search?.hot} />}
+      {!keyword && !searchValue && (
+        <SearchHistory list={props?.search?.hot} search={handleSearch} />
+      )}
+      {!keyword && searchValue && (
+        <SearchSuggest keyword={searchValue} search={handleSearch} />
+      )}
+      {keyword && <SearchDetail />}
     </>
   );
 }

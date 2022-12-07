@@ -6,6 +6,7 @@ import styles from './history.module.scss';
 
 type Props = {
   list: HotItem[];
+  search: (value: string) => void;
 };
 
 export type HotItem = {
@@ -32,7 +33,11 @@ function SearchHistory(props: Props): React.ReactElement {
         <ul className={styles.hotList}>
           {props?.list?.map((item, index) => {
             return (
-              <li className={styles.hotItem} key={index}>
+              <li
+                className={styles.hotItem}
+                key={index}
+                onClick={() => props.search(item.keyword)}
+              >
                 {item.keyword}
               </li>
             );
@@ -44,7 +49,11 @@ function SearchHistory(props: Props): React.ReactElement {
         <ul className={styles.historyList}>
           {searchHistory.map((item, index) => {
             return (
-              <li className={styles.historyItem} key={index}>
+              <li
+                className={styles.historyItem}
+                key={index}
+                onClick={() => props.search(item)}
+              >
                 <Image
                   className={styles.historyItemIcon}
                   width={15}
