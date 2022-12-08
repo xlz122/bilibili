@@ -9,6 +9,8 @@ function faultTolerant(name: string) {
   if (localStorage.getItem(name) as string) {
     return JSON.parse(localStorage.getItem(name) as string);
   }
+
+  return false;
 }
 
 export type RoutineState = {
