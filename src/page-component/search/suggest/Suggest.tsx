@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { throttle } from 'lodash';
+import { searchSuggest } from '@/api/search';
 import styles from './suggest.module.scss';
 
 type Props = {
@@ -6,16 +8,51 @@ type Props = {
   search: (value: string) => void;
 };
 
+type List = {
+  name: string;
+}[];
+
 function SearchSuggest(props: Props): React.ReactElement {
+  const [list, setList] = useState<List>([]);
+
+  const getSearchSuggest = () => {
+    searchSuggest({ keyword: props.keyword })
+      .then(res => {
+        setList(Object.values(res as unknown as List));
+      })
+      .catch(() => ({}));
+  };
+
+  const throttleSuggest = useCallback(
+    throttle(getSearchSuggest, 1000, {
+      leading: true, // 第一次是否执行
+      trailing: false // 节流结束后是否执行
+    }),
+    []
+  );
+
+  useEffect(() => {
+    if (!props.keyword) {
+      return;
+    }
+
+    throttleSuggest();
+  }, [props.keyword]);
+
   return (
     <div className={styles.searchSuggest}>
       <ul className={styles.suggestList}>
-        <li
-          className={styles.suggestItem}
-          onClick={() => props.search(props.keyword)}
-        >
-          {props.keyword}
-        </li>
+        {list?.map((item, index) => {
+          return (
+            <li
+              className={styles.suggestItem}
+              key={index}
+              onClick={() => props.search(item.name)}
+            >
+              {item.name}
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

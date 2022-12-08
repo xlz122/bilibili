@@ -31,6 +31,7 @@ function MyApp({
     };
   }, []);
 
+  // 每页布局
   const getLayout = Component.getLayout || (page => page);
 
   return (

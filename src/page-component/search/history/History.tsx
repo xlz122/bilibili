@@ -47,7 +47,7 @@ function SearchHistory(props: Props): React.ReactElement {
       <div className={styles.history}>
         <div className={styles.historyTitle}>历史搜索</div>
         <ul className={styles.historyList}>
-          {searchHistory.map((item, index) => {
+          {searchHistory?.map((item, index) => {
             return (
               <li
                 className={styles.historyItem}
@@ -66,7 +66,7 @@ function SearchHistory(props: Props): React.ReactElement {
             );
           })}
         </ul>
-        {searchHistory.length > 0 && (
+        {searchHistory?.length > 0 && (
           <div className={styles.clearHistory} onClick={handleClearHistory}>
             清除历史记录
           </div>
