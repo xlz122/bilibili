@@ -35,7 +35,8 @@ function Search(props: Props): React.ReactElement {
 
   const [searchValue, setSearchValue] = useState('');
   const handleInputChange = (e: InputChange): void => {
-    if (!e.target.value) {
+    // 清空/搜索后再次更改
+    if (!e.target.value || keyword) {
       router.push({ pathname: '/search' });
     }
 
@@ -64,22 +65,24 @@ function Search(props: Props): React.ReactElement {
   };
 
   // 搜索回车
-  const handleEnterKey = (e: InputEnter): boolean | undefined => {
-    if (!e.target.value) {
-      return false;
-    }
-
+  const handleEnterKey = (e: InputEnter): void => {
     if (e.nativeEvent.code === 'Enter') {
+      const defaultValue = props?.search?.default?.show_name;
+
+      setSearchValue(e.target.value || defaultValue || '');
+
       router.push({
         pathname: '/search',
         query: {
-          keyword: e.target.value
+          keyword: e.target.value || defaultValue
         }
       });
 
       store.dispatch({
         type: 'routine/setSearchHistory',
-        payload: Array.from(new Set([...searchHistory, e.target.value]))
+        payload: Array.from(
+          new Set([...searchHistory, e.target.value || defaultValue])
+        )
       });
     }
   };
