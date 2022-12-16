@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
-import { ranking } from '@api/home';
+import { indexList } from '@api/home';
 import type { ResponseType } from '@/types/index';
 import Layout from '@components/layout/Layout';
 import TabBar from '@/page-component/home/tab-bar/TabBar';
@@ -13,9 +13,11 @@ type Props = {
 
 type ItemType = {
   pic?: string;
-  play: number;
-  video_review: number;
   title?: string;
+  stat: {
+    view: number;
+    danmaku: number;
+  };
 };
 
 function Index(props: Props): React.ReactElement {
@@ -35,13 +37,13 @@ function Index(props: Props): React.ReactElement {
             <div className={styles.infoItem}>
               <i className={`icon-play-count ${styles.itemIcon}`}></i>
               <span className={styles.itemText}>
-                {formatTenThousand(item.play)}
+                {formatTenThousand(item.stat.view)}
               </span>
             </div>
             <div className={styles.infoItem}>
               <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
               <span className={styles.itemText}>
-                {formatTenThousand(item.video_review)}
+                {formatTenThousand(item.stat.danmaku)}
               </span>
             </div>
           </div>
@@ -61,8 +63,9 @@ function Index(props: Props): React.ReactElement {
 }
 
 export async function getServerSideProps(): Promise<{ props: Props }> {
-  const res: ResponseType<{ list: Props['list'] }> = await ranking({
-    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
+  const res: ResponseType<Props['list']> = await indexList({
+    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
+    page: 1
   });
 
   const props: Props = {
@@ -70,7 +73,7 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
   };
 
   if (res.code === 0) {
-    props.list = res?.data?.list?.slice(0, 20) || [];
+    props.list = res?.data?.slice(0, 20) || [];
   }
 
   return {
