@@ -101,26 +101,3 @@
   /* 这里是超出几行省略 */
   -webkit-line-clamp: 2;
 }
-
-.operate {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: px2rem(12) px2rem(4) px2rem(20);
-}
-
-.operateItem {
-  width:  50%;
-}
-
-.operateItemBtn {
-  width: 90%;
-  height: px2rem(38);
-  margin: 0 5%;
-  border: 1px solid #d3d3d3;
-  background-color: #fff;
-  color: #fb7299;
-  outline: none;
-  border-radius: 6px;
-}

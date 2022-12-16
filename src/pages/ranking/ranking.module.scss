@@ -1,0 +1,110 @@
+.ranking {
+  height: 100%;
+  padding: 0 px2rem(5);
+}
+
+.header {
+  position: relative;
+  padding: px2rem(11) px2rem(12);
+}
+
+.headerIcon {
+  position: absolute;
+  top: px2rem(11);
+  left: px2rem(14);
+}
+
+.headerText {
+  font-size: px2rem(16);
+  color: rgb(251, 114, 153);
+  text-align: center;
+}
+
+.rankItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: px2rem(12) px2rem(6) px2rem(6);
+}
+
+.itemNum {
+  width: px2rem(32);
+  font-size: px2rem(14);
+  color: #666;
+  text-align: left;
+}
+
+.itemWrap {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(140);
+  height: px2rem(80);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemDuration {
+  position: absolute;
+  right: px2rem(4);
+  bottom: px2rem(4);
+  padding: 0 px2rem(2);
+  background-color: rgba(0, 0, 0, .5);
+  font-size: px2rem(11);
+  color: #fff;
+  border-radius: 3px;
+}
+
+.itemInfo {
+  flex: 1;
+  margin-left: px2rem(11);
+}
+
+.infoTitle {
+  margin-bottom: px2rem(5);
+  font-size: px2rem(14);
+  color: #222;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.infoAuthor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: px2rem(2.5);
+}
+
+.authorText {
+  margin-left: px2rem(5);
+  font-size: px2rem(13);
+  color: #999;
+}
+
+.infoCount {
+  display: flex;
+  flex-direction: row;
+}
+
+.countItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: px2rem(10);
+  font-size: px2rem(13);
+}
+
+.countText {
+  margin-left: px2rem(5);
+  font-size: px2rem(11);
+  color: #999;
+}

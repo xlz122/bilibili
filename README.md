@@ -46,9 +46,9 @@ yarn build
 
 ## 项目效果图
 
-|首页|直播|搜索|我的|
+|首页|直播|排行榜|搜索|
 |---|---|---|---|
-|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/live.jpg)|![](./public/design-sketch/search.jpg)|![](./public/design-sketch/space.jpg)|
+|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/live.jpg)|![](./public/design-sketch/ranking.jpg)|![](./public/design-sketch/search.jpg)|
 
 
 ## 写在最后

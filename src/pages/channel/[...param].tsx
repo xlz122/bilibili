@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
-import { rankingRegion, rankingArchive } from '@api/home';
+import { indexRegion, indexArchive } from '@api/home';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types/index';
 import Layout from '@components/layout/Layout';
@@ -84,7 +84,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   try {
     // 热门推荐列表
-    const region: ResponseType<Props['region']> = await rankingRegion({
+    const region: ResponseType<Props['region']> = await indexRegion({
       baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
       rid: Number(param[1]) || Number(param[0]),
       day: 7
@@ -93,7 +93,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     props.region = region?.data?.slice(0, 4) || [];
 
     // 最新视频列表
-    const archive: ResponseType = await rankingArchive({
+    const archive: ResponseType = await indexArchive({
       baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
       tid: Number(param[1]) || Number(param[0]),
       page: 1

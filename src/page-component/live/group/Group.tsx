@@ -78,21 +78,13 @@ function LiveGroup(props: Props): React.ReactElement {
   return (
     <div className={styles.liveGroup}>
       {props?.list?.map((item, index) => {
-        // 第一项分类不展示
+        // 第一项不展示
         if (index === 0) {
           return null;
         }
 
         return <RenderItem key={index} item={item} />;
       })}
-      <div className={styles.operate}>
-        <div className={styles.operateItem}>
-          <button className={styles.operateItemBtn}>全部直播</button>
-        </div>
-        <div className={styles.operateItem}>
-          <button className={styles.operateItemBtn}>全部分类</button>
-        </div>
-      </div>
     </div>
   );
 }

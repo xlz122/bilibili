@@ -21,7 +21,10 @@ function TabBar(): React.ReactElement {
         </Link>
       </li>
       <li className={styles.tabItem}>
-        <Link className={styles.tabItemLink} href="/">
+        <Link
+          className={styles.tabItemLink}
+          href={{ pathname: '/ranking', query: { rid: 0 } }}
+        >
           排行
         </Link>
       </li>

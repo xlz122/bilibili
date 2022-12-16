@@ -4,7 +4,7 @@ import type { AxiosPromise } from 'axios';
 type BaseParams = { baseUrl?: string };
 
 /**
- * @description 导航分类
+ * @description 分类导航
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
  */
 export const partitions = ({ baseUrl }: BaseParams): AxiosPromise => {
@@ -14,18 +14,26 @@ export const partitions = ({ baseUrl }: BaseParams): AxiosPromise => {
   });
 };
 
+type Index = BaseParams & {
+  page: number;
+};
+
 /**
  * @description 首页列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ * @param { String } page - 页数
  */
-export const ranking = ({ baseUrl }: BaseParams): AxiosPromise => {
+export const indexList = ({ baseUrl, page }: Index): AxiosPromise => {
+  const params = { page };
+
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/ranking`,
-    method: 'get'
+    url: `${baseUrl ? baseUrl : '/api'}/index`,
+    method: 'get',
+    params
   });
 };
 
-type RankingRegion = BaseParams & {
+type IndexRegion = BaseParams & {
   rid: number;
   day: number;
 };
@@ -36,21 +44,21 @@ type RankingRegion = BaseParams & {
  * @param { String } rid - 分类id
  * @param { String } day - 天数
  */
-export const rankingRegion = ({
+export const indexRegion = ({
   baseUrl,
   rid,
   day
-}: RankingRegion): AxiosPromise => {
+}: IndexRegion): AxiosPromise => {
   const params = { rid, day };
 
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/ranking/region`,
+    url: `${baseUrl ? baseUrl : '/api'}/index/region`,
     method: 'get',
     params
   });
 };
 
-type RankingArchive = BaseParams & {
+type IndexArchive = BaseParams & {
   tid: number;
   page: number;
 };
@@ -61,15 +69,15 @@ type RankingArchive = BaseParams & {
  * @param { String } tid - 分类id
  * @param { String } page - 页数
  */
-export const rankingArchive = ({
+export const indexArchive = ({
   baseUrl,
   tid,
   page
-}: RankingArchive): AxiosPromise => {
+}: IndexArchive): AxiosPromise => {
   const params = { tid, page };
 
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/ranking/archive`,
+    url: `${baseUrl ? baseUrl : '/api'}/index/archive`,
     method: 'get',
     params
   });

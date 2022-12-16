@@ -68,11 +68,6 @@ function TabBar(): React.ReactElement {
     setTab({ ...tab, navSubIndex: index });
   };
 
-  const [drawer, setDrawer] = useState(false);
-  const toggleDrawer = (): void => {
-    setDrawer(!drawer);
-  };
-
   return (
     <div className={styles.tabbar}>
       <div className={styles.group}>
@@ -108,10 +103,7 @@ function TabBar(): React.ReactElement {
             </Link>
           </div>
         </div>
-        <i
-          className={`icon-arrow-down ${styles.itemIcon}`}
-          onClick={toggleDrawer}
-        ></i>
+        <i className={`icon-arrow-down ${styles.itemIcon}`}></i>
       </div>
       <div className={styles.group}>
         <div className={`${styles.list} ${styles.subList}`}>
@@ -134,34 +126,6 @@ function TabBar(): React.ReactElement {
             );
           })}
         </div>
-      </div>
-      <div
-        className={`${styles.drawer} ${drawer ? styles.drawerVisible : null}`}
-      >
-        <div className={styles.drawerMask}></div>
-        <div className={styles.drawerList}>
-          <Link className={styles.drawerItem} href="/">
-            首页
-          </Link>
-          {list.map((item, index) => {
-            return (
-              <Link
-                className={styles.drawerItem}
-                href={`/channel/${item.tid}`}
-                key={index}
-              >
-                {item.name}
-              </Link>
-            );
-          })}
-          <Link className={styles.drawerItem} href="/live" prefetch={false}>
-            直播
-          </Link>
-        </div>
-        <i
-          className={`icon-arrow-down ${styles.drawerIcon}`}
-          onClick={toggleDrawer}
-        ></i>
       </div>
     </div>
   );
