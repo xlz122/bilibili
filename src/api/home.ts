@@ -4,7 +4,7 @@ import type { AxiosPromise } from 'axios';
 type BaseParams = { baseUrl?: string };
 
 /**
- * @description 导航分类
+ * @description 分类导航
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
  */
 export const partitions = ({ baseUrl }: BaseParams): AxiosPromise => {

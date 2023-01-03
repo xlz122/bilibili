@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { partitions } from '@api/home';
+import { rankNav } from '@api/ranking';
 import type { ResponseType } from '@/types/index';
 import styles from './tab-bar.module.scss';
 
 type List = {
-  tid: number;
+  rid: number;
   name: string;
 }[];
 
@@ -20,8 +20,8 @@ function TabBar(): React.ReactElement {
 
   const [list, setList] = useState<List>([]);
 
-  const getPartitions = () => {
-    partitions({})
+  const getRankNav = () => {
+    rankNav({})
       .then((res: ResponseType<List>) => {
         if (res?.code === 0) {
           setList(res?.data!);
@@ -31,11 +31,11 @@ function TabBar(): React.ReactElement {
   };
 
   useEffect(() => {
-    getPartitions();
+    getRankNav();
   }, []);
 
   const [tab, setTab] = useState<Tab>({
-    navIndex: -1
+    navIndex: 0
   });
 
   useEffect(() => {
@@ -43,7 +43,7 @@ function TabBar(): React.ReactElement {
       return;
     }
 
-    const index = list.findIndex(item => item.tid === Number(param[0]));
+    const index = list.findIndex(item => item.rid === Number(param[0]));
 
     setTab({ navIndex: index });
   }, [list]);
@@ -56,16 +56,6 @@ function TabBar(): React.ReactElement {
     <div className={styles.tabbar}>
       <div className={styles.group}>
         <div className={styles.list}>
-          <div
-            className={`${styles.item} ${
-              tab.navIndex === -1 ? styles.activeItem : ''
-            }`}
-            onClick={() => tabChange(-1)}
-          >
-            <Link className={styles.itemLink} href="/ranking">
-              全站
-            </Link>
-          </div>
           {list.map((item, index) => {
             return (
               <div
@@ -75,7 +65,10 @@ function TabBar(): React.ReactElement {
                 key={index}
                 onClick={() => tabChange(index)}
               >
-                <Link className={styles.itemLink} href={`/ranking/${item.tid}`}>
+                <Link
+                  className={styles.itemLink}
+                  href={{ pathname: '/ranking', query: { rid: item.rid } }}
+                >
                   {item.name}
                 </Link>
               </div>

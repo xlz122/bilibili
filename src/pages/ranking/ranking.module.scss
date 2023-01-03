@@ -24,16 +24,18 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: px2rem(12) px2rem(6) 0;
+  padding: px2rem(12) px2rem(6) px2rem(6);
 }
 
 .itemNum {
   width: px2rem(32);
   font-size: px2rem(14);
   color: #666;
+  text-align: left;
 }
 
 .itemWrap {
+  flex: 1;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -43,8 +45,9 @@
 .itemCover {
   position: relative;
   width: px2rem(140);
-  height: px2rem(86);
+  height: px2rem(80);
   border-radius: 4px;
+  overflow: hidden;
 }
 
 .itemDuration {
@@ -64,7 +67,7 @@
 }
 
 .infoTitle {
-  margin-bottom: px2rem(8);
+  margin-bottom: px2rem(5);
   font-size: px2rem(14);
   color: #222;
   overflow: hidden;
@@ -78,7 +81,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: px2rem(4);
+  margin-bottom: px2rem(2.5);
 }
 
 .authorText {
@@ -102,6 +105,6 @@
 
 .countText {
   margin-left: px2rem(5);
-  font-size: px2rem(12);
+  font-size: px2rem(11);
   color: #999;
 }
