@@ -16,7 +16,6 @@ type Tab = {
 
 function TabBar(): React.ReactElement {
   const router = useRouter();
-  const param = router.query.param || [];
 
   const [list, setList] = useState<List>([]);
 
@@ -43,7 +42,7 @@ function TabBar(): React.ReactElement {
       return;
     }
 
-    const index = list.findIndex(item => item.rid === Number(param[0]));
+    const index = list.findIndex(item => item.rid === Number(router.query.rid));
 
     setTab({ navIndex: index });
   }, [list]);

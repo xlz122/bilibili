@@ -33,6 +33,14 @@ function Live(props: Props): React.ReactElement {
       <TabBar />
       <LiveBanner banner={props.banner} />
       <LiveGroup list={props.list} />
+      <div className={styles.operate}>
+        <div className={styles.operateItem}>
+          <button className={styles.operateItemBtn}>全部直播</button>
+        </div>
+        <div className={styles.operateItem}>
+          <button className={styles.operateItemBtn}>全部分类</button>
+        </div>
+      </div>
     </>
   );
 }

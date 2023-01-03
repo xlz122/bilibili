@@ -27,10 +27,10 @@ function Ranking(): React.ReactElement {
 
   // 获取分类列表
   const getRankRegion = () => {
-    rankRegion({ rid: Number(router.query.rid) || 0 })
+    rankRegion({ rid: Number(router.query.rid) })
       .then((res: ResponseType) => {
         if (res.code === 0) {
-          setList(res.data.list);
+          setList(res.data.list.slice(0, 20));
         }
       })
       .catch(() => ({}));
