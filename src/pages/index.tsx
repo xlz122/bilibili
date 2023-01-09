@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
 import { indexList } from '@api/home';
@@ -12,6 +13,7 @@ type Props = {
 };
 
 type ItemType = {
+  aid: number;
   pic?: string;
   title?: string;
   stat: {
@@ -21,9 +23,18 @@ type ItemType = {
 };
 
 function Index(props: Props): React.ReactElement {
+  const router = useRouter();
+
+  const jumpVideoDetail = (aid: number): void => {
+    router.push({
+      pathname: '/video',
+      query: { aid }
+    });
+  };
+
   const RenderItem = ({ item }: { item: ItemType }) => {
     return (
-      <div className={styles.item}>
+      <div className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}

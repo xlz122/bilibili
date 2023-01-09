@@ -1,0 +1,37 @@
+.video {
+  height: 100%;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: px2rem(211);
+}
+
+.coverIconPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: px2rem(48);
+  height: px2rem(48);
+}
+
+.coverTip {
+  position: absolute;
+  bottom: px2rem(8);
+  z-index: 10;
+  width: 100%;
+}
+
+.tipText {
+  margin-left: px2rem(12);
+  color: #fff;
+  font-size: px2rem(12);
+}
+
+.tipTime {
+ position: absolute;
+ right: px2rem(20);
+ color: #fff;
+}
