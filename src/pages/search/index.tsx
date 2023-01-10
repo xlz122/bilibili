@@ -12,12 +12,10 @@ import SearchDetail from '@/page-component/search/detail/Detail';
 import styles from './search.module.scss';
 
 type Props = {
-  search: {
-    default: {
-      show_name?: string;
-    };
-    hot: HotItem[];
+  default: {
+    show_name?: string;
   };
+  hot: HotItem[];
 };
 
 function Search(props: Props): React.ReactElement {
@@ -67,7 +65,7 @@ function Search(props: Props): React.ReactElement {
   // 搜索回车
   const handleEnterKey = (e: InputEnter): void => {
     if (e.nativeEvent.code === 'Enter') {
-      const defaultValue = props?.search?.default?.show_name;
+      const defaultValue = props?.default?.show_name;
 
       setSearchValue(e.target.value || defaultValue || '');
 
@@ -97,7 +95,7 @@ function Search(props: Props): React.ReactElement {
             value={searchValue}
             onChange={handleInputChange}
             onKeyPress={handleEnterKey}
-            placeholder={props?.search?.default?.show_name}
+            placeholder={props?.default?.show_name}
           />
           {searchValue && (
             <Image
@@ -115,7 +113,7 @@ function Search(props: Props): React.ReactElement {
         </span>
       </div>
       {!keyword && !searchValue && (
-        <SearchHistory list={props?.search?.hot} search={handleSearch} />
+        <SearchHistory list={props?.hot} search={handleSearch} />
       )}
       {!keyword && searchValue && (
         <SearchSuggest keyword={searchValue} search={handleSearch} />
@@ -126,7 +124,7 @@ function Search(props: Props): React.ReactElement {
 }
 
 export async function getServerSideProps(): Promise<{ props: Props }> {
-  const res: ResponseType<Props['search']['default']> = await searchDefatult({
+  const res: ResponseType<Props['default']> = await searchDefatult({
     baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL
   });
   const res2: ResponseType = await searchHot({
@@ -134,18 +132,16 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
   });
 
   const props: Props = {
-    search: {
-      default: {},
-      hot: []
-    }
+    default: {},
+    hot: []
   };
 
   if (res?.code === 0) {
-    props.search.default = res.data!;
+    props.default = res.data!;
   }
 
   if (res2?.code === 0) {
-    props.search.hot = (res2.list as HotItem[]).slice(0, 3);
+    props.hot = (res2.list as HotItem[]).slice(0, 3);
   }
 
   return {
