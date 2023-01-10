@@ -8,6 +8,7 @@ import TabBar from '@/page-component/ranking/tab-bar/TabBar';
 import styles from './ranking.module.scss';
 
 type ItemType = {
+  aid: number;
   pic: string;
   duration: number;
   title: string;
@@ -44,8 +45,15 @@ function Ranking(): React.ReactElement {
     getRankRegion();
   }, [router.query.rid]);
 
+  const jumpVideoDetail = (aid: number): void => {
+    router.push({
+      pathname: '/video',
+      query: { aid }
+    });
+  };
+
   const RenderItem = ({ item, index }: { item: ItemType; index: number }) => (
-    <li className={styles.rankItem}>
+    <li className={styles.rankItem} onClick={() => jumpVideoDetail(item.aid)}>
       <div className={styles.itemNum}>
         {index < 3 && (
           <Image
