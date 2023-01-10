@@ -23,7 +23,7 @@ export type ListItemType = {
 
 function LiveGroup(props: Props): React.ReactElement {
   const RenderItem = ({ item }: { item: ListItemType }) => (
-    <div className={styles.panel}>
+    <li className={styles.panel}>
       <div className={styles.title}>
         <div className={styles.titleText}>{item.module_info.title}</div>
         <div className={styles.more}>
@@ -72,11 +72,11 @@ function LiveGroup(props: Props): React.ReactElement {
           );
         })}
       </div>
-    </div>
+    </li>
   );
 
   return (
-    <div className={styles.liveGroup}>
+    <ul className={styles.liveGroup}>
       {props?.list?.map((item, index) => {
         // 第一项不展示
         if (index === 0) {
@@ -85,7 +85,7 @@ function LiveGroup(props: Props): React.ReactElement {
 
         return <RenderItem key={index} item={item} />;
       })}
-    </div>
+    </ul>
   );
 }
 

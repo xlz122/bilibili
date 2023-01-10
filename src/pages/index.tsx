@@ -34,7 +34,7 @@ function Index(props: Props): React.ReactElement {
 
   const RenderItem = ({ item }: { item: ItemType }) => {
     return (
-      <div className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
+      <li className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}
@@ -60,16 +60,16 @@ function Index(props: Props): React.ReactElement {
           </div>
         </div>
         <div className={styles.itemTitle}>{item?.title}</div>
-      </div>
+      </li>
     );
   };
 
   return (
-    <div className={styles.list}>
+    <ul className={styles.list}>
       {props?.list?.map((item, index) => {
         return <RenderItem key={index} item={item} />;
       })}
-    </div>
+    </ul>
   );
 }
 

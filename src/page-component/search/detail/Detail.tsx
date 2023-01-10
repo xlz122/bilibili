@@ -35,10 +35,10 @@ function SearchDetail(): React.ReactElement {
 
   return (
     <div className={styles.searchDetail}>
-      <div className={styles.tab}>
+      <ul className={styles.tab}>
         {tab?.list?.map((item, index) => {
           return (
-            <div
+            <li
               className={`${styles.tabItem} ${
                 tab.index === index ? styles.tabActiveItem : ''
               }`}
@@ -46,14 +46,14 @@ function SearchDetail(): React.ReactElement {
               onClick={() => tabChange(index, item.type)}
             >
               {item.title}
-            </div>
+            </li>
           );
         })}
-      </div>
-      <div className={styles.orderTab}>
+      </ul>
+      <ul className={styles.orderTab}>
         {tab?.list[tab.index]?.children?.map((item, index) => {
           return (
-            <div
+            <li
               className={`${styles.orderItem} ${
                 tab.orderIndex === index ? styles.orderActiveItem : ''
               }`}
@@ -61,10 +61,10 @@ function SearchDetail(): React.ReactElement {
               onClick={() => orderChange(index, item.type)}
             >
               {item.title}
-            </div>
+            </li>
           );
         })}
-      </div>
+      </ul>
       <div className={styles.notFound}>
         <Image
           className={styles.notFoundImage}

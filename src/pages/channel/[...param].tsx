@@ -35,7 +35,7 @@ function Channel(props: Props): React.ReactElement {
 
   const RenderItem = ({ item }: { item: ItemType }) => {
     return (
-      <div className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
+      <li className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}
@@ -61,25 +61,25 @@ function Channel(props: Props): React.ReactElement {
           </div>
         </div>
         <div className={styles.itemTitle}>{item?.title}</div>
-      </div>
+      </li>
     );
   };
 
   return (
     <>
       <Panel title="热门推荐">
-        <div className={styles.list}>
+        <ul className={styles.list}>
           {props?.region?.map((item, index) => {
             return <RenderItem key={index} item={item} />;
           })}
-        </div>
+        </ul>
       </Panel>
       <Panel title="最新视频">
-        <div className={styles.list}>
+        <ul className={styles.list}>
           {props?.archive?.map((item, index) => {
             return <RenderItem key={index} item={item} />;
           })}
-        </div>
+        </ul>
       </Panel>
     </>
   );
