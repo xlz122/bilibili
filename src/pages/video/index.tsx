@@ -6,6 +6,8 @@ import { videoDetail } from '@/api/video';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types';
 import Layout from '@components/layout/Layout';
+import VideoRecommend from '@/page-component/video/recommend/Recommend';
+import VideoComment from '@/page-component/video/comment/Comment';
 import styles from './video.module.scss';
 
 type Props = {
@@ -75,7 +77,12 @@ function Video(props: Props): React.ReactElement {
           </div>
         </div>
       </div>
-      <div className={styles.relevant}></div>
+      <div className={styles.relevant}>
+        <VideoRecommend />
+      </div>
+      <div className={styles.comment}>
+        <VideoComment />
+      </div>
     </div>
   );
 }
@@ -86,12 +93,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     aid: Number(context.query.aid)
   });
 
-  const props: Props = {
+  const props = {
     data: {}
   };
 
   if (res?.code === 0) {
-    props.data = res.data;
+    props.data = res.data || {};
   }
 
   return {
