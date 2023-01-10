@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useStore } from 'react-redux';
 import Image from 'next/image';
 import { timeStampToDuration, formatTenThousand } from '@utils/utils';
 import { rankRegion } from '@/api/ranking';
@@ -8,6 +9,7 @@ import TabBar from '@/page-component/ranking/tab-bar/TabBar';
 import styles from './ranking.module.scss';
 
 type ItemType = {
+  aid: number;
   pic: string;
   duration: number;
   title: string;
@@ -22,6 +24,7 @@ type ItemType = {
 
 function Ranking(): React.ReactElement {
   const router = useRouter();
+  const store = useStore();
 
   const [list, setList] = useState([]);
 
@@ -44,8 +47,25 @@ function Ranking(): React.ReactElement {
     getRankRegion();
   }, [router.query.rid]);
 
+  const jumpVideoDetail = (item: ItemType): void => {
+    router.push({
+      pathname: '/video',
+      query: { aid: item.aid }
+    });
+
+    store.dispatch({
+      type: 'routine/setViewHistory',
+      payload: {
+        aid: item.aid,
+        pic: item.pic,
+        title: item.title,
+        createTime: new Date().getTime() / 1000
+      }
+    });
+  };
+
   const RenderItem = ({ item, index }: { item: ItemType; index: number }) => (
-    <li className={styles.rankItem}>
+    <li className={styles.rankItem} onClick={() => jumpVideoDetail(item)}>
       <div className={styles.itemNum}>
         {index < 3 && (
           <Image

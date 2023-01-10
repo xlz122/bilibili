@@ -47,8 +47,45 @@
 }
 
 .history {
-  padding-top: 80px;
-  text-align: center;
+  padding: 0 px2rem(12);
+  margin-top: px2rem(8);
+}
+
+.historyItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: px2rem(19);
+}
+
+.itemCover {
+  position: relative;
+  min-width: px2rem(116);
+  height: px2rem(72);
+  margin-right: px2rem(12);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoTitle {
+  color: #212121;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 这里是超出几行省略 */
+  -webkit-line-clamp: 2;
+}
+
+.infoTime {
+  color: #999;
 }
 
 .contribute {

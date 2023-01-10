@@ -1,5 +1,6 @@
 import React from 'react';
 import { useRouter } from 'next/router';
+import { useStore } from 'react-redux';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
 import { indexRegion, indexArchive } from '@api/home';
@@ -25,17 +26,28 @@ type ItemType = {
 
 function Channel(props: Props): React.ReactElement {
   const router = useRouter();
+  const store = useStore();
 
-  const jumpVideoDetail = (aid: number): void => {
+  const jumpVideoDetail = (item: ItemType): void => {
     router.push({
       pathname: '/video',
-      query: { aid }
+      query: { aid: item.aid }
+    });
+
+    store.dispatch({
+      type: 'routine/setViewHistory',
+      payload: {
+        aid: item.aid,
+        pic: item.pic,
+        title: item.title,
+        createTime: new Date().getTime() / 1000
+      }
     });
   };
 
   const RenderItem = ({ item }: { item: ItemType }) => {
     return (
-      <li className={styles.item} onClick={() => jumpVideoDetail(item.aid)}>
+      <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}

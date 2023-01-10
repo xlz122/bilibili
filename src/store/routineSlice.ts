@@ -15,10 +15,19 @@ function faultTolerant(name: string) {
 
 export type RoutineState = {
   searchHistory: string[];
+  viewHistory: ViewHistory[];
+};
+
+type ViewHistory = {
+  aid: number;
+  pic: string;
+  title: string;
+  createTime: number;
 };
 
 const initialState: RoutineState = {
-  searchHistory: faultTolerant('searchHistory') || []
+  searchHistory: faultTolerant('searchHistory') || [],
+  viewHistory: faultTolerant('viewHistory') || []
 };
 
 const routineSlice = createSlice({
@@ -31,10 +40,32 @@ const routineSlice = createSlice({
     ) => {
       state.searchHistory = action.payload;
       localStorage.setItem('searchHistory', JSON.stringify(action.payload));
+    },
+    setViewHistory: (
+      state: RoutineState,
+      action: PayloadAction<ViewHistory>
+    ) => {
+      const viewHistory = faultTolerant('viewHistory') || [];
+
+      // 去重
+      if (viewHistory) {
+        const index = viewHistory.findIndex(
+          (item: ViewHistory) => item.aid === action.payload.aid
+        );
+
+        if (index !== -1) {
+          viewHistory.splice(index, 1);
+        }
+      }
+
+      viewHistory.unshift(action.payload);
+
+      state.viewHistory = viewHistory;
+      localStorage.setItem('viewHistory', JSON.stringify(viewHistory));
     }
   }
 });
 
-export const { setSearchHistory } = routineSlice.actions;
+export const { setSearchHistory, setViewHistory } = routineSlice.actions;
 
 export default routineSlice.reducer;
