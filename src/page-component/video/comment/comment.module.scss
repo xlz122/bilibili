@@ -1,3 +1,62 @@
 .videoComment {
-  color: #fff;
+  margin: px2rem(8) px2rem(12);
+}
+
+.title {
+  font-size: px2rem(14);
+  color: #505050;
+}
+
+.titleCount {
+  margin-left: px2rem(4);
+  color: #999;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  padding: px2rem(18) 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(40);
+  height: px2rem(40);
+  margin-right: px2rem(10);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemAvatar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: px2rem(12);
+}
+
+.avatarText {
+  font-size: px2rem(13);
+  color: #757575;
+}
+
+.avatarTime {
+  color: #999;
+}
+
+.itemContent {
+  font-size: px2rem(14);
+  color: #212121;
 }

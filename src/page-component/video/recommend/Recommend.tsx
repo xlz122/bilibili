@@ -6,7 +6,7 @@ import { videoRecommend } from '@/api/video';
 import type { ResponseType } from '@/types';
 import styles from './recommend.module.scss';
 
-export type ItemType = {
+type ItemType = {
   pic?: string;
   title?: string;
   stat: {
@@ -24,7 +24,7 @@ function VideoRecommend(): React.ReactElement {
     videoRecommend({ aid: Number(router.query.aid) })
       .then((res: ResponseType) => {
         if (res.code === 0) {
-          setList(res.data.slice(0, 6));
+          setList(res.data.slice(0, 4));
         }
       })
       .catch(() => ({}));
@@ -39,7 +39,7 @@ function VideoRecommend(): React.ReactElement {
   }, [router.query.aid]);
 
   const RenderItem = ({ item }: { item: ItemType }) => (
-    <div className={styles.item}>
+    <li className={styles.item}>
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}
@@ -65,7 +65,7 @@ function VideoRecommend(): React.ReactElement {
         </div>
       </div>
       <div className={styles.itemTitle}>{item?.title}</div>
-    </div>
+    </li>
   );
 
   return (
@@ -74,11 +74,11 @@ function VideoRecommend(): React.ReactElement {
         <div className={styles.titleText}>相关推荐</div>
         <div className={styles.moreText}>查看更多</div>
       </div>
-      <div className={styles.list}>
+      <ul className={styles.list}>
         {list.map((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
-      </div>
+      </ul>
     </>
   );
 }

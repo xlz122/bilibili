@@ -54,10 +54,10 @@ function TabBar(): React.ReactElement {
   return (
     <div className={styles.tabbar}>
       <div className={styles.group}>
-        <div className={styles.list}>
+        <ul className={styles.list}>
           {list.map((item, index) => {
             return (
-              <div
+              <li
                 className={`${styles.item} ${
                   index === tab.navIndex ? styles.activeItem : ''
                 }`}
@@ -70,10 +70,10 @@ function TabBar(): React.ReactElement {
                 >
                   {item.name}
                 </Link>
-              </div>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );

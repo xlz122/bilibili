@@ -45,7 +45,7 @@ function Ranking(): React.ReactElement {
   }, [router.query.rid]);
 
   const RenderItem = ({ item, index }: { item: ItemType; index: number }) => (
-    <div className={styles.rankItem}>
+    <li className={styles.rankItem}>
       <div className={styles.itemNum}>
         {index < 3 && (
           <Image
@@ -101,7 +101,7 @@ function Ranking(): React.ReactElement {
           </div>
         </div>
       </div>
-    </div>
+    </li>
   );
 
   return (
@@ -118,11 +118,11 @@ function Ranking(): React.ReactElement {
         <div className={styles.headerText}>排行榜</div>
       </div>
       <TabBar />
-      <div className={styles.ranking}>
+      <ul className={styles.ranking}>
         {list.map((item, index) => {
           return <RenderItem key={index} item={item} index={index} />;
         })}
-      </div>
+      </ul>
     </>
   );
 }
