@@ -1,53 +1,56 @@
-type Params = {
-  date: Date | string;
-  formatStr: string;
-};
-
 /**
- * @description  格式化日期字符串
- * @param { String } - [date = new Date()] 日期字符串：2020-01-14 13:43:23
- * @param { String } - [formatStr = 'yyyy-MM-dd HH:mm:ss'] 日期格式
- * @returns { String } 格式化后的日期字符串
+ * @description 日期字符串/时间戳转日期字符串
+ * @param { String | Number | Date } - date 日期字符串/时间戳/Date
+ * @param { String } - 日期字符串格式
  */
-export function formatDate(params: Params): string {
-  const defalutParams = {
-    date: new Date(),
-    formatStr: 'yyyy-MM-dd HH:mm:ss'
+export function formatDateTime(
+  date: string | Date | number,
+  fmt = 'yyyy-MM-dd hh:mm:ss'
+): string {
+  if (!date) {
+    return '';
+  }
+
+  let d: Date = new Date();
+
+  if (typeof date === 'number') {
+    d = new Date(date * 1000);
+  }
+  if (typeof date === 'string') {
+    d = new Date(new Date(date).getTime());
+  }
+
+  const o = {
+    // 月份
+    'M+': d.getMonth() + 1,
+    // 日
+    'd+': d.getDate(),
+    // 小时
+    'h+': d.getHours(),
+    // 分
+    'm+': d.getMinutes(),
+    // 秒
+    's+': d.getSeconds(),
+    // 季度
+    'q+': Math.floor((d.getMonth() + 3) / 3),
+    // 毫秒
+    S: d.getMilliseconds()
   };
-  params = { ...defalutParams, ...params };
 
-  let date = params.date;
-  let formatStr = params.formatStr;
-  // 传入日期字符串 - 转成时间戳 - 转成标准时间
-  let timeStamp = new Date(date).getTime();
-  date = new Date(timeStamp);
-  formatStr = formatStr.replace(new RegExp('yyyy'), `${date.getFullYear()}`);
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt
+      .replace(RegExp.$1, d.getFullYear() + '')
+      .substr(4 - RegExp.$1.length);
+  }
 
-  const month = date.getMonth() + 1;
-  formatStr = formatStr.replace(
-    new RegExp('MM'),
-    `${month > 9 ? month : '0' + month}`
-  );
-  const day = date.getDate();
-  formatStr = formatStr.replace(
-    new RegExp('dd'),
-    `${day > 9 ? day : '0' + day}`
-  );
-  const hour = date.getHours();
-  formatStr = formatStr.replace(
-    new RegExp('HH'),
-    `${hour > 9 ? hour : '0' + hour}`
-  );
-  const min = date.getMinutes();
-  formatStr = formatStr.replace(
-    new RegExp('mm'),
-    `${min > 9 ? min : '0' + min}`
-  );
-  const sec = date.getSeconds();
-  formatStr = formatStr.replace(
-    new RegExp('ss'),
-    `${sec > 9 ? sec : '0' + sec}`
-  );
+  for (const k in o) {
+    if (new RegExp('(' + k + ')').test(fmt)) {
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? o[k] : ('00' + o[k]).substr(('' + o[k]).length)
+      );
+    }
+  }
 
-  return formatStr;
+  return fmt;
 }
