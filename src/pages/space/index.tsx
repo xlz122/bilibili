@@ -24,6 +24,7 @@ function Space(): React.ReactElement {
 
   const [tabIndex, setTabIndex] = useState(0);
 
+  // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
     router.push({
       pathname: '/video',

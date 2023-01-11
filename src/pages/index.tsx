@@ -27,6 +27,7 @@ function Index(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
+  // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
     router.push({
       pathname: '/video',

@@ -47,6 +47,7 @@ function Ranking(): React.ReactElement {
     getRankRegion();
   }, [router.query.rid]);
 
+  // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
     router.push({
       pathname: '/video',
