@@ -24,6 +24,7 @@ function Space(): React.ReactElement {
 
   const [tabIndex, setTabIndex] = useState(0);
 
+  // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
     router.push({
       pathname: '/video',
@@ -54,7 +55,10 @@ function Space(): React.ReactElement {
         />
       </div>
       <div className={styles.itemInfo}>
-        <span className={styles.infoTitle}>{item.title}</span>
+        <span
+          className={styles.infoTitle}
+          dangerouslySetInnerHTML={{ __html: item.title }}
+        ></span>
         <span className={styles.infoTime}>
           {formatDateTime(item.createTime, 'yyyy-MM-dd hh:mm:ss')}
         </span>

@@ -57,6 +57,9 @@
 }
 
 .itemContent {
+  max-width: 100%;
   font-size: px2rem(14);
   color: #212121;
+  word-wrap:break-word;
+  word-break:break-all;
 }

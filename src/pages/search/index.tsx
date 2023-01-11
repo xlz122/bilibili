@@ -31,7 +31,7 @@ function Search(props: Props): React.ReactElement {
     router.push({ pathname: '/' });
   };
 
-  const [searchValue, setSearchValue] = useState('');
+  const [searchValue, setSearchValue] = useState((keyword as string) || '');
   const handleInputChange = (e: InputChange): void => {
     // 清空/搜索后再次更改
     if (!e.target.value || keyword) {

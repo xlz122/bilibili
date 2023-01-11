@@ -1,0 +1,30 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(60);
+  height: px2rem(60);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  margin-left: px2rem(12);
+}
+
+.infoName {
+  margin-bottom: px2rem(2);
+  font-size: px2rem(14);
+  color: #212121;
+}
+
+.infoText {
+  font-size: px2rem(12);
+  color: #999;
+}

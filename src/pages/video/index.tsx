@@ -1,17 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
-import { timeStampToDuration, formatTenThousand } from '@utils/utils';
-import { formatDateTime } from '@utils/date';
 import { videoDetail } from '@/api/video';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types';
 import Layout from '@components/layout/Layout';
+import VideoPlayer from '@/page-component/video/video-player/VideoPlayer';
 import VideoRecommend from '@/page-component/video/recommend/Recommend';
 import VideoComment from '@/page-component/video/comment/Comment';
 import styles from './video.module.scss';
 
 type Props = {
   data: {
+    cid: number;
     pic: string;
     stat: {
       view: number;
@@ -19,7 +19,7 @@ type Props = {
     };
     ctime: number;
     duration: number;
-    dynamic: string;
+    title: string;
     owner: {
       face: string;
       name: string;
@@ -30,33 +30,10 @@ type Props = {
 function Video(props: Props): React.ReactElement {
   return (
     <div className={styles.video}>
-      <div className={styles.cover}>
-        <Image src={props.data.pic} fill sizes="100%" priority alt="" />
-        <div className={styles.coverIconPlay}>
-          <Image
-            src={'/images/video/icon-play.png'}
-            fill
-            sizes="100%"
-            priority
-            alt=""
-          />
-        </div>
-        <div className={styles.coverTip}>
-          <span className={styles.tipText}>
-            {formatTenThousand(props.data.stat.view)}万观看
-          </span>
-          <span className={styles.tipText}>{props.data.stat.danmaku}弹幕</span>
-          <span className={styles.tipText}>
-            {formatDateTime(props.data?.ctime, 'MM-dd')}
-          </span>
-          <span className={styles.tipTime}>
-            {timeStampToDuration(props.data.duration)}
-          </span>
-        </div>
-      </div>
+      <VideoPlayer data={props.data} />
       <div className={styles.title}>
         <span className={styles.titleHot}>热门</span>
-        <span className={styles.titleText}>{props.data.dynamic}</span>
+        <span className={styles.titleText}>{props.data.title}</span>
         <div className={styles.author}>
           <div className={styles.authorInfo}>
             <div className={styles.infoCover}>

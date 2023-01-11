@@ -44,6 +44,8 @@ function MyApp({
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no"
         ></meta>
+        {/* 解决视频链接403问题 */}
+        <meta name="referrer" content="never"></meta>
         <link
           rel="icon"
           href={`${process.env.NEXT_PUBLIC_BASE_URL}/favicon.ico`}

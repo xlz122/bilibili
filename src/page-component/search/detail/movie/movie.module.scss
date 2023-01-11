@@ -1,0 +1,38 @@
+.item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(78);
+  height: px2rem(104);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  margin-left: px2rem(12);
+}
+
+.infoTitle {
+  margin-bottom: px2rem(4);
+  font-size: px2rem(14);
+  color: #212121;
+}
+
+.infoText {
+  margin-bottom: px2rem(2);
+  font-size: px2rem(12);
+  color: #999;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 这里是超出几行省略 */
+  -webkit-line-clamp: 1;
+}

@@ -22,6 +22,31 @@ export const videoDetail = ({ baseUrl, aid }: VideoDetail): AxiosPromise => {
   });
 };
 
+type VideoPlayurl = BaseParams & {
+  aid: number;
+  cid: number;
+};
+
+/**
+ * @description 视频详情 - 播放链接
+ * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ * @param { Number } aid - 视频id
+ * @param { Number } cid - 视频详情获取
+ */
+export const videoPlayurl = ({
+  baseUrl,
+  aid,
+  cid
+}: VideoPlayurl): AxiosPromise => {
+  const params = { aid, cid };
+
+  return axios.request({
+    url: `${baseUrl ? baseUrl : '/api'}/video/playurl`,
+    method: 'get',
+    params
+  });
+};
+
 type VideoRecommend = BaseParams & {
   aid: number;
 };
