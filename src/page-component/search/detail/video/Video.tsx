@@ -34,7 +34,7 @@ function Video(props: Props): React.ReactElement {
       type: 'routine/setViewHistory',
       payload: {
         aid: item.aid,
-        pic: item.pic,
+        pic: `https:${item.pic}`,
         title: item.title,
         createTime: new Date().getTime() / 1000
       }

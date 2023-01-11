@@ -6,6 +6,7 @@ import { videoDetail } from '@/api/video';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types';
 import Layout from '@components/layout/Layout';
+import VideoPlayer from '@/page-component/video/video-player/VideoPlayer';
 import VideoRecommend from '@/page-component/video/recommend/Recommend';
 import VideoComment from '@/page-component/video/comment/Comment';
 import styles from './video.module.scss';
@@ -19,7 +20,7 @@ type Props = {
     };
     ctime: number;
     duration: number;
-    dynamic: string;
+    title: string;
     owner: {
       face: string;
       name: string;
@@ -56,7 +57,7 @@ function Video(props: Props): React.ReactElement {
       </div>
       <div className={styles.title}>
         <span className={styles.titleHot}>热门</span>
-        <span className={styles.titleText}>{props.data.dynamic}</span>
+        <span className={styles.titleText}>{props.data.title}</span>
         <div className={styles.author}>
           <div className={styles.authorInfo}>
             <div className={styles.infoCover}>
