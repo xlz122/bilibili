@@ -46,3 +46,37 @@ export const searchSuggest = ({
     params
   });
 };
+
+type SearchType = BaseParams & {
+  keyword: string;
+  search_type: string;
+  order?: string;
+  page: number;
+  size: number;
+};
+
+/**
+ * @description 搜索详情
+ * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ * @param { String } keyword - 搜索关键词
+ * @param { String } search_type - 搜索类型(综合/番剧/UP主/影视)
+ * @param { String } order - 综合分类(默认排序/播放多/新发布/弹幕多)
+ * @param { Number } page - 页数
+ * @param { Number } size - 条数
+ */
+export const searchType = ({
+  baseUrl,
+  keyword,
+  search_type,
+  order,
+  page,
+  size
+}: SearchType): AxiosPromise => {
+  const params = { keyword, search_type, order, page, size };
+
+  return axios.request({
+    url: `${baseUrl ? baseUrl : '/api'}/search/type`,
+    method: 'get',
+    params
+  });
+};
