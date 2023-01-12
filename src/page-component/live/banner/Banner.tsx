@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // 引入基础样式
 import 'swiper/css';
@@ -19,6 +20,7 @@ export type BannerType = {
   };
   list?: {
     pic: string;
+    link: string;
   }[];
 };
 
@@ -36,7 +38,9 @@ function LiveBanner(props: Props): React.ReactElement {
         {props.banner.list?.map((item, index) => {
           return (
             <SwiperSlide key={index}>
-              <Image src={item.pic} fill sizes="100%" priority alt="" />
+              <Link href={item.link}>
+                <Image src={item.pic} fill sizes="100%" priority alt="" />
+              </Link>
             </SwiperSlide>
           );
         })}
