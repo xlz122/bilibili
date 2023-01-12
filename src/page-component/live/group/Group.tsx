@@ -51,17 +51,17 @@ function LiveGroup(props: Props): React.ReactElement {
                   alt=""
                 />
                 <div className={styles.info}>
-                  <div className={styles.infoItem}>
-                    <span className={styles.itemText}>{i.uname}</span>
+                  <div className={styles.infoName}>
+                    <span className={styles.nameText}>{i.uname}</span>
                   </div>
-                  <div className={styles.infoItem}>
+                  <div className={styles.infoCount}>
                     <Image
                       width={8}
                       height={8}
                       src={'/images/live/live-eye.png'}
                       alt=""
                     />
-                    <span className={styles.itemText}>
+                    <span className={styles.countText}>
                       {formatTenThousand(i?.watched_show?.num)}
                     </span>
                   </div>

@@ -60,7 +60,7 @@ type SearchType = BaseParams & {
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
  * @param { String } keyword - 搜索关键词
  * @param { String } search_type - 搜索类型(综合/番剧/UP主/影视)
- * @param { String } order - 综合分类(默认排序/播放多/新发布/弹幕多)
+ * @param { String } order - 排序方式(默认排序/播放多/新发布/弹幕多)
  * @param { Number } page - 页数
  * @param { Number } size - 条数
  */

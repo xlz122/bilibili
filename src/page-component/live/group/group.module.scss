@@ -74,14 +74,35 @@
   box-sizing: border-box;
 }
 
-.infoItem {
+.infoName {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
 }
 
-.itemText {
+.nameText {
+  max-width: 95%;
+  margin-left: px2rem(3);
+  font-size: px2rem(11);
+  color: #ffffff;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  /* 这里是超出几行省略 */
+  -webkit-line-clamp: 1;
+}
+
+.infoCount {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: px2rem(50);
+}
+
+.countText {
   margin-left: px2rem(3);
   font-size: px2rem(11);
   color: #ffffff;
