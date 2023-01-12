@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
 import styles from './group.module.scss';
@@ -11,17 +12,30 @@ export type ListItemType = {
   module_info: {
     title: string;
   };
-  list: {
-    title: string;
-    cover: string;
-    uname: string;
-    watched_show: {
-      num: number;
-    };
-  }[];
+  list: ItemType[];
+};
+
+type ItemType = {
+  roomid: number;
+  title: string;
+  cover: string;
+  uname: string;
+  watched_show: {
+    num: number;
+  };
 };
 
 function LiveGroup(props: Props): React.ReactElement {
+  const router = useRouter();
+
+  // 跳转直播详情
+  const jumpLiveDetail = (item: ItemType): void => {
+    router.push({
+      pathname: '/live-room',
+      query: { roomid: item.roomid }
+    });
+  };
+
   const RenderItem = ({ item }: { item: ListItemType }) => (
     <li className={styles.panel}>
       <div className={styles.title}>
@@ -40,7 +54,11 @@ function LiveGroup(props: Props): React.ReactElement {
       <div className={styles.list}>
         {item.list.map((i, index) => {
           return (
-            <div className={styles.item} key={index}>
+            <div
+              className={styles.item}
+              key={index}
+              onClick={() => jumpLiveDetail(i)}
+            >
               <div className={styles.itemCover}>
                 <Image
                   className={styles.itemImage}
@@ -51,17 +69,17 @@ function LiveGroup(props: Props): React.ReactElement {
                   alt=""
                 />
                 <div className={styles.info}>
-                  <div className={styles.infoItem}>
-                    <span className={styles.itemText}>{i.uname}</span>
+                  <div className={styles.infoName}>
+                    <span className={styles.nameText}>{i.uname}</span>
                   </div>
-                  <div className={styles.infoItem}>
+                  <div className={styles.infoCount}>
                     <Image
                       width={8}
                       height={8}
                       src={'/images/live/live-eye.png'}
                       alt=""
                     />
-                    <span className={styles.itemText}>
+                    <span className={styles.countText}>
                       {formatTenThousand(i?.watched_show?.num)}
                     </span>
                   </div>
