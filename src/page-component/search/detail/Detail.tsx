@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { searchType } from '@/api/search';
 import type { ResponseType } from '@/types';
@@ -29,7 +29,7 @@ type Detail = {
 };
 
 function SearchDetail(): React.ReactElement {
-  const router = useRouter();
+  const keyword = useSearchParams().get('keyword') || '';
 
   const [tab, setTab] = useState({
     list: [
@@ -69,7 +69,7 @@ function SearchDetail(): React.ReactElement {
     setNoData(false);
 
     searchType({
-      keyword: String(router.query.keyword),
+      keyword: keyword,
       search_type: tab.type,
       order: tab.order,
       page: 1,

@@ -24,9 +24,3 @@ a {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
   border-radius: 2px;
 }
-
-/* 搜索关键字 */
-.keyword {
-  font-style: normal;
-  color: #f69;
-}

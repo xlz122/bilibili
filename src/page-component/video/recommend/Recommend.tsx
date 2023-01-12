@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useStore } from 'react-redux';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
 import { videoRecommend } from '@/api/video';
@@ -7,8 +8,9 @@ import type { ResponseType } from '@/types';
 import styles from './recommend.module.scss';
 
 type ItemType = {
-  pic?: string;
-  title?: string;
+  aid: number;
+  pic: string;
+  title: string;
   stat: {
     view: number;
     danmaku: number;
@@ -17,6 +19,7 @@ type ItemType = {
 
 function VideoRecommend(): React.ReactElement {
   const router = useRouter();
+  const store = useStore();
 
   const [list, setList] = useState([]);
 
@@ -38,8 +41,26 @@ function VideoRecommend(): React.ReactElement {
     getVideoRecommend();
   }, [router.query.aid]);
 
+  // 跳转视频详情
+  const jumpVideoDetail = (item: ItemType): void => {
+    router.push({
+      pathname: '/video',
+      query: { aid: item.aid }
+    });
+
+    store.dispatch({
+      type: 'routine/setViewHistory',
+      payload: {
+        aid: item.aid,
+        pic: item.pic,
+        title: item.title,
+        createTime: new Date().getTime() / 1000
+      }
+    });
+  };
+
   const RenderItem = ({ item }: { item: ItemType }) => (
-    <li className={styles.item}>
+    <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}

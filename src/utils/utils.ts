@@ -48,7 +48,7 @@ export function timeStampToDuration(timeStamp: number): string {
   const i2 = zero(i);
   const s2 = zero(s);
   let ok = '';
-  if (h2 <= 0) {
+  if (Number(h2) <= 0) {
     ok = [i2, s2].join(':');
   } else {
     ok = [h2, i2, s2].join(':');

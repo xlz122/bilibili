@@ -27,7 +27,7 @@ function Panel(props: Props): React.ReactElement {
           ></i>
           <div className={styles.moreText}>{props.subTitle}</div>
           <i
-            className={`icon-arrow-right ${styles.moreIcon}`}
+            className={`icon-down-arrow ${styles.moreIcon}`}
             style={{ color: props.subColor }}
           ></i>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
 import { searchDefatult, searchHot } from '@/api/search';
@@ -22,7 +23,7 @@ function Search(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const { keyword } = router.query;
+  const keyword = useSearchParams().get('keyword') || '';
   const searchHistory = useSelector(
     (state: RootState) => state.routine.searchHistory
   );
@@ -31,7 +32,7 @@ function Search(props: Props): React.ReactElement {
     router.push({ pathname: '/' });
   };
 
-  const [searchValue, setSearchValue] = useState((keyword as string) || '');
+  const [searchValue, setSearchValue] = useState(keyword);
   const handleInputChange = (e: InputChange): void => {
     // 清空/搜索后再次更改
     if (!e.target.value || keyword) {
@@ -58,7 +59,7 @@ function Search(props: Props): React.ReactElement {
 
     store.dispatch({
       type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([...searchHistory, value]))
+      payload: Array.from(new Set([value, ...searchHistory]))
     });
   };
 
@@ -79,7 +80,7 @@ function Search(props: Props): React.ReactElement {
       store.dispatch({
         type: 'routine/setSearchHistory',
         payload: Array.from(
-          new Set([...searchHistory, e.target.value || defaultValue])
+          new Set([e.target.value || defaultValue, ...searchHistory])
         )
       });
     }

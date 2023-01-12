@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'iconfont';
-  src: url('/fonts/icon.eot') format('embedded-opentype'),
-    url('/fonts/icon.ttf') format('truetype'),
-    url('/fonts/icon.woff') format('woff')
+  font-family: "iconfont";
+  src: url("/fonts/icon.eot") format("embedded-opentype"),
+    url("/fonts/icon.ttf") format("truetype"),
+    url("/fonts/icon.woff") format("woff")
 }
 
 /* use !important to prevent issues with browser extensions that change fonts */
 [class^="icon-"],
 [class*=" icon-"] {
-  font-family: 'iconfont' !important;
+  font-family: "iconfont" !important;
   font-style: normal;
   font-variant: normal;
   text-transform: none;
@@ -18,32 +18,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-arrow-down {
+.icon-down-arrow {
   color: #aaa;;
 }
-.icon-arrow-down:before {
+.icon-down-arrow:before {
   content: "\e900";
 }
 
-.icon-arrow-right {
+.icon-up-arrow {
   color: #aaa;
 }
-.icon-arrow-right:before {
-  content: "\e901";
-}
-
-.icon-arrow-up {
-  color: #aaa;
-}
-.icon-arrow-up:before {
+.icon-up-arrow:before {
   content: "\e902";
 }
 
-.icon-barrage-count {
-  color: #fff;
+.icon-right-arrow {
+  color: #aaa;
 }
-.icon-barrage-count:before {
-  content: "\e903";
+.icon-right-arrow:before {
+  content: "\e901";
 }
 
 .icon-play-count {
@@ -51,6 +44,13 @@
 }
 .icon-play-count:before {
   content: "\e904";
+}
+
+.icon-barrage-count {
+  color: #fff;
+}
+.icon-barrage-count:before {
+  content: "\e903";
 }
 
 .icon-ranking {

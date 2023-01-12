@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
+import useMounted from '@/hooks/useMounted';
 import type { RootState } from '@/store';
 import styles from './history.module.scss';
 
@@ -19,9 +20,7 @@ function SearchHistory(props: Props): React.ReactElement {
     (state: RootState) => state.routine.searchHistory
   );
 
-  // 页面是否加载完成
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const mounted = useMounted();
 
   const handleClearHistory = () => {
     store.dispatch({
@@ -50,31 +49,32 @@ function SearchHistory(props: Props): React.ReactElement {
       </div>
       <div className={styles.history}>
         <div className={styles.historyTitle}>历史搜索</div>
-        <ul className={styles.historyList}>
-          {mounted &&
-            searchHistory?.map((item, index) => {
-              return (
-                <li
-                  className={styles.historyItem}
-                  key={index}
-                  onClick={() => props.search(item)}
-                >
-                  <Image
-                    className={styles.historyItemIcon}
-                    width={15}
-                    height={15}
-                    src={'/images/search/search-history.png'}
-                    alt=""
-                  />
-                  <span className={styles.historyItemText}>{item}</span>
-                </li>
-              );
-            })}
-        </ul>
         {mounted && searchHistory?.length > 0 && (
-          <div className={styles.clearHistory} onClick={handleClearHistory}>
-            清除历史记录
-          </div>
+          <>
+            <ul className={styles.historyList}>
+              {searchHistory?.map((item, index) => {
+                return (
+                  <li
+                    className={styles.historyItem}
+                    key={index}
+                    onClick={() => props.search(item)}
+                  >
+                    <Image
+                      className={styles.historyItemIcon}
+                      width={15}
+                      height={15}
+                      src={'/images/search/search-history.png'}
+                      alt=""
+                    />
+                    <span className={styles.historyItemText}>{item}</span>
+                  </li>
+                );
+              })}
+            </ul>
+            <div className={styles.clearHistory} onClick={handleClearHistory}>
+              清除历史记录
+            </div>
+          </>
         )}
       </div>
     </div>
