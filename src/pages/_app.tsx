@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { Provider } from 'react-redux';
 import store from '@/store/index';
-import adapter from '@/utils/adapter';
+import screenAdapter from '@/utils/screen-adapter';
 import type { NextPage } from 'next';
 import type { AppProps } from 'next/app';
 import '@/styles/global.css';
@@ -21,13 +21,13 @@ function MyApp({
   Component,
   pageProps
 }: AppPropsWithLayout): React.ReactElement {
-  // 字体适配
+  // 屏幕适配
   useEffect(() => {
-    adapter();
-    window.addEventListener('resize', adapter);
+    screenAdapter();
+    window.addEventListener('resize', screenAdapter);
 
     return () => {
-      window.removeEventListener('resize', adapter);
+      window.removeEventListener('resize', screenAdapter);
     };
   }, []);
 

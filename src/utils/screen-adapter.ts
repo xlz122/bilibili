@@ -1,7 +1,7 @@
 /**
- * @description 根字体适配不同屏幕大小
+ * @description 屏幕适配(适配不同屏幕的字体大小)
  */
-export default function adapter() {
+export default function screenAdapter() {
   let clientWidth =
     document.documentElement.clientWidth || document.body.clientWidth;
 

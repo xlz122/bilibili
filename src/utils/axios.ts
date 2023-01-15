@@ -1,6 +1,7 @@
 import axios from 'axios';
 import {
   AxiosRequestConfig,
+  InternalAxiosRequestConfig,
   AxiosResponse,
   AxiosError,
   AxiosInstance,
@@ -67,7 +68,7 @@ class HttpRequest {
   interceptors(instance: AxiosInstance) {
     // 请求拦截
     instance.interceptors.request.use(
-      (config: AxiosRequestConfig) => {
+      (config: InternalAxiosRequestConfig) => {
         // 拦截重复请求(即当前正在进行的相同请求)
         const requestData: string = getRequestIdentify(config, true); // 标识请求
         // 取消重复请求

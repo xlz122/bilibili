@@ -103,7 +103,7 @@ function TabBar(): React.ReactElement {
             </Link>
           </div>
         </div>
-        <i className={`icon-arrow-down ${styles.itemIcon}`}></i>
+        <i className={`icon-down-arrow ${styles.itemIcon}`}></i>
       </div>
       <div className={styles.group}>
         <ul className={`${styles.list} ${styles.subList}`}>
