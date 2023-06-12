@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // 引入基础样式
 import 'swiper/css';
-// 进入分页器相关样式
+// 引入分页器相关样式
 import 'swiper/css/pagination';
 import styles from './banner.module.scss';
 
@@ -35,7 +35,7 @@ function LiveBanner(props: Props): React.ReactElement {
         }}
         modules={[Pagination]}
       >
-        {props.banner.list?.map((item, index) => {
+        {props?.banner?.list?.map((item, index) => {
           return (
             <SwiperSlide key={index}>
               <Link href={item.link}>

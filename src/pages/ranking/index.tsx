@@ -126,7 +126,7 @@ function Ranking(): React.ReactElement {
   );
 
   return (
-    <>
+    <div className={styles.ranking}>
       <div className={styles.header}>
         <Image
           className={styles.headerIcon}
@@ -139,12 +139,12 @@ function Ranking(): React.ReactElement {
         <div className={styles.headerText}>排行榜</div>
       </div>
       <TabBar />
-      <ul className={styles.ranking}>
+      <ul className={styles.rankList}>
         {list.map((item, index) => {
           return <RenderItem key={index} item={item} index={index} />;
         })}
       </ul>
-    </>
+    </div>
   );
 }
 
