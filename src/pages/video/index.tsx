@@ -10,42 +10,34 @@ import VideoComment from '@/page-component/video/comment/Comment';
 import styles from './video.module.scss';
 
 type Props = {
-  data: {
-    cid: number;
-    pic: string;
-    stat: {
-      view: number;
-      danmaku: number;
-    };
-    ctime: number;
-    duration: number;
-    title: string;
-    owner: {
-      face: string;
-      name: string;
-    };
+  cid: number;
+  pic: string;
+  stat: {
+    view: number;
+    danmaku: number;
+  };
+  ctime: number;
+  duration: number;
+  title: string;
+  owner: {
+    face: string;
+    name: string;
   };
 };
 
 function Video(props: Props): React.ReactElement {
   return (
     <div className={styles.video}>
-      <VideoPlayer data={props.data} />
+      <VideoPlayer {...props} />
       <div className={styles.title}>
         <span className={styles.titleHot}>热门</span>
-        <span className={styles.titleText}>{props.data.title}</span>
+        <span className={styles.titleText}>{props.title}</span>
         <div className={styles.author}>
           <div className={styles.authorInfo}>
             <div className={styles.infoCover}>
-              <Image
-                src={props.data.owner.face}
-                fill
-                sizes="100%"
-                priority
-                alt=""
-              />
+              <Image src={props.owner.face} fill sizes="100%" priority alt="" />
             </div>
-            <span className={styles.infoText}>{props.data.owner.name}</span>
+            <span className={styles.infoText}>{props.owner.name}</span>
           </div>
           <div className={styles.authorOther}>
             <i className={styles.iconLike}></i>
@@ -70,12 +62,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     aid: Number(context.query.aid)
   });
 
-  const props = {
-    data: {}
-  };
+  const props = {};
 
   if (res?.code === 0) {
-    props.data = res.data || {};
+    Object.assign(props, res.data);
   }
 
   return {

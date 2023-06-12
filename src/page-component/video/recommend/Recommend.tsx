@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { useStore } from 'react-redux';
 import Image from 'next/image';
 import { formatTenThousand } from '@utils/utils';
@@ -21,10 +22,11 @@ function VideoRecommend(): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const [list, setList] = useState([]);
+  const aid = useSearchParams().get('aid');
 
+  const [list, setList] = useState([]);
   const getVideoRecommend = () => {
-    videoRecommend({ aid: Number(router.query.aid) })
+    videoRecommend({ aid: Number(aid) })
       .then((res: ResponseType) => {
         if (res.code === 0) {
           setList(res.data.slice(0, 4));
@@ -34,12 +36,12 @@ function VideoRecommend(): React.ReactElement {
   };
 
   useEffect(() => {
-    if (!router.query.aid) {
+    if (!aid) {
       return;
     }
 
     getVideoRecommend();
-  }, [router.query.aid]);
+  }, [aid]);
 
   // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
@@ -96,7 +98,7 @@ function VideoRecommend(): React.ReactElement {
         <div className={styles.moreText}>查看更多</div>
       </div>
       <ul className={styles.list}>
-        {list.map((item, index) => {
+        {list?.map((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
       </ul>

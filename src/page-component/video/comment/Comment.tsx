@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { formatDateTime } from '@utils/date';
 import { videoComment } from '@/api/video';
@@ -25,12 +25,11 @@ type ItemType = {
 };
 
 function VideoComment(): React.ReactElement {
-  const router = useRouter();
+  const aid = useSearchParams().get('aid');
 
   const [comment, setComment] = useState<Partial<Comment>>({});
-
   const getVideoRecommend = () => {
-    videoComment({ aid: Number(router.query.aid), page: 1 })
+    videoComment({ aid: Number(aid), page: 1 })
       .then((res: ResponseType) => {
         if (res.code === 0) {
           setComment(res.data);
@@ -40,12 +39,12 @@ function VideoComment(): React.ReactElement {
   };
 
   useEffect(() => {
-    if (!router.query.aid) {
+    if (!aid) {
       return;
     }
 
     getVideoRecommend();
-  }, [router.query.aid]);
+  }, [aid]);
 
   const RenderItem = ({ item }: { item: ItemType }) => (
     <li className={styles.item}>

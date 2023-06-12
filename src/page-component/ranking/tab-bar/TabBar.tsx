@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { rankNav } from '@api/ranking';
 import type { ResponseType } from '@/types/index';
@@ -10,15 +10,10 @@ type List = {
   name: string;
 }[];
 
-type Tab = {
-  navIndex: number;
-};
-
 function TabBar(): React.ReactElement {
-  const router = useRouter();
+  const rid = useSearchParams().get('rid');
 
   const [list, setList] = useState<List>([]);
-
   const getRankNav = () => {
     rankNav({})
       .then((res: ResponseType<List>) => {
@@ -33,36 +28,17 @@ function TabBar(): React.ReactElement {
     getRankNav();
   }, []);
 
-  const [tab, setTab] = useState<Tab>({
-    navIndex: 0
-  });
-
-  useEffect(() => {
-    if (!list) {
-      return;
-    }
-
-    const index = list.findIndex(item => item.rid === Number(router.query.rid));
-
-    setTab({ navIndex: index });
-  }, [list]);
-
-  const tabChange = (index: number): void => {
-    setTab({ navIndex: index });
-  };
-
   return (
     <div className={styles.tabbar}>
       <div className={styles.group}>
         <ul className={styles.list}>
-          {list.map((item, index) => {
+          {list?.map((item, index) => {
             return (
               <li
                 className={`${styles.item} ${
-                  index === tab.navIndex ? styles.activeItem : ''
+                  item.rid === Number(rid) ? styles.activeItem : ''
                 }`}
                 key={index}
-                onClick={() => tabChange(index)}
               >
                 <Link
                   className={styles.itemLink}

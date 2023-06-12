@@ -4,8 +4,9 @@
 }
 
 .logo {
+  display: inline-block;
   width: px2rem(62);
-  height: px2rem(28);
+  min-height: px2rem(28);
   padding: px2rem(8) 0;
   margin-left: px2rem(18);
 }

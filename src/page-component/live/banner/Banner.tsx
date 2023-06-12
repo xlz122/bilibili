@@ -11,14 +11,7 @@ import styles from './banner.module.scss';
 import { Pagination } from 'swiper';
 
 type Props = {
-  banner: BannerType;
-};
-
-export type BannerType = {
-  module_info?: {
-    title: string;
-  };
-  list?: {
+  list: {
     pic: string;
     link: string;
   }[];
@@ -35,7 +28,7 @@ function LiveBanner(props: Props): React.ReactElement {
         }}
         modules={[Pagination]}
       >
-        {props?.banner?.list?.map((item, index) => {
+        {props?.list?.map((item, index) => {
           return (
             <SwiperSlide key={index}>
               <Link href={item.link}>
