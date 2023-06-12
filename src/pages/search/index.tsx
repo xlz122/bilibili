@@ -58,7 +58,7 @@ function Search(props: Props): React.ReactElement {
 
     store.dispatch({
       type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([...searchHistory, value]))
+      payload: Array.from(new Set([value, ...searchHistory]))
     });
   };
 
