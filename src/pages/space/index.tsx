@@ -18,6 +18,7 @@ type ItemType = {
 function Space(): React.ReactElement {
   const router = useRouter();
   const store = useStore();
+
   const viewHistory = useSelector(
     (state: RootState) => state.routine.viewHistory
   );
