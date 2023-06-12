@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
+import useMounted from '@/hooks/useMounted';
 import { formatDateTime } from '@utils/date';
 import type { RootState } from '@/store';
 import Layout from '@components/layout/Layout';
@@ -17,10 +18,11 @@ type ItemType = {
 function Space(): React.ReactElement {
   const router = useRouter();
   const store = useStore();
-
   const viewHistory = useSelector(
     (state: RootState) => state.routine.viewHistory
   );
+
+  const mounted = useMounted();
 
   const [tabIndex, setTabIndex] = useState(0);
 
@@ -65,10 +67,6 @@ function Space(): React.ReactElement {
       </div>
     </li>
   );
-
-  // 页面是否加载完成
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
 
   return (
     <div className={styles.space}>
