@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { useSearchParams } from 'next/navigation';
 import { useStore } from 'react-redux';
 import Image from 'next/image';
 import { timeStampToDuration, formatTenThousand } from '@utils/utils';
@@ -26,26 +27,26 @@ function Ranking(): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const [list, setList] = useState([]);
+  const rid = useSearchParams().get('rid');
 
-  // 获取分类列表
+  const [list, setList] = useState([]);
   const getRankRegion = () => {
-    rankRegion({ rid: Number(router.query.rid) })
+    rankRegion({ rid: Number(rid) })
       .then((res: ResponseType) => {
         if (res.code === 0) {
-          setList(res.data.list.slice(0, 20));
+          setList(res?.data?.list?.slice(0, 20));
         }
       })
       .catch(() => ({}));
   };
 
   useEffect(() => {
-    if (!router.query.rid) {
+    if (!rid) {
       return;
     }
 
     getRankRegion();
-  }, [router.query.rid]);
+  }, [rid]);
 
   // 跳转视频详情
   const jumpVideoDetail = (item: ItemType): void => {
@@ -126,7 +127,7 @@ function Ranking(): React.ReactElement {
   );
 
   return (
-    <>
+    <div className={styles.ranking}>
       <div className={styles.header}>
         <Image
           className={styles.headerIcon}
@@ -139,12 +140,12 @@ function Ranking(): React.ReactElement {
         <div className={styles.headerText}>排行榜</div>
       </div>
       <TabBar />
-      <ul className={styles.ranking}>
-        {list.map((item, index) => {
+      <ul className={styles.rankList}>
+        {list?.map((item, index) => {
           return <RenderItem key={index} item={item} index={index} />;
         })}
       </ul>
-    </>
+    </div>
   );
 }
 

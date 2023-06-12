@@ -1,6 +1,8 @@
 .ranking {
-  height: 100%;
-  padding: 0 px2rem(5);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .header {
@@ -18,6 +20,12 @@
   font-size: px2rem(16);
   color: rgb(251, 114, 153);
   text-align: center;
+}
+
+.rankList {
+  flex: 1;
+  padding: 0 px2rem(5);
+  overflow-y: auto;
 }
 
 .rankItem {

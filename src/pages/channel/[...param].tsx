@@ -7,8 +7,8 @@ import { indexRegion, indexArchive } from '@api/home';
 import type { GetServerSidePropsContext } from 'next';
 import type { ResponseType } from '@/types/index';
 import Layout from '@components/layout/Layout';
-import TabBar from '@/page-component/home/tab-bar/TabBar';
-import Panel from '@/page-component/home/panel/Panel';
+import TabBar from '@/page-component/index/tab-bar/TabBar';
+import Panel from '@/page-component/index/panel/Panel';
 import styles from './channel.module.scss';
 
 type Props = {

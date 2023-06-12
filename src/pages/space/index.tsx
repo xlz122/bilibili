@@ -70,7 +70,7 @@ function Space(): React.ReactElement {
   );
 
   return (
-    <div className={styles.space}>
+    <>
       <div className={styles.cover}>
         <Image
           src={'/images/space/space-bg.png'}
@@ -123,12 +123,16 @@ function Space(): React.ReactElement {
           <div className={styles.contributeText}>小哔睡着了~</div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 
 Space.getLayout = function getLayout(page: React.ReactElement) {
-  return <Layout>{page}</Layout>;
+  return (
+    <div className={styles.space}>
+      <Layout>{page}</Layout>
+    </div>
+  );
 };
 
 export default Space;

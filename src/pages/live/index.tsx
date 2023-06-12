@@ -3,7 +3,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { liveIndex } from '@/api/live';
 import type { ResponseType } from '@/types/index';
-import type { BannerType } from '@/page-component/live/banner/Banner';
 import type { ListItemType } from '@/page-component/live/group/Group';
 import TabBar from '@/page-component/live/tab-bar/TabBar';
 import LiveBanner from '@/page-component/live/banner/Banner';
@@ -11,7 +10,10 @@ import LiveGroup from '@/page-component/live/group/Group';
 import styles from './live.module.scss';
 
 type Props = {
-  banner: BannerType;
+  banner: {
+    pic: string;
+    link: string;
+  }[];
   list: ListItemType[];
 };
 
@@ -19,19 +21,12 @@ function Live(props: Props): React.ReactElement {
   return (
     <>
       <div className={styles.header}>
-        <div className={styles.logo}>
-          <Link href="/">
-            <Image
-              width={60}
-              height={27}
-              src={'/images/logo-pink.png'}
-              alt=""
-            />
-          </Link>
-        </div>
+        <Link className={styles.logo} href="/">
+          <Image width={60} height={27} src={'/images/logo-pink.png'} alt="" />
+        </Link>
       </div>
       <TabBar />
-      <LiveBanner banner={props.banner} />
+      <LiveBanner list={props.banner} />
       <LiveGroup list={props.list} />
       <div className={styles.operate}>
         <div className={styles.operateItem}>
@@ -54,13 +49,13 @@ export async function getStaticProps(): Promise<{
   });
 
   const props: Props = {
-    banner: {},
+    banner: [],
     list: []
   };
 
   if (res?.code === 0) {
-    props.banner = res?.data?.module_list[0] || {};
-    props.list = res?.data?.module_list.slice(1) || [];
+    props.banner = res?.data?.module_list[0]?.list || [];
+    props.list = res?.data?.module_list?.slice(1) || [];
   }
 
   return {
@@ -68,9 +63,5 @@ export async function getStaticProps(): Promise<{
     revalidate: 60
   };
 }
-
-Live.getLayout = function getLayout(page: React.ReactElement) {
-  return page;
-};
 
 export default Live;
