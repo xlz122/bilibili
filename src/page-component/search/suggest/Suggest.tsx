@@ -15,8 +15,8 @@ type List = {
 function SearchSuggest(props: Props): React.ReactElement {
   const [list, setList] = useState<List>([]);
 
-  const getSearchSuggest = () => {
-    searchSuggest({ keyword: props.keyword })
+  const getSearchSuggest = (keyword: string) => {
+    searchSuggest({ keyword })
       .then(res => {
         setList(Object.values(res as unknown as List));
       })
@@ -26,7 +26,7 @@ function SearchSuggest(props: Props): React.ReactElement {
   const throttleSuggest = useCallback(
     throttle(getSearchSuggest, 1000, {
       leading: true, // 第一次是否执行
-      trailing: false // 节流结束后是否执行
+      trailing: true // 节流结束后是否执行
     }),
     []
   );
@@ -36,7 +36,7 @@ function SearchSuggest(props: Props): React.ReactElement {
       return;
     }
 
-    throttleSuggest();
+    throttleSuggest(props.keyword);
   }, [props.keyword]);
 
   return (
