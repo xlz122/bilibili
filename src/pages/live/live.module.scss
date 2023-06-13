@@ -1,13 +1,15 @@
-.header {
+.live {
   width: 100%;
-  border-bottom: 1px solid #e7e7e7;
 }
 
 .logo {
   display: inline-block;
-  width: px2rem(62);
-  min-height: px2rem(28);
-  padding: px2rem(8) 0;
+  min-width: 100%;
+  padding: px2rem(5.5) 0;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.logoImage {
   margin-left: px2rem(18);
 }
 

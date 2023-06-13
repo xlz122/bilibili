@@ -71,7 +71,7 @@ function Ranking(): React.ReactElement {
       <div className={styles.itemNum}>
         {index < 3 && (
           <Image
-            width={19.5}
+            width={20}
             height={32}
             src={`/images/ranking/rank${index + 1}.png`}
             alt=""
@@ -128,23 +128,18 @@ function Ranking(): React.ReactElement {
 
   return (
     <div className={styles.ranking}>
-      <div className={styles.header}>
-        <Image
-          className={styles.headerIcon}
-          width={10}
-          height={20}
-          src={'/images/ranking/icon-arrow.png'}
-          alt=""
-          onClick={() => router.back()}
-        />
-        <div className={styles.headerText}>排行榜</div>
+      <div className={styles.navBar}>
+        <div className={styles.navBarBack} onClick={() => router.back()}></div>
+        <div className={styles.navBarText}>排行榜</div>
       </div>
       <TabBar />
-      <ul className={styles.rankList}>
-        {list?.map((item, index) => {
-          return <RenderItem key={index} item={item} index={index} />;
-        })}
-      </ul>
+      <div className={styles.rankingMain}>
+        <ul className={styles.rankList}>
+          {list?.map((item, index) => {
+            return <RenderItem key={index} item={item} index={index} />;
+          })}
+        </ul>
+      </div>
     </div>
   );
 }

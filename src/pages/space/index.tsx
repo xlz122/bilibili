@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useStore, useSelector } from 'react-redux';
+import Link from 'next/link';
 import Image from 'next/image';
 import useMounted from '@/hooks/useMounted';
 import { formatDateTime } from '@utils/date';
@@ -102,27 +103,50 @@ function Space(): React.ReactElement {
           </span>
         </div>
       </div>
-      {tabIndex === 0 && mounted && (
-        <ul className={styles.history}>
-          {viewHistory.map((item, index) => {
-            return <RenderItem key={index} item={item} />;
-          })}
-        </ul>
-      )}
-      {tabIndex === 1 && (
-        <div className={styles.contribute}>
-          <div className={styles.contributeImage}>
-            <Image
-              src={'/images/space/space-contribute.png'}
-              fill
-              sizes="50%"
-              priority
-              alt=""
-            />
+      <div className={styles.spaceMain}>
+        {tabIndex === 0 && mounted && viewHistory.length > 0 && (
+          <ul className={styles.history}>
+            {viewHistory.map((item, index) => {
+              return <RenderItem key={index} item={item} />;
+            })}
+          </ul>
+        )}
+        {tabIndex === 0 && mounted && viewHistory.length === 0 && (
+          <div className={styles.tip}>
+            <div className={styles.tipImage}>
+              <Image
+                src={'/images/space/space-tip.png'}
+                fill
+                sizes="50%"
+                priority
+                alt=""
+              />
+            </div>
+            <div className={styles.tipText}>你还没有历史记录</div>
+            <div className={styles.tipText2}>
+              快去发现
+              <Link className={styles.tipLink} href="/">
+                新内容
+              </Link>
+              吧！
+            </div>
           </div>
-          <div className={styles.contributeText}>小哔睡着了~</div>
-        </div>
-      )}
+        )}
+        {tabIndex === 1 && (
+          <div className={styles.tip}>
+            <div className={styles.tipImage}>
+              <Image
+                src={'/images/space/space-tip.png'}
+                fill
+                sizes="50%"
+                priority
+                alt=""
+              />
+            </div>
+            <div className={styles.tipText}>小哔睡着了~</div>
+          </div>
+        )}
+      </div>
     </>
   );
 }

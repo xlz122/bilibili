@@ -5,27 +5,59 @@
   overflow: hidden;
 }
 
-.header {
+.navBar {
   position: relative;
   padding: px2rem(11) px2rem(12);
 }
 
-.headerIcon {
+.navBarBack {
   position: absolute;
-  top: px2rem(11);
-  left: px2rem(14);
+  top: px2rem(10);
+  left: px2rem(11);
+  width: px2rem(22);
+  height: px2rem(22);
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: px2rem(2.3);
+    height: px2rem(10);
+    margin-top: px2rem(-7.5);
+    background-color: rgb(251, 114, 153);
+    border-radius: px2rem(1.5);
+    transform: rotate(45deg);
+    transform-origin: left center;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: px2rem(2.3);
+    height: px2rem(10);
+    background-color: rgb(251, 114, 153);
+    border-radius: px2rem(1.5);
+    transform: rotate(-45deg);
+    transform-origin: left center;
+  }
 }
 
-.headerText {
+.navBarText {
   font-size: px2rem(16);
   color: rgb(251, 114, 153);
   text-align: center;
 }
 
-.rankList {
+.rankingMain {
   flex: 1;
-  padding: 0 px2rem(5);
   overflow-y: auto;
+}
+
+.rankList {
+  padding: 0 px2rem(5);
 }
 
 .rankItem {

@@ -1,3 +1,16 @@
+.channel {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.channelMain {
+  flex: 1;
+  overflow-y: auto;
+}
+
 .list {
   display: flex;
   flex-direction: row;
@@ -33,6 +46,7 @@
   width: 100%;
   padding: px2rem(5) px2rem(6);
   box-sizing: border-box;
+  background: linear-gradient(0deg, rgba(0, 0, 0, .85), transparent);
 }
 
 .infoItem {
