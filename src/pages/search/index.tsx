@@ -65,7 +65,7 @@ function Search(props: Props): React.ReactElement {
 
   // 搜索回车
   const handleEnterKey = (e: InputEnter): void => {
-    if (e.nativeEvent.code === 'Enter') {
+    if (e.code === 'Enter') {
       const defaultValue = props?.default?.show_name;
 
       setSearchValue(e.target.value || defaultValue || '');
@@ -95,7 +95,7 @@ function Search(props: Props): React.ReactElement {
             className={styles.inputText}
             value={searchValue}
             onChange={handleInputChange}
-            onKeyPress={handleEnterKey}
+            onKeyDown={handleEnterKey}
             placeholder={props?.default?.show_name}
           />
           {searchValue && (
@@ -138,11 +138,11 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
   };
 
   if (res?.code === 0) {
-    props.default = res.data!;
+    props.default = res.data || {};
   }
 
   if (res2?.code === 0) {
-    props.hot = (res2.list as HotItem[]).slice(0, 3);
+    props.hot = (res2.list as HotItem[]).slice(0, 3) || [];
   }
 
   return {
