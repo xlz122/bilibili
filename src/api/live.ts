@@ -14,6 +14,17 @@ export const liveIndex = ({ baseUrl }: BaseParams): AxiosPromise => {
   });
 };
 
+/**
+ * @description 直播分类
+ * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ */
+export const liveArea = ({ baseUrl }: BaseParams): AxiosPromise => {
+  return axios.request({
+    url: `${baseUrl ? baseUrl : '/api'}/live/area`,
+    method: 'get'
+  });
+};
+
 type LiveInfo = BaseParams & {
   roomid: number;
 };

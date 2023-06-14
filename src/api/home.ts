@@ -21,7 +21,7 @@ type Index = BaseParams & {
 /**
  * @description 首页列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } page - 页数
+ * @param { Number } page - 页数
  */
 export const indexList = ({ baseUrl, page }: Index): AxiosPromise => {
   const params = { page };
@@ -41,8 +41,8 @@ type IndexRegion = BaseParams & {
 /**
  * @description 分类 - 热门推荐列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } rid - 分类id
- * @param { String } day - 天数
+ * @param { Number } rid - 分类id
+ * @param { Number } day - 天数
  */
 export const indexRegion = ({
   baseUrl,
@@ -66,8 +66,8 @@ type IndexArchive = BaseParams & {
 /**
  * @description 分类 - 最新视频列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } tid - 分类id
- * @param { String } page - 页数
+ * @param { Number } tid - 分类id
+ * @param { Number } page - 页数
  */
 export const indexArchive = ({
   baseUrl,

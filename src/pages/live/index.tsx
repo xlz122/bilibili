@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { liveIndex } from '@/api/live';
@@ -18,6 +19,13 @@ type Props = {
 };
 
 function Live(props: Props): React.ReactElement {
+  const router = useRouter();
+
+  // 跳转直播分类
+  const jumpLiveAreas = (): void => {
+    router.push({ pathname: '/live/area' });
+  };
+
   return (
     <>
       <LiveBanner list={props.banner} />
@@ -27,7 +35,9 @@ function Live(props: Props): React.ReactElement {
           <button className={styles.operateItemBtn}>全部直播</button>
         </div>
         <div className={styles.operateItem}>
-          <button className={styles.operateItemBtn}>全部分类</button>
+          <button className={styles.operateItemBtn} onClick={jumpLiveAreas}>
+            全部分类
+          </button>
         </div>
       </div>
     </>
