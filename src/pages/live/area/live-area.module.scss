@@ -1,0 +1,51 @@
+.liveArea {
+  width: 100%;
+  height: 100vh;
+  background-color: #f2f2f2;
+}
+
+.logo {
+  display: inline-block;
+  min-width: 100%;
+  padding: px2rem(5.5) 0;
+  border-bottom: 1px solid #e7e7e7;
+  background-color: #fff;
+}
+
+.logoImage {
+  margin-left: px2rem(18);
+}
+
+.liveAreaMain {
+  padding: px2rem(10) px2rem(6);
+}
+
+.areaTitle {
+  margin: px2rem(6) 0 px2rem(33) px2rem(8);
+  font-size: px2rem(14);
+  font-weight: normal;
+}
+
+.areaList {
+  width: 100%;
+}
+
+.areaItem {
+  display: inline-block;
+  width: 33%;
+  margin-bottom: px2rem(50);
+  text-align: center;
+}
+
+.areaItemCover {
+  position: relative;
+  width: px2rem(60);
+  height: px2rem(60);
+  margin: 0 auto;
+}
+
+.areaItemText {
+  margin-top: px2rem(10);
+  color: gray;
+  font-size: px2rem(12);
+}

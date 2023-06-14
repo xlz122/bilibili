@@ -21,7 +21,7 @@ type RankRegion = BaseParams & {
 /**
  * @description 排行榜 - 分类列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { String } rid - 分类导航id
+ * @param { Number } rid - 分类导航id
  */
 export const rankRegion = ({ baseUrl, rid }: RankRegion): AxiosPromise => {
   const params = { rid };
