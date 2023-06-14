@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #fff;
   overflow: hidden;
 }
 
@@ -50,11 +50,14 @@
   }
 }
 
-.history {
+.spaceMain {
   flex: 1;
+  overflow-y: auto;
+}
+
+.history {
   padding: px2rem(8) px2rem(12) 0;
   background-color: #fff;
-  overflow-y: auto;
 }
 
 .historyItem {

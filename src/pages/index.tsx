@@ -78,11 +78,13 @@ function Index(props: Props): React.ReactElement {
   };
 
   return (
-    <ul className={styles.list}>
-      {props?.list?.map((item, index) => {
-        return <RenderItem key={index} item={item} />;
-      })}
-    </ul>
+    <div className={styles.indexMain}>
+      <ul className={styles.list}>
+        {props?.list?.map((item, index) => {
+          return <RenderItem key={index} item={item} />;
+        })}
+      </ul>
+    </div>
   );
 }
 
@@ -107,10 +109,12 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
 
 Index.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <Layout>
-      <TabBar />
-      {page}
-    </Layout>
+    <div className={styles.index}>
+      <Layout>
+        <TabBar />
+        {page}
+      </Layout>
+    </div>
   );
 };
 

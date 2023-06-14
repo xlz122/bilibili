@@ -79,7 +79,7 @@ function Channel(props: Props): React.ReactElement {
   };
 
   return (
-    <>
+    <div className={styles.channelMain}>
       <Panel title="热门推荐">
         <ul className={styles.list}>
           {props?.region?.map((item, index) => {
@@ -94,7 +94,7 @@ function Channel(props: Props): React.ReactElement {
           })}
         </ul>
       </Panel>
-    </>
+    </div>
   );
 }
 
@@ -137,10 +137,12 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 Channel.getLayout = function getLayout(page: React.ReactElement) {
   return (
-    <Layout>
-      <TabBar />
-      {page}
-    </Layout>
+    <div className={styles.channel}>
+      <Layout>
+        <TabBar />
+        {page}
+      </Layout>
+    </div>
   );
 };
 
