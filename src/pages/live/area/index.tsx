@@ -1,4 +1,5 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Image from 'next/image';
 import { liveArea } from '@/api/live';
@@ -17,13 +18,32 @@ type Props = {
 };
 
 function LiveArea(props: Props): React.ReactElement {
+  const router = useRouter();
+
+  // 跳转直播分类列表
+  const jumpLiveAreaList = ({ id, name }: { id: number; name: string }) => {
+    router.push({
+      pathname: '/live/list',
+      query: {
+        parent_area_id: id,
+        parent_area_name: name
+      }
+    });
+  };
+
   return (
     <div className={styles.liveAreaMain}>
       <h5 className={styles.areaTitle}>全部分类</h5>
       <ul className={styles.areaList}>
         {props.list?.map((item, index) => {
           return (
-            <li className={styles.areaItem} key={index}>
+            <li
+              className={styles.areaItem}
+              key={index}
+              onClick={() => {
+                jumpLiveAreaList({ id: item.id, name: item.name });
+              }}
+            >
               <div className={styles.areaItemCover}>
                 <Image
                   src={item?.entrance_icon?.src || ''}
