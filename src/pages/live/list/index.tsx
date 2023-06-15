@@ -75,6 +75,9 @@ function LiveList(props: Props): React.ReactElement {
         {props.list?.map((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
+        {props?.list?.length < 30 && (
+          <button className={styles.noMore}>没有更多直播间了</button>
+        )}
       </div>
     </div>
   );

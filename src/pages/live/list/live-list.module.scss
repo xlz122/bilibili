@@ -122,3 +122,14 @@
   /* 这里是超出几行省略 */
   -webkit-line-clamp: 2;
 }
+
+.noMore {
+  width: 100%;
+  height: px2rem(38);
+  border: 1px solid #d3d3d3;
+  margin-bottom: px2rem(16);
+  background-color: #fff;
+  color: #fb7299;
+  outline: none;
+  border-radius: 6px;
+}
