@@ -1,5 +1,7 @@
-.live {
+.liveList {
   width: 100%;
+  height: 100vh;
+  background-color: #fff;
 }
 
 .logo {
@@ -7,14 +9,21 @@
   min-width: 100%;
   padding: px2rem(5.5) 0;
   border-bottom: 1px solid #e7e7e7;
+  background-color: #fff;
 }
 
 .logoImage {
   margin-left: px2rem(18);
 }
 
-.liveMain {
-  background-color: #f4f4f4;
+.liveListMain {
+  padding: 0 px2rem(13);
+}
+
+.title {
+  margin: px2rem(13) 0;
+  font-size: px2rem(14);
+  font-weight: normal;
 }
 
 .list {
@@ -114,23 +123,11 @@
   -webkit-line-clamp: 2;
 }
 
-.operate {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: px2rem(12) px2rem(4);
-}
-
-.operateItem {
-  width: 50%;
-}
-
-.operateItemBtn {
-  width: 90%;
+.noMore {
+  width: 100%;
   height: px2rem(38);
-  margin: 0 5%;
   border: 1px solid #d3d3d3;
+  margin-bottom: px2rem(16);
   background-color: #fff;
   color: #fb7299;
   outline: none;
