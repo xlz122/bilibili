@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { throttle } from 'lodash';
 import { searchSuggest } from '@/api/search';
+import type { ResponseType } from '@/types';
 import styles from './suggest.module.scss';
 
 type Props = {
@@ -9,7 +10,7 @@ type Props = {
 };
 
 type List = {
-  name: string;
+  value: string;
 }[];
 
 function SearchSuggest(props: Props): React.ReactElement {
@@ -17,8 +18,10 @@ function SearchSuggest(props: Props): React.ReactElement {
 
   const getSearchSuggest = (keyword: string) => {
     searchSuggest({ keyword })
-      .then(res => {
-        setList(Object.values(res as unknown as List));
+      .then((res: ResponseType) => {
+        if (res.code === 0) {
+          setList((res as Record<string, { tag: List }>).result.tag || []);
+        }
       })
       .catch(() => ({}));
   };
@@ -47,9 +50,9 @@ function SearchSuggest(props: Props): React.ReactElement {
             <li
               className={styles.suggestItem}
               key={index}
-              onClick={() => props.search(item.name)}
+              onClick={() => props.search(item.value)}
             >
-              {item.name}
+              {item.value}
             </li>
           );
         })}

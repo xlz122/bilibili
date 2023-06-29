@@ -59,22 +59,22 @@ export const indexRegion = ({
 };
 
 type IndexArchive = BaseParams & {
-  tid: number;
+  rid: number;
   page: number;
 };
 
 /**
  * @description 分类 - 最新视频列表
  * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { Number } tid - 分类id
+ * @param { Number } rid - 分类id
  * @param { Number } page - 页数
  */
 export const indexArchive = ({
   baseUrl,
-  tid,
+  rid,
   page
 }: IndexArchive): AxiosPromise => {
-  const params = { tid, page };
+  const params = { rid, page };
 
   return axios.request({
     url: `${baseUrl ? baseUrl : '/api'}/index/archive`,
