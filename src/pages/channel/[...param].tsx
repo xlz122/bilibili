@@ -119,7 +119,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     // 最新视频列表
     const archive: ResponseType = await indexArchive({
       baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
-      tid: Number(param[1]) || Number(param[0]),
+      rid: Number(param[1]) || Number(param[0]),
       page: 1
     });
 

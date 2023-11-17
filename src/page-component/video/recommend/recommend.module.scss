@@ -20,11 +20,11 @@
   &::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 55%;
     right: 0;
     transform: translateY(-50%);
-    width: px2rem(14);
-    height: px2rem(14);
+    width: px2rem(12);
+    height: px2rem(12);
     background-image: url('../../../../public/images/video/icon-arrow.svg');
   }
 }
@@ -75,7 +75,7 @@
 }
 
 .itemIcon {
-  margin-top: px2rem(1);
+  margin-top: px2rem(-1);
   font-size: px2rem(16);
 }
 
