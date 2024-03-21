@@ -77,7 +77,6 @@ function SearchDetail(): React.ReactElement {
     })
       .then((res: ResponseType) => {
         if (res.code === 0) {
-          // 无数据
           if (!res.data.result || res.data.result.length === 0) {
             setNoData(true);
           }

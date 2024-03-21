@@ -76,7 +76,7 @@ export async function getStaticProps(): Promise<{
 
   if (res?.code === 0) {
     // 最后一项(精彩轮播)不展示
-    props.list = res?.data.slice(0, res.data.length - 1) || [];
+    props.list = res?.data?.slice(0, res.data.length - 1) || [];
   }
 
   return {

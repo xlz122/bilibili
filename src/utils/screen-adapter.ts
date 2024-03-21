@@ -1,7 +1,7 @@
 /**
- * @description 屏幕适配(适配不同屏幕的字体大小)
+ * @description 屏幕自适应
  */
-export default function screenAdapter() {
+function screenAdapter() {
   let clientWidth =
     document.documentElement.clientWidth || document.body.clientWidth;
 
@@ -12,3 +12,5 @@ export default function screenAdapter() {
   const fontSize = (20 / 375) * clientWidth;
   document.documentElement.style.fontSize = fontSize + 'px';
 }
+
+export default screenAdapter;

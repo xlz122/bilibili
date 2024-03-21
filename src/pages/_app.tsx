@@ -21,7 +21,7 @@ function MyApp({
   Component,
   pageProps
 }: AppPropsWithLayout): React.ReactElement {
-  // 屏幕适配
+  // 屏幕自适应
   useEffect(() => {
     screenAdapter();
     window.addEventListener('resize', screenAdapter);
@@ -44,7 +44,7 @@ function MyApp({
           name="viewport"
           content="width=device-width, initial-scale=1.0, user-scalable=no"
         ></meta>
-        {/* 解决视频链接403问题 */}
+        {/* 解决视频链接403报错 */}
         <meta name="referrer" content="never"></meta>
         <link
           rel="icon"

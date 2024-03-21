@@ -18,13 +18,13 @@ type Props = {
 
 type ItemType = {
   aid: number;
-  pic?: string;
+  pic: string;
   play: number;
   video_review: number;
-  title?: string;
-  stat?: {
-    danmaku?: number;
-    view?: number;
+  title: string;
+  stat: {
+    danmaku: number;
+    view: number;
   };
 };
 

@@ -75,7 +75,7 @@ function LiveList(props: Props): React.ReactElement {
         {props.list?.map((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
-        {props?.list?.length < 30 && (
+        {props.list?.length < 30 && (
           <button className={styles.noMore}>没有更多直播间了</button>
         )}
       </div>
@@ -84,22 +84,28 @@ function LiveList(props: Props): React.ReactElement {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const res: ResponseType = await liveAreaList({
-    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
-    parent_area_id: Number(context.query.parent_area_id),
-    area_id: 0,
-    page: 1,
-    size: 30
-  });
-
   const props: Props = {
     title: '',
     list: []
   };
 
-  if (res?.code === 0) {
-    props.title = String(context.query.parent_area_name);
-    props.list = res?.data?.list || [];
+  try {
+    const res: ResponseType = await liveAreaList({
+      baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
+      parent_area_id: Number(context.query.parent_area_id),
+      area_id: 0,
+      page: 1,
+      size: 30
+    });
+
+    if (res?.code === 0) {
+      props.title = String(context.query.parent_area_name);
+      props.list = res?.data?.list || [];
+    }
+  } catch {
+    return {
+      notFound: true
+    };
   }
 
   return {

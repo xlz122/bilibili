@@ -3,14 +3,14 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // 本地存储容错处理
 function faultTolerant(name: string) {
   if (typeof window === 'undefined') {
-    return false;
+    return;
   }
 
   if (localStorage.getItem(name) as string) {
     return JSON.parse(localStorage.getItem(name) as string);
   }
 
-  return false;
+  return;
 }
 
 export type RoutineState = {

@@ -96,7 +96,7 @@ function Search(props: Props): React.ReactElement {
             value={searchValue}
             onChange={handleInputChange}
             onKeyDown={handleEnterKey}
-            placeholder={props?.default?.show_name}
+            placeholder={props.default?.show_name}
           />
           {searchValue && (
             <Image
@@ -138,11 +138,11 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
   };
 
   if (res?.code === 0) {
-    props.default = res.data || {};
+    props.default = res?.data || {};
   }
 
   if (res2?.code === 0) {
-    props.hot = (res2.list as HotItem[]).slice(0, 3) || [];
+    props.hot = (res2?.list as HotItem[])?.slice(0, 3) || [];
   }
 
   return {

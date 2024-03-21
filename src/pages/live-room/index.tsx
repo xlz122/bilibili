@@ -67,17 +67,23 @@ function LiveRoom(props: Props): React.ReactElement {
 }
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const res: ResponseType<Props> = await liveInfo({
-    baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
-    roomid: Number(context.query.roomid)
-  });
-
   const props = {
     data: {}
   };
 
-  if (res?.code === 0) {
-    props.data = res.data || {};
+  try {
+    const res: ResponseType<Props> = await liveInfo({
+      baseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
+      roomid: Number(context.query.roomid)
+    });
+
+    if (res?.code === 0) {
+      props.data = res?.data || {};
+    }
+  } catch {
+    return {
+      notFound: true
+    };
   }
 
   return {

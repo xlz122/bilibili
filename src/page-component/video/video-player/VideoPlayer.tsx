@@ -80,11 +80,11 @@ function VideoPlayer(props: Props): React.ReactElement {
           </div>
           <div className={styles.coverTip}>
             <span className={styles.tipText}>
-              {formatTenThousand(props.stat.view)}万观看
+              {formatTenThousand(props.stat.view)}播放
             </span>
             <span className={styles.tipText}>{props.stat.danmaku}弹幕</span>
             <span className={styles.tipText}>
-              {formatDateTime(props?.ctime, 'MM-dd')}
+              {formatDateTime(props?.ctime, 'MM月dd日')}
             </span>
             <span className={styles.tipTime}>
               {timeStampToDuration(props.duration)}

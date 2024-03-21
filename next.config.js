@@ -2,7 +2,6 @@
 const path = require('path');
 
 const securityHeaders = [
-  // xxs保护
   {
     key: 'X-XSS-Protection',
     value: '1; mode=block'
@@ -11,15 +10,24 @@ const securityHeaders = [
 
 const nextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_URL,
-  // 资产资源前缀
+  // 资源前缀
   // assetPrefix: process.env.NEXT_PUBLIC_BASE_URL,
   reactStrictMode: true,
   swcMinify: true,
   // 图片基础路径
   images: {
-    domains: ['i0.hdslb.com', 'i1.hdslb.com', 'i2.hdslb.com', 's1.hdslb.com']
+    remotePatterns: [
+      {
+        protocol: 'http',
+        hostname: '**.hdslb.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.hdslb.com'
+      }
+    ]
   },
-  // 全局scss文件
+  // 全局scss
   sassOptions: {
     includePaths: [path.join(__dirname, './src/styles')],
     prependData: `@import "global.scss";`
@@ -42,8 +50,8 @@ const nextConfig = {
     return [
       {
         source: '/:path*',
-        headers: securityHeaders,
-      },
+        headers: securityHeaders
+      }
     ]
   }
 };

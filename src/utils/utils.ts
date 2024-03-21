@@ -1,6 +1,6 @@
 /**
- * 格式化数字
- * 1218807 => 121.9万
+ * @description 格式化数字
+ * @return { string } 1218807 => 121.9万
  */
 export function formatTenThousand(num: number): string {
   const numStr = String(num);
@@ -33,6 +33,7 @@ export function timeStampToDuration(timeStamp: number): string {
   let h = 0,
     i = 0,
     s = parseInt(time);
+
   if (s > 60) {
     i = parseInt((s / 60).toString());
     s = parseInt((s % 60).toString());
@@ -41,10 +42,12 @@ export function timeStampToDuration(timeStamp: number): string {
       i = parseInt((i % 60).toString());
     }
   }
+
   // 补零
   const zero = function (v: number) {
     return v >> 0 < 10 ? '0' + v : v;
   };
+
   const h2 = zero(h);
   const i2 = zero(i);
   const s2 = zero(s);

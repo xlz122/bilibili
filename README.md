@@ -15,13 +15,13 @@
 ## 项目使用技术栈
 
 * React
-* Next 14.0.3
+* Next 14.0.4
 * Redux
 * TypeScript
 
 ## 加入项目
 
-如果想加入本项目开发，需将项目fork到自己的仓库下，功能开发完成后，提PR即可
+如果想加入本项目开发，需将项目fork到自己的仓库下，功能开发完成后，提PR即可。
 
 ## 运行
 
@@ -45,12 +45,11 @@ yarn build
 
 |首页|直播|排行榜|我的|
 |---|---|---|---|
-|![](./public/design-sketch/home.jpg)|![](./public/design-sketch/live.jpg)|![](./public/design-sketch/ranking.jpg)|![](./public/design-sketch/space.jpg)|
+|![](./preview/home.jpg)|![](./preview/live.jpg)|![](./preview/ranking.jpg)|![](./preview/space.jpg)|
 
 |视频详情|搜索|搜索建议|搜索详情|
 |---|---|---|---|
-|![](./public/design-sketch/video.jpg)|![](./public/design-sketch/search.jpg)|![](./public/design-sketch/search-suggest.jpg)|![](./public/design-sketch/search-detail.jpg)|
-
+|![](./preview/video.jpg)|![](./preview/search.jpg)|![](./preview/search-suggest.jpg)|![](./preview/search-detail.jpg)|
 
 ## 写在最后
 

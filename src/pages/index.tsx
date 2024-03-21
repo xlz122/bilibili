@@ -80,7 +80,7 @@ function Index(props: Props): React.ReactElement {
   return (
     <div className={styles.indexMain}>
       <ul className={styles.list}>
-        {props?.list?.map((item, index) => {
+        {props.list?.map((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
       </ul>
