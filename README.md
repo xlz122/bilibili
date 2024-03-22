@@ -8,14 +8,14 @@
 
 ## 简介
 
-本项目是一个仿写哔哩哔哩H5移动端项目
+本项目是一个哔哩哔哩H5移动端项目
 
 接口及接口文档请查看 [bilibili-server](https://github.com/xlz122/bilibili-server)
 
 ## 项目使用技术栈
 
 * React
-* Next 14.0.4
+* Next 14.1.4
 * Redux
 * TypeScript
 
