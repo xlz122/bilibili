@@ -76,26 +76,26 @@ function SearchDetail(): React.ReactElement {
       size: 10
     })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
-          if (!res.data.result || res.data.result.length === 0) {
+        if (res?.code === 0) {
+          if (!res.data?.result || res.data?.result?.length === 0) {
             setNoData(true);
           }
 
           // 综合
           if (tab.type === 'video') {
-            setDetail({ video: res.data });
+            setDetail({ video: res.data || {} });
           }
           // 番剧
           if (tab.type === 'media_bangumi') {
-            setDetail({ fanju: res.data });
+            setDetail({ fanju: res.data || {} });
           }
           // up
           if (tab.type === 'bili_user') {
-            setDetail({ up: res.data });
+            setDetail({ up: res.data || {} });
           }
           // 影视
           if (tab.type === 'media_ft') {
-            setDetail({ movie: res.data });
+            setDetail({ movie: res.data || {} });
           }
         }
       })
@@ -109,7 +109,7 @@ function SearchDetail(): React.ReactElement {
   return (
     <div className={styles.searchDetail}>
       <ul className={styles.tab}>
-        {tab?.list?.map((item, index) => {
+        {tab.list?.map?.((item, index) => {
           return (
             <li
               className={`${styles.tabItem} ${
@@ -124,7 +124,7 @@ function SearchDetail(): React.ReactElement {
         })}
       </ul>
       <ul className={styles.orderTab}>
-        {tab?.list[tab.index]?.children?.map((item, index) => {
+        {tab.list?.[tab.index]?.children?.map?.((item, index) => {
           return (
             <li
               className={`${styles.orderItem} ${

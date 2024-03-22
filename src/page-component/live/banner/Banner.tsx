@@ -27,7 +27,7 @@ function LiveBanner(props: Props): React.ReactElement {
         }}
         modules={[Pagination]}
       >
-        {props?.list?.map((item, index) => {
+        {props.list?.map?.((item, index) => {
           return (
             <SwiperSlide key={index}>
               <Link href={item.link}>

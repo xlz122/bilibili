@@ -32,7 +32,7 @@ function Up(props: Props): React.ReactElement {
 
   return (
     <ul>
-      {props.list?.map((item, index) => {
+      {props.list?.map?.((item, index) => {
         return <RenderItem key={index} item={item} />;
       })}
     </ul>

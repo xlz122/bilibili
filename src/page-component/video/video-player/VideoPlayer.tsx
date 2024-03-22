@@ -29,8 +29,8 @@ function VideoPlayer(props: Props): React.ReactElement {
       cid: props.cid
     })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
-          setVideoSrc(res.data?.durl[0]?.url);
+        if (res?.code === 0) {
+          setVideoSrc(res.data?.durl?.[0]?.url || '');
         }
       })
       .catch(() => ({}));
@@ -53,7 +53,7 @@ function VideoPlayer(props: Props): React.ReactElement {
   };
 
   useEffect(() => {
-    playing && videoRef.current?.play();
+    playing && videoRef.current?.play?.();
   }, [playing]);
 
   return (
@@ -84,7 +84,7 @@ function VideoPlayer(props: Props): React.ReactElement {
             </span>
             <span className={styles.tipText}>{props.stat.danmaku}弹幕</span>
             <span className={styles.tipText}>
-              {formatDateTime(props?.ctime, 'MM月dd日')}
+              {formatDateTime(props.ctime, 'MM月dd日')}
             </span>
             <span className={styles.tipTime}>
               {timeStampToDuration(props.duration)}

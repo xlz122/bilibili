@@ -75,7 +75,7 @@ function Live(props: Props): React.ReactElement {
       }}
     >
       <div className={styles.list}>
-        {item?.list?.map((i, ind) => {
+        {item.list?.map?.((i, ind) => {
           return <RenderItem key={ind} item={i} />;
         })}
       </div>
@@ -87,7 +87,7 @@ function Live(props: Props): React.ReactElement {
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}
-          src={item?.cover || ''}
+          src={item.cover || ''}
           fill
           sizes="50%"
           priority
@@ -105,7 +105,7 @@ function Live(props: Props): React.ReactElement {
               alt=""
             />
             <span className={styles.countText}>
-              {formatTenThousand(item?.watched_show?.num)}
+              {formatTenThousand(item.watched_show?.num)}
             </span>
           </div>
         </div>
@@ -117,7 +117,7 @@ function Live(props: Props): React.ReactElement {
   return (
     <div className={styles.liveMain}>
       <LiveBanner list={props.banner} />
-      {props.list?.map((item, index) => {
+      {props.list?.map?.((item, index) => {
         // 第一项不展示
         if (index === 0) {
           return null;
@@ -160,8 +160,8 @@ export async function getStaticProps(): Promise<{
   };
 
   if (res?.code === 0) {
-    props.banner = res?.data?.module_list[0]?.list || [];
-    props.list = res?.data?.module_list?.slice(1) || [];
+    props.banner = res.data?.module_list?.[0]?.list || [];
+    props.list = res.data?.module_list?.slice?.(1) || [];
   }
 
   return {

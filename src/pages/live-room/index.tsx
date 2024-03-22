@@ -78,7 +78,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     });
 
     if (res?.code === 0) {
-      props.data = res?.data || {};
+      props.data = res.data || {};
     }
   } catch {
     return {

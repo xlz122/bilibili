@@ -19,7 +19,7 @@ function SearchSuggest(props: Props): React.ReactElement {
   const getSearchSuggest = (keyword: string) => {
     searchSuggest({ keyword })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
+        if (res?.code === 0) {
           setList((res as Record<string, { tag: List }>).result.tag || []);
         }
       })
@@ -45,7 +45,7 @@ function SearchSuggest(props: Props): React.ReactElement {
   return (
     <div className={styles.searchSuggest}>
       <ul className={styles.suggestList}>
-        {list?.map((item, index) => {
+        {list.map?.((item, index) => {
           return (
             <li
               className={styles.suggestItem}

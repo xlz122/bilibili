@@ -56,7 +56,7 @@ function Channel(props: Props): React.ReactElement {
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}
-            src={item?.pic || ''}
+            src={item.pic || ''}
             fill
             sizes="50%"
             priority
@@ -77,7 +77,7 @@ function Channel(props: Props): React.ReactElement {
             </div>
           </div>
         </div>
-        <div className={styles.itemTitle}>{item?.title}</div>
+        <div className={styles.itemTitle}>{item.title}</div>
       </li>
     );
   };
@@ -88,7 +88,7 @@ function Channel(props: Props): React.ReactElement {
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}
-            src={item?.pic || ''}
+            src={item.pic || ''}
             fill
             sizes="50%"
             priority
@@ -98,18 +98,18 @@ function Channel(props: Props): React.ReactElement {
             <div className={styles.infoItem}>
               <i className={`icon-play-count ${styles.itemIcon}`}></i>
               <span className={styles.itemText}>
-                {item?.stat?.view && formatTenThousand(item?.stat?.view)}
+                {item.stat?.view && formatTenThousand(item.stat.view)}
               </span>
             </div>
             <div className={styles.infoItem}>
               <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
               <span className={styles.itemText}>
-                {item?.stat?.danmaku && formatTenThousand(item?.stat?.danmaku)}
+                {item.stat?.danmaku && formatTenThousand(item.stat.danmaku)}
               </span>
             </div>
           </div>
         </div>
-        <div className={styles.itemTitle}>{item?.title}</div>
+        <div className={styles.itemTitle}>{item.title}</div>
       </li>
     );
   };
@@ -118,14 +118,14 @@ function Channel(props: Props): React.ReactElement {
     <div className={styles.channelMain}>
       <Panel title="热门推荐">
         <ul className={styles.list}>
-          {props?.region?.map((item, index) => {
+          {props.region?.map?.((item, index) => {
             return <RenderItem key={index} item={item} />;
           })}
         </ul>
       </Panel>
       <Panel title="最新视频">
         <ul className={styles.list}>
-          {props?.archive?.map((item, index) => {
+          {props.archive?.map?.((item, index) => {
             return <RenderArchiveItem key={index} item={item} />;
           })}
         </ul>
@@ -150,7 +150,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       day: 7
     });
 
-    props.region = region?.data?.slice(0, 4) || [];
+    props.region = region.data?.slice?.(0, 4) || [];
 
     // 最新视频列表
     const archive: ResponseType = await indexArchive({
@@ -159,7 +159,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       page: 1
     });
 
-    props.archive = archive?.data?.archives || [];
+    props.archive = archive.data?.archives || [];
   } catch {
     return {
       notFound: true

@@ -41,7 +41,7 @@ function LiveList(props: Props): React.ReactElement {
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}
-          src={item?.cover || ''}
+          src={item.cover || ''}
           fill
           sizes="50%"
           priority
@@ -59,7 +59,7 @@ function LiveList(props: Props): React.ReactElement {
               alt=""
             />
             <span className={styles.countText}>
-              {formatTenThousand(item?.watched_show?.num)}
+              {formatTenThousand(item.watched_show?.num)}
             </span>
           </div>
         </div>
@@ -72,7 +72,7 @@ function LiveList(props: Props): React.ReactElement {
     <div className={styles.liveListMain}>
       <h5 className={styles.title}>{props.title}</h5>
       <div className={styles.list}>
-        {props.list?.map((item, index) => {
+        {props.list?.map?.((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
         {props.list?.length < 30 && (
@@ -100,7 +100,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     if (res?.code === 0) {
       props.title = String(context.query.parent_area_name);
-      props.list = res?.data?.list || [];
+      props.list = res.data?.list || [];
     }
   } catch {
     return {

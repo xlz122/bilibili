@@ -36,14 +36,14 @@ function Video(props: Props): React.ReactElement {
           <div className={styles.authorInfo}>
             <div className={styles.infoCover}>
               <Image
-                src={props?.owner?.face}
+                src={props.owner?.face}
                 fill
                 sizes="100%"
                 priority
                 alt=""
               />
             </div>
-            <span className={styles.infoText}>{props?.owner?.name}</span>
+            <span className={styles.infoText}>{props.owner?.name}</span>
           </div>
           <div className={styles.authorOther}>
             <i className={styles.iconLike}></i>
@@ -72,7 +72,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     });
 
     if (res?.code === 0) {
-      Object.assign(props, res.data);
+      Object.assign(props, res.data || {});
     }
   } catch {
     return {

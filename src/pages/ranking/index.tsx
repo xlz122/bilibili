@@ -30,11 +30,12 @@ function Ranking(): React.ReactElement {
   const rid = useSearchParams().get('rid');
 
   const [list, setList] = useState([]);
+
   const getRankRegion = () => {
     rankRegion({ rid: Number(rid) })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
-          setList(res?.data?.list?.slice(0, 20));
+        if (res?.code === 0) {
+          setList(res.data?.list?.slice?.(0, 20));
         }
       })
       .catch(() => ({}));
@@ -135,7 +136,7 @@ function Ranking(): React.ReactElement {
       <TabBar />
       <div className={styles.rankingMain}>
         <ul className={styles.rankList}>
-          {list?.map((item, index) => {
+          {list.map?.((item, index) => {
             return <RenderItem key={index} item={item} index={index} />;
           })}
         </ul>

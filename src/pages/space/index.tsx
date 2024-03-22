@@ -51,7 +51,7 @@ function Space(): React.ReactElement {
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}
-          src={item?.pic || ''}
+          src={item.pic || ''}
           fill
           sizes="50%"
           priority
@@ -106,7 +106,7 @@ function Space(): React.ReactElement {
       <div className={styles.spaceMain}>
         {tabIndex === 0 && mounted && viewHistory.length > 0 && (
           <ul className={styles.history}>
-            {viewHistory.map((item, index) => {
+            {viewHistory.map?.((item, index) => {
               return <RenderItem key={index} item={item} />;
             })}
           </ul>

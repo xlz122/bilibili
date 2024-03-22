@@ -29,7 +29,7 @@ function TabBar(): React.ReactElement {
     partitions({})
       .then((res: ResponseType<List>) => {
         if (res?.code === 0) {
-          setList(res?.data!);
+          setList(res.data || []);
         }
       })
       .catch(() => ({}));
@@ -50,7 +50,7 @@ function TabBar(): React.ReactElement {
     }
 
     const index = list.findIndex(item => item.tid === Number(param[0]));
-    const subIndex = list[index]?.children?.findIndex(
+    const subIndex = list?.[index]?.children?.findIndex(
       item => item.rid === (Number(param[1]) || Number(param[0]))
     );
 
@@ -82,7 +82,7 @@ function TabBar(): React.ReactElement {
               首页
             </Link>
           </div>
-          {list.map((item, index) => {
+          {list.map?.((item, index) => {
             return (
               <div
                 className={`${styles.item} ${
@@ -107,7 +107,7 @@ function TabBar(): React.ReactElement {
       </div>
       <div className={styles.group}>
         <ul className={`${styles.list} ${styles.subList}`}>
-          {list[tab.navIndex]?.children?.map((item, index) => {
+          {list?.[tab.navIndex]?.children?.map?.((item, index) => {
             return (
               <li
                 className={`${styles.item} ${

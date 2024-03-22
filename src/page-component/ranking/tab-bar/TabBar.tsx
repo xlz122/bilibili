@@ -14,11 +14,12 @@ function TabBar(): React.ReactElement {
   const rid = useSearchParams().get('rid');
 
   const [list, setList] = useState<List>([]);
+
   const getRankNav = () => {
     rankNav({})
       .then((res: ResponseType<List>) => {
         if (res?.code === 0) {
-          setList(res?.data!);
+          setList(res.data || []);
         }
       })
       .catch(() => ({}));
@@ -32,7 +33,7 @@ function TabBar(): React.ReactElement {
     <div className={styles.tabbar}>
       <div className={styles.group}>
         <ul className={styles.list}>
-          {list?.map((item, index) => {
+          {list.map?.((item, index) => {
             return (
               <li
                 className={`${styles.item} ${

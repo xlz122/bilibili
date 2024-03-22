@@ -34,7 +34,7 @@ function SearchHistory(props: Props): React.ReactElement {
       <div className={styles.searchHot}>
         <h2 className={styles.hotTitle}>大家都在搜</h2>
         <ul className={styles.hotList}>
-          {props?.list?.map((item, index) => {
+          {props.list?.map?.((item, index) => {
             return (
               <li
                 className={styles.hotItem}
@@ -49,10 +49,10 @@ function SearchHistory(props: Props): React.ReactElement {
       </div>
       <div className={styles.history}>
         <div className={styles.historyTitle}>历史搜索</div>
-        {mounted && searchHistory?.length > 0 && (
+        {mounted && searchHistory.length > 0 && (
           <>
             <ul className={styles.historyList}>
-              {searchHistory?.map((item, index) => {
+              {searchHistory.map?.((item, index) => {
                 return (
                   <li
                     className={styles.historyItem}

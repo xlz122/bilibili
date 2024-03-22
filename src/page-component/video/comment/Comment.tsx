@@ -28,11 +28,12 @@ function VideoComment(): React.ReactElement {
   const aid = useSearchParams().get('aid');
 
   const [comment, setComment] = useState<Partial<Comment>>({});
+
   const getVideoRecommend = () => {
     videoComment({ aid: Number(aid), page: 1 })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
-          setComment(res.data);
+        if (res?.code === 0) {
+          setComment(res.data || []);
         }
       })
       .catch(() => ({}));
@@ -74,10 +75,10 @@ function VideoComment(): React.ReactElement {
     <div className={styles.videoComment}>
       <div className={styles.title}>
         <span>评论</span>
-        <span className={styles.titleCount}>{`(${comment?.page?.count})`}</span>
+        <span className={styles.titleCount}>{`(${comment.page?.count})`}</span>
       </div>
       <ul className={styles.list}>
-        {comment?.replies?.map((item, index) => {
+        {comment.replies?.map?.((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
       </ul>

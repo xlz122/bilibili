@@ -51,7 +51,7 @@ function Index(props: Props): React.ReactElement {
         <div className={styles.itemCover}>
           <Image
             className={styles.itemImage}
-            src={item?.pic || ''}
+            src={item.pic || ''}
             fill
             sizes="50%"
             priority
@@ -72,7 +72,7 @@ function Index(props: Props): React.ReactElement {
             </div>
           </div>
         </div>
-        <div className={styles.itemTitle}>{item?.title}</div>
+        <div className={styles.itemTitle}>{item.title}</div>
       </li>
     );
   };
@@ -80,7 +80,7 @@ function Index(props: Props): React.ReactElement {
   return (
     <div className={styles.indexMain}>
       <ul className={styles.list}>
-        {props.list?.map((item, index) => {
+        {props.list?.map?.((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
       </ul>
@@ -98,8 +98,8 @@ export async function getServerSideProps(): Promise<{ props: Props }> {
     list: []
   };
 
-  if (res.code === 0) {
-    props.list = res?.data?.slice(0, 20) || [];
+  if (res?.code === 0) {
+    props.list = res.data?.slice?.(0, 20) || [];
   }
 
   return {

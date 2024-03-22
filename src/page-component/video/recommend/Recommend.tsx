@@ -25,11 +25,12 @@ function VideoRecommend(): React.ReactElement {
   const aid = useSearchParams().get('aid');
 
   const [list, setList] = useState([]);
+
   const getVideoRecommend = () => {
     videoRecommend({ aid: Number(aid) })
       .then((res: ResponseType) => {
-        if (res.code === 0) {
-          setList(res.data.slice(0, 4));
+        if (res?.code === 0) {
+          setList(res.data?.slice?.(0, 4) || []);
         }
       })
       .catch(() => ({}));
@@ -66,7 +67,7 @@ function VideoRecommend(): React.ReactElement {
       <div className={styles.itemCover}>
         <Image
           className={styles.itemImage}
-          src={item?.pic || ''}
+          src={item.pic || ''}
           fill
           sizes="50%"
           priority
@@ -87,7 +88,7 @@ function VideoRecommend(): React.ReactElement {
           </div>
         </div>
       </div>
-      <div className={styles.itemTitle}>{item?.title}</div>
+      <div className={styles.itemTitle}>{item.title}</div>
     </li>
   );
 
@@ -98,7 +99,7 @@ function VideoRecommend(): React.ReactElement {
         <div className={styles.moreText}>查看更多</div>
       </div>
       <ul className={styles.list}>
-        {list?.map((item, index) => {
+        {list.map?.((item, index) => {
           return <RenderItem key={index} item={item} />;
         })}
       </ul>

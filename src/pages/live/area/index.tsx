@@ -35,7 +35,7 @@ function LiveArea(props: Props): React.ReactElement {
     <div className={styles.liveAreaMain}>
       <h5 className={styles.areaTitle}>全部分类</h5>
       <ul className={styles.areaList}>
-        {props.list?.map((item, index) => {
+        {props.list?.map?.((item, index) => {
           return (
             <li
               className={styles.areaItem}
@@ -46,7 +46,7 @@ function LiveArea(props: Props): React.ReactElement {
             >
               <div className={styles.areaItemCover}>
                 <Image
-                  src={item?.entrance_icon?.src || ''}
+                  src={item.entrance_icon?.src || ''}
                   fill
                   sizes="50%"
                   priority
@@ -76,7 +76,7 @@ export async function getStaticProps(): Promise<{
 
   if (res?.code === 0) {
     // 最后一项(精彩轮播)不展示
-    props.list = res?.data?.slice(0, res.data.length - 1) || [];
+    props.list = res.data?.slice?.(0, res.data?.length - 1) || [];
   }
 
   return {
