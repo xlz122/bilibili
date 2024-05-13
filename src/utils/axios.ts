@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {
+import type {
   AxiosRequestConfig,
   InternalAxiosRequestConfig,
   AxiosResponse,
@@ -42,11 +42,9 @@ class HttpRequest {
 
   getInsideConfig(): AxiosRequestConfig {
     let config = {
-      // 基础路径
       baseURL: '',
-      // 允许跨域带token, cookie
+      // 跨域携带cookie
       withCredentials: true,
-      // 请求超时
       timeout: 60000,
       headers: {
         'Content-Type': 'application/json;charset=UTF-8'
@@ -69,11 +67,10 @@ class HttpRequest {
     // 请求拦截
     instance.interceptors.request.use(
       (config: InternalAxiosRequestConfig) => {
-        // 拦截重复请求(即当前正在进行的相同请求)
-        const requestData: string = getRequestIdentify(config, true); // 标识请求
+        // 标识请求
+        const requestData: string = getRequestIdentify(config, true);
         // 取消重复请求
         removePending(requestData, true);
-        // 创建当前请求的取消方法
         config.cancelToken = new CancelToken(cancel => {
           pending[requestData] = cancel;
         });
@@ -86,9 +83,14 @@ class HttpRequest {
     );
     // 响应拦截
     instance.interceptors.response.use(
-      (res: AxiosResponse) => {
-        const data = res.data;
-        return Promise.resolve(data);
+      (response: AxiosResponse) => {
+        const res = response.headers['content-type'].includes(
+          'application/json'
+        )
+          ? response.data
+          : response;
+
+        return Promise.resolve(res);
       },
       (error: AxiosError) => {
         return Promise.reject(error);
