@@ -15,7 +15,7 @@
 ## 项目使用技术栈
 
 * React
-* Next 14.1.4
+* Next 14.2.3
 * Redux
 * TypeScript
 
