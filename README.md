@@ -1,6 +1,6 @@
 # 哔哩哔哩
 
-**特别声明：本项目中的展示图片归哔哩哔哩所有。如果侵权，请提交 Issues 联系。**
+**特别声明：本项目中的展示图片归哔哩哔哩所有。如果侵权，请提交 Issues 联系。** 
 
 ## 环境要求
 
@@ -12,10 +12,12 @@
 
 接口及接口文档请查看 [bilibili-server](https://github.com/xlz122/bilibili-server)
 
+master分支使用最新的App Router进行重构, Pages Router可查看[pages-router分支](https://github.com/xlz122/bilibili/tree/pages-router)
+
 ## 项目使用技术栈
 
 * React
-* Next 14.1.4
+* Next 14.2.3
 * Redux
 * TypeScript
 

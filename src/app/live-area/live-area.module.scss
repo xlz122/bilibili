@@ -1,0 +1,36 @@
+.liveArea {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.title {
+  margin: px2rem(16) 0 px2rem(33) px2rem(16);
+  font-size: px2rem(14);
+  font-weight: normal;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
+  justify-content: center;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: px2rem(50);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(60);
+  height: px2rem(60);
+}
+
+.itemText {
+  margin-top: px2rem(10);
+  color: gray;
+  font-size: px2rem(12);
+}

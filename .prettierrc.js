@@ -7,7 +7,7 @@ module.exports = {
   bracketSpacing: true,
   // 箭头函数参数括号(1个参数不需要, 1个以上需要)
   arrowParens: 'avoid',
-  // jsx中的'>'是否单独放一行
+  // JSX '>' 单独一行
   bracketSameLine: false,
   // 折行标准
   proseWrap: 'preserve',

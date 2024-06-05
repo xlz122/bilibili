@@ -48,15 +48,16 @@ export function timeStampToDuration(timeStamp: number): string {
     return v >> 0 < 10 ? '0' + v : v;
   };
 
+  let result = '';
   const h2 = zero(h);
   const i2 = zero(i);
   const s2 = zero(s);
-  let ok = '';
+
   if (Number(h2) <= 0) {
-    ok = [i2, s2].join(':');
+    result = [i2, s2].join(':');
   } else {
-    ok = [h2, i2, s2].join(':');
+    result = [h2, i2, s2].join(':');
   }
 
-  return ok;
+  return result;
 }

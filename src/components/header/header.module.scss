@@ -4,13 +4,14 @@
   justify-content: space-between;
   align-items: center;
   height: px2rem(28);
-  padding: px2rem(8) 0;
+  padding: 0 px2rem(12);
+  margin: px2rem(8) 0;
 }
 
 .logo {
   width: px2rem(62);
   height: 100%;
-  margin-left: px2rem(18);
+  margin-left: px2rem(6);
 }
 
 .other {
@@ -21,7 +22,8 @@
 }
 
 .search {
-  margin-top: px2rem(8.5);
+  width: px2rem(24);
+  height: px2rem(24);
   margin-right: px2rem(22);
   font-size: px2rem(20);
 }
@@ -29,10 +31,6 @@
 .avatar {
   width: px2rem(24);
   height: px2rem(24);
-  margin-top: px2rem(2);
-  margin-right: px2rem(12);
-
-  svg {
-    border-radius: 50%;
-  }
+  border-radius: 50%;
+  overflow: hidden;
 }
