@@ -1,0 +1,31 @@
+{
+  "extends": ["next", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+
+    // 禁止使用var
+    "no-var": [2],
+    // 字符串单引号
+    "quotes": [2, "single"],
+    // 对象末尾逗号
+    "comma-dangle": [2, "never"],
+    // 箭头函数前后空格
+    "arrow-spacing": [2, { "before": true, "after": true }],
+    // 箭头函数参数括号(1个参数不需要, 1个以上需要)
+    "arrow-parens": [2, "as-needed"],
+    // 全等(===、!==)
+    "eqeqeq": [2],
+    // 语句结尾分号
+    "semi": [2, "always"],
+    // 空格缩进
+    "indent": [2, 2],
+    // 文件末尾换行
+    "eol-last": [2],
+
+    // 闭合标签(组件省略, html不省略)
+    "react/self-closing-comp": [2, { "component": true, "html": false }],
+    // 检查effect依赖
+    "react-hooks/exhaustive-deps": [0]
+  }
+}

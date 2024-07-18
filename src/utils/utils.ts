@@ -1,6 +1,6 @@
 /**
- * 格式化数字
- * 1218807 => 121.9万
+ * @description 格式化数字
+ * @return { string } 1234567 => 123.4万
  */
 export function formatTenThousand(num: number): string {
   const numStr = String(num);
@@ -25,13 +25,15 @@ export function formatTenThousand(num: number): string {
 
 /**
  * @description 时间戳转视频时长
- * @return { String } 视频时长 01:23:45
+ * @param { number } timeStamp - 时间戳
+ * @return { string } 视频时长 01:23:45
  */
 export function timeStampToDuration(timeStamp: number): string {
   const time = timeStamp.toString();
   let h = 0,
     i = 0,
     s = parseInt(time);
+
   if (s > 60) {
     i = parseInt((s / 60).toString());
     s = parseInt((s % 60).toString());
@@ -40,19 +42,22 @@ export function timeStampToDuration(timeStamp: number): string {
       i = parseInt((i % 60).toString());
     }
   }
+
   // 补零
   const zero = function (v: number) {
     return v >> 0 < 10 ? '0' + v : v;
   };
+
+  let result = '';
   const h2 = zero(h);
   const i2 = zero(i);
   const s2 = zero(s);
-  let ok = '';
+
   if (Number(h2) <= 0) {
-    ok = [i2, s2].join(':');
+    result = [i2, s2].join(':');
   } else {
-    ok = [h2, i2, s2].join(':');
+    result = [h2, i2, s2].join(':');
   }
 
-  return ok;
+  return result;
 }

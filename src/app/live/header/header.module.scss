@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.logo {
+  padding: px2rem(6) px2rem(18);
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.tabbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 px2rem(7);
+}
+
+.tabItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: px2rem(60);
+  height: px2rem(36);
+  font-size: px2rem(15);
+
+  a {
+    color: #000;
+  }
+}
+
+.tabActiveItem {
+  border-bottom: px2rem(4) solid #fb7299;
+}

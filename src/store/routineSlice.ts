@@ -1,24 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// 本地存储容错处理
-function faultTolerant(name: string) {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  if (localStorage.getItem(name) as string) {
-    return JSON.parse(localStorage.getItem(name) as string);
-  }
-
-  return false;
-}
-
 export type RoutineState = {
   searchHistory: string[];
   viewHistory: ViewHistory[];
 };
 
-type ViewHistory = {
+export type ViewHistory = {
   aid: number;
   pic: string;
   title: string;
@@ -26,8 +13,8 @@ type ViewHistory = {
 };
 
 const initialState: RoutineState = {
-  searchHistory: faultTolerant('searchHistory') || [],
-  viewHistory: faultTolerant('viewHistory') || []
+  searchHistory: getLocalStorage('searchHistory', []),
+  viewHistory: getLocalStorage('viewHistory', [])
 };
 
 const routineSlice = createSlice({
@@ -45,7 +32,7 @@ const routineSlice = createSlice({
       state: RoutineState,
       action: PayloadAction<ViewHistory>
     ) => {
-      const viewHistory = faultTolerant('viewHistory') || [];
+      const viewHistory = getLocalStorage('viewHistory', []);
 
       // 去重
       if (viewHistory) {
@@ -65,6 +52,16 @@ const routineSlice = createSlice({
     }
   }
 });
+
+function getLocalStorage(name: string, defaultValue: unknown) {
+  if (typeof window === 'undefined') return;
+
+  if (localStorage.getItem(name)) {
+    return JSON.parse(localStorage.getItem(name) ?? '');
+  }
+
+  return defaultValue;
+}
 
 export const { setSearchHistory, setViewHistory } = routineSlice.actions;
 
