@@ -1,24 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-// 本地存储容错处理
-function faultTolerant(name: string) {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  if (localStorage.getItem(name) as string) {
-    return JSON.parse(localStorage.getItem(name) as string);
-  }
-
-  return false;
-}
-
 export type RoutineState = {
   searchHistory: string[];
   viewHistory: ViewHistory[];
 };
 
-type ViewHistory = {
+export type ViewHistory = {
   aid: number;
   pic: string;
   title: string;
@@ -26,8 +13,8 @@ type ViewHistory = {
 };
 
 const initialState: RoutineState = {
-  searchHistory: faultTolerant('searchHistory') || [],
-  viewHistory: faultTolerant('viewHistory') || []
+  searchHistory: getLocalStorage('searchHistory', []),
+  viewHistory: getLocalStorage('viewHistory', [])
 };
 
 const routineSlice = createSlice({
@@ -45,19 +32,15 @@ const routineSlice = createSlice({
       state: RoutineState,
       action: PayloadAction<ViewHistory>
     ) => {
-      const viewHistory = faultTolerant('viewHistory') || [];
+      const viewHistory = getLocalStorage('viewHistory', []);
 
       // 去重
-      if (viewHistory) {
-        const index = viewHistory.findIndex(
-          (item: ViewHistory) => item.aid === action.payload.aid
-        );
-
-        if (index !== -1) {
-          viewHistory.splice(index, 1);
-        }
+      const index = viewHistory.findIndex(
+        (item: ViewHistory) => item.aid === action.payload.aid
+      );
+      if (index !== -1) {
+        viewHistory.splice(index, 1);
       }
-
       viewHistory.unshift(action.payload);
 
       state.viewHistory = viewHistory;
@@ -66,6 +49,14 @@ const routineSlice = createSlice({
   }
 });
 
-export const { setSearchHistory, setViewHistory } = routineSlice.actions;
+function getLocalStorage(key: string, defaultValue: unknown) {
+  if (typeof window === 'undefined') return;
+
+  try {
+    return JSON.parse(localStorage.getItem(key) ?? '');
+  } catch {
+    return defaultValue;
+  }
+}
 
 export default routineSlice.reducer;

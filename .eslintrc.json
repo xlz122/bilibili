@@ -1,0 +1,9 @@
+{
+  "extends": ["next", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "eqeqeq": [2],
+    "react-hooks/exhaustive-deps": [0]
+  }
+}

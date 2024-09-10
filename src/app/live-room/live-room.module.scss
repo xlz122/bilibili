@@ -1,0 +1,94 @@
+.liveRoom {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../../public/images/live-room/room-bg.webp');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.roomInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: px2rem(8);
+  padding: px2rem(14);
+}
+
+.infoCover {
+  position: relative;
+  width: px2rem(30);
+  height: px2rem(30);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.avatar {
+  display: flex;
+  flex-direction: column;
+}
+
+.avatarText {
+  color: #ffffff;
+}
+
+.follow {
+  padding: px2rem(4) px2rem(8);
+  background: linear-gradient(270deg, #fb7299, #ff6589);
+  font-size: px2rem(12);
+  color: #ffffff;
+  border-radius: 18px;
+}
+
+.roomVideo {
+  position: relative;
+  width: 100%;
+  height: px2rem(211);
+  overflow: hidden;
+}
+
+.videoCover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  filter: blur(5px);
+  transform: scale(1.2);
+}
+
+.iconPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: px2rem(68);
+  height: px2rem(68);
+}
+
+.roomControl {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: px2rem(10);
+  width: 100%;
+  padding-inline: px2rem(10);
+  margin-block: px2rem(16);
+  box-sizing: border-box;
+}
+
+.controlInput {
+  flex: 1;
+  padding: px2rem(5) px2rem(16);
+  background-color: rgba(0, 0, 0, 0.3);
+  color: hsla(0, 0%, 100%, 0.5);
+  border-radius: 30px;
+}
+
+.iconGift {
+  position: relative;
+  width: px2rem(28);
+  height: px2rem(28);
+}

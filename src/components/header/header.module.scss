@@ -3,36 +3,32 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: px2rem(28);
-  padding: px2rem(8) 0;
+  padding: px2rem(8) px2rem(12);
+  background-color: #ffffff;
 }
 
 .logo {
   width: px2rem(62);
-  height: 100%;
-  margin-left: px2rem(18);
+  height: px2rem(28);
+  margin-left: px2rem(6);
 }
 
 .other {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   align-items: center;
+  gap: px2rem(18);
 }
 
 .search {
-  margin-top: px2rem(8.5);
-  margin-right: px2rem(22);
+  width: px2rem(20);
+  height: px2rem(20);
   font-size: px2rem(20);
 }
 
 .avatar {
   width: px2rem(24);
   height: px2rem(24);
-  margin-top: px2rem(2);
-  margin-right: px2rem(12);
-
-  svg {
-    border-radius: 50%;
-  }
+  border-radius: 50%;
+  overflow: hidden;
 }
