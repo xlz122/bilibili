@@ -1,0 +1,81 @@
+.videoDetail {
+  position: relative;
+  padding: px2rem(12) px2rem(14);
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #e7e7e7;
+    transform: scaleY(0.5);
+  }
+}
+
+.hot {
+  padding: px2rem(1) px2rem(6);
+  margin-right: px2rem(4);
+  background-color: #f4f4f4;
+  color: #fb7299;
+  border-radius: 10px;
+}
+
+.title {
+  line-height: 1.5715;
+  font-size: px2rem(14);
+  color: #18191c;
+}
+
+.author {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: px2rem(12)
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: px2rem(8);
+}
+
+.infoCover {
+  position: relative;
+  width: px2rem(28);
+  height: px2rem(28);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.infoName {
+  font-size: px2rem(14);
+  color: #18191c;
+}
+
+.authorOther {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(10);
+}
+
+.iconLike {
+  width: px2rem(24);
+  height: px2rem(24);
+  background-image: url('../../../public/images/video/icon-like.svg');
+}
+
+.iconCollection {
+  width: px2rem(24);
+  height: px2rem(24);
+  background-image: url('../../../public/images/video/icon-collection.svg');
+}
+
+.iconShare {
+  width: px2rem(24);
+  height: px2rem(24);
+  background-image: url('../../../public/images/video/icon-share.svg');
+}

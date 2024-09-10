@@ -1,0 +1,136 @@
+.space {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: px2rem(128);
+  min-height: px2rem(128);
+}
+
+.tabbar {
+  display: flex;
+  flex-direction: row;
+  height: px2rem(40);
+  line-height: px2rem(40);
+  border-bottom: 1px solid #efefef;
+  background-color: #ffffff;
+}
+
+.tabItem {
+  flex: 1;
+  height: 100%;
+  font-size: px2rem(14);
+  text-align: center;
+}
+
+.itemText {
+  display: inline-block;
+  font-size: px2rem(14);
+  color: #212121;
+}
+
+.activeText {
+  position: relative;
+  display: inline-block;
+  font-size: px2rem(14);
+  color: #fb7299;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: px2rem(2);
+    transform: translateX(-50%);
+    width: 100%;
+    height: px2rem(2.5);
+    background-color: #fb7299;
+    border-radius: 4px;
+  }
+}
+
+.spaceMain {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(18);
+  padding: px2rem(12);
+  background-color: #ffffff;
+}
+
+.historyItem {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  min-width: px2rem(116);
+  height: px2rem(72);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.infoTitle {
+  font-size: px2rem(13);
+  color: #212121;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.infoTime {
+  font-size: px2rem(11);
+  color: #999999;
+}
+
+.tip {
+  padding-inline: px2rem(47);
+  margin-top: px2rem(84);
+}
+
+.tipCover {
+  position: relative;
+  width: 100%;
+  height: px2rem(159);
+}
+
+.tipText {
+  font-size: px2rem(16);
+  color: #999999;
+  text-align: center;
+}
+
+.tipFindText {
+  padding-left: px2rem(12);
+  font-size: px2rem(16);
+  color: #999999;
+  text-align: center;
+}
+
+.tipFindLink {
+  margin-inline: px2rem(4);
+  font-size: px2rem(16);
+  color: #fb7299;
+  text-align: center;
+}

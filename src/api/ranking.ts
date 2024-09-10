@@ -1,33 +1,26 @@
-import axios from '@utils/axios';
+import axios from '@/utils/axios';
 import type { AxiosPromise } from 'axios';
 
-type BaseParams = { baseUrl?: string };
-
 /**
- * @description 排行榜 - 分类导航
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ * @description 排行榜 - 分类
  */
-export const rankNav = ({ baseUrl }: BaseParams): AxiosPromise => {
+export const rankNav = (): AxiosPromise => {
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/ranking/nav`,
+    url: '/ranking/nav',
     method: 'get'
   });
 };
 
-type RankRegion = BaseParams & {
-  rid: number;
-};
-
 /**
  * @description 排行榜 - 分类列表
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { Number } rid - 分类导航id
+ * @param { Object } params
+ * @param { string } params.rid - 分类导航id
  */
-export const rankRegion = ({ baseUrl, rid }: RankRegion): AxiosPromise => {
+export const rankRegion = ({ rid }: { rid: string }): AxiosPromise => {
   const params = { rid };
 
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/ranking/region`,
+    url: '/ranking/region',
     method: 'get',
     params
   });

@@ -1,0 +1,47 @@
+.fanju {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(18);
+  margin: px2rem(10) px2rem(12);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(78);
+  height: px2rem(104);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(6);
+}
+
+.infoLable {
+  font-size: px2rem(14);
+  color: #212121;
+}
+
+.infoTitle {
+  font-size: px2rem(14);
+  color: #212121;
+
+  em {
+    font-style: normal;
+    color: #fb7299;
+  }
+}

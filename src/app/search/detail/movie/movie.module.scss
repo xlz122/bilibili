@@ -1,0 +1,54 @@
+.movie {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(18);
+  margin: px2rem(10) px2rem(12);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(78);
+  height: px2rem(104);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(6);
+}
+
+.infoTitle {
+  font-size: px2rem(14);
+  color: #212121;
+
+  em {
+    font-style: normal;
+    color: #fb7299;
+  }
+}
+
+.infoText {
+  font-size: px2rem(12);
+  color: #999999;
+  display: -webkit-box;
+  line-clamp: 1;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

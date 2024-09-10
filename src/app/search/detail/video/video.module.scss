@@ -1,0 +1,91 @@
+.video {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(18);
+  margin: px2rem(10) px2rem(12);
+}
+
+.item {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(12);
+}
+
+.itemCover {
+  position: relative;
+  width: px2rem(140);
+  height: px2rem(88);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.itemDuration {
+  position: absolute;
+  right: px2rem(4);
+  bottom: px2rem(4);
+  padding-block: px2rem(1);
+  padding-inline: px2rem(2);
+  background-color: rgba(0, 0, 0, 0.5);
+  font-size: px2rem(11);
+  color: #ffffff;
+  border-radius: 2px;
+}
+
+.itemInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: px2rem(6);
+}
+
+.infoTitle {
+  font-size: px2rem(14);
+  color: #222222;
+  display: -webkit-box;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  em {
+    font-style: normal;
+    color: #fb7299;
+  }
+}
+
+.infoAuthor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: px2rem(6);
+}
+
+.authorText {
+  font-size: px2rem(12);
+  color: #999999;
+}
+
+.infoCount {
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(10);
+}
+
+.countItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: px2rem(6);
+}
+
+.countText {
+  font-size: px2rem(12);
+  color: #999999;
+}
