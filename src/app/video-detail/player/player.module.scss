@@ -1,0 +1,59 @@
+.videoPlayer {
+  width: 100%;
+  height: px2rem(212);
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+}
+
+.cover {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.iconPlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: px2rem(48);
+  height: px2rem(48);
+}
+
+.tip {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  gap: px2rem(10);
+  width: 100%;
+  padding: px2rem(12);
+  box-sizing: border-box;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 100%;
+    height: px2rem(80);
+    background-image: linear-gradient(180deg, transparent 2%, rgba(0, 0, 0, 0.7) 98%);
+  }
+}
+
+.tipText {
+  font-size: px2rem(12);
+  color: #ffffff;
+}
+
+.tipTime {
+  position: absolute;
+  right: px2rem(12);
+  color: #ffffff;
+}

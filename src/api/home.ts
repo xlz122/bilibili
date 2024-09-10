@@ -1,83 +1,68 @@
-import axios from '@utils/axios';
+import axios from '@/utils/axios';
 import type { AxiosPromise } from 'axios';
 
-type BaseParams = { baseUrl?: string };
+/**
+ * @description 首页 - 列表
+ * @param { Object } params
+ * @param { number } params.page - 页数
+ */
+export const indexList = ({ page }: { page: number }): AxiosPromise => {
+  const params = { page };
+
+  return axios.request({
+    url: '/index',
+    method: 'get',
+    params
+  });
+};
 
 /**
- * @description 分类导航
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
+ * @description 分类
  */
-export const partitions = ({ baseUrl }: BaseParams): AxiosPromise => {
+export const partitions = (): AxiosPromise => {
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/partitions`,
+    url: '/partitions',
     method: 'get'
   });
 };
 
-type Index = BaseParams & {
-  page: number;
-};
-
-/**
- * @description 首页列表
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { Number } page - 页数
- */
-export const indexList = ({ baseUrl, page }: Index): AxiosPromise => {
-  const params = { page };
-
-  return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/index`,
-    method: 'get',
-    params
-  });
-};
-
-type IndexRegion = BaseParams & {
-  rid: number;
+type IndexRegion = {
+  rid: string;
   day: number;
 };
 
 /**
- * @description 分类 - 热门推荐列表
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { Number } rid - 分类id
- * @param { Number } day - 天数
+ * @description 分类 - 热门推荐
+ * @param { Object } params
+ * @param { string } params.rid - 分类id
+ * @param { number } params.day - 天数
  */
-export const indexRegion = ({
-  baseUrl,
-  rid,
-  day
-}: IndexRegion): AxiosPromise => {
+export const indexRegion = ({ rid, day }: IndexRegion): AxiosPromise => {
   const params = { rid, day };
 
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/index/region`,
+    url: '/index/region',
     method: 'get',
     params
   });
 };
 
-type IndexArchive = BaseParams & {
-  rid: number;
+type IndexArchive = {
+  rid: string | number;
   page: number;
 };
 
 /**
- * @description 分类 - 最新视频列表
- * @param { String } [baseUrl] - 接口基础url(服务端渲染)
- * @param { Number } rid - 分类id
- * @param { Number } page - 页数
+ * @description 分类 - 最新视频
+ * @param { Object } params
+ * @param { string } params.rid - 分类id
+ * @param { number } params.page - 页数
  */
-export const indexArchive = ({
-  baseUrl,
-  rid,
-  page
-}: IndexArchive): AxiosPromise => {
+export const indexArchive = ({ rid, page }: IndexArchive): AxiosPromise => {
   const params = { rid, page };
 
   return axios.request({
-    url: `${baseUrl ? baseUrl : '/api'}/index/archive`,
+    url: '/index/archive',
     method: 'get',
     params
   });

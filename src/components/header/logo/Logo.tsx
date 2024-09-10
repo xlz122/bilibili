@@ -8,7 +8,7 @@ function Logo(): React.ReactElement {
       viewBox="0 0 62 28"
       fill="#de698c"
     >
-      <title>logo bilibili</title>
+      <title>logo</title>
       <g id="Page-1">
         <g id="Artboard">
           <g id="logo_bilibili" data-name="logo bilibili">
