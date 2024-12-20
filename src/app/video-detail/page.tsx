@@ -12,6 +12,8 @@ import VideoDetail from './VideoDetail';
 import VideoRecommend from './recommend/Recommend';
 import VideoComment from './comment/Comment';
 
+type SearchParams = Promise<{ aid: string }>;
+
 const props = {
   detail: {
     cid: undefined
@@ -64,11 +66,12 @@ const getVideoComment = async ({ aid }: { aid: string }): Promise<void> => {
   props.comment.replies = data.replies ?? [];
 };
 
-async function Page({ searchParams }: { searchParams: { aid: string } }) {
-  await getVideoDetail({ aid: searchParams.aid });
-  await getVideoPlayurl({ aid: searchParams.aid });
-  await getVideoRecommend({ aid: searchParams.aid });
-  await getVideoComment({ aid: searchParams.aid });
+async function Page({ searchParams }: { searchParams: SearchParams }) {
+  const { aid } = await searchParams;
+  await getVideoDetail({ aid });
+  await getVideoPlayurl({ aid });
+  await getVideoRecommend({ aid });
+  await getVideoComment({ aid });
 
   return (
     <>
