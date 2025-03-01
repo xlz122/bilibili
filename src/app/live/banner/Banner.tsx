@@ -30,6 +30,8 @@ function LiveBanner(props: Props): React.ReactElement {
         modules={[Pagination]}
       >
         {props.list?.map?.((item, index) => {
+          if (!item.pic) return null;
+
           return (
             <SwiperSlide key={index}>
               <Link href={item.link}>
