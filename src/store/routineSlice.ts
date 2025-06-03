@@ -49,7 +49,7 @@ const routineSlice = createSlice({
   }
 });
 
-function getLocalStorage(key: string, defaultValue: unknown) {
+function getLocalStorage<T>(key: string, defaultValue: T) {
   if (typeof window === 'undefined') return;
 
   try {

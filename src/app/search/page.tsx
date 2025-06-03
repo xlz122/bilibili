@@ -1,8 +1,7 @@
 import React from 'react';
 import { searchDefault, searchHot } from '@/api/search';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Search from './Search';
-import styles from './page.module.scss';
 
 const props = {
   default: {},

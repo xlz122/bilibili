@@ -1,5 +1,5 @@
 import { partitions } from '@/api/home';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from '@/components/header/Header';
 import TabBar from '@/app/home/tab-bar/TabBar';
 import styles from './layout.module.scss';

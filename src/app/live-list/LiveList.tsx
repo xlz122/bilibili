@@ -16,15 +16,13 @@ type ItemType = {
   title: string;
   cover: string;
   uname: string;
-  watched_show: {
-    num: number;
-  };
+  watched_show: { num: number };
 };
 
 function LiveList(props: Props): React.ReactElement {
   const router = useRouter();
 
-  const jumpLiveDetail = (item: ItemType): void => {
+  const jumpLiveDetail = (item: ItemType) => {
     router.push(`/live-room?roomid=${item.roomid}`);
   };
 

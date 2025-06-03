@@ -14,18 +14,10 @@ import Movie from './movie/Movie';
 import styles from './detail.module.scss';
 
 type Detail = {
-  video: {
-    result: VideoItemType[];
-  };
-  fanju: {
-    result: FanjuItemType[];
-  };
-  up: {
-    result: UpItemType[];
-  };
-  movie: {
-    result: MovieItemType[];
-  };
+  video: { result: VideoItemType[] };
+  fanju: { result: FanjuItemType[] };
+  up: { result: UpItemType[] };
+  movie: { result: MovieItemType[] };
 };
 
 function SearchDetail(): React.ReactElement {
@@ -53,11 +45,11 @@ function SearchDetail(): React.ReactElement {
     order: 'totalrank'
   });
 
-  const tabChange = (index: number, type: string): void => {
+  const tabChange = (index: number, type: string) => {
     setTab({ ...tab, type, index, orderIndex: 0, order: 'totalrank' });
   };
 
-  const orderChange = (index: number, type: string): void => {
+  const orderChange = (index: number, type: string) => {
     setTab({ ...tab, order: type, orderIndex: index });
   };
 
@@ -65,7 +57,7 @@ function SearchDetail(): React.ReactElement {
   const [empty, setEmpty] = useState(false);
 
   // 获取搜索详情
-  const getSearchDetail = (): void => {
+  const getSearchDetail = () => {
     setEmpty(false);
 
     searchType({

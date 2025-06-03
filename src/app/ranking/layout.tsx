@@ -1,5 +1,5 @@
 import { rankNav } from '@/api/ranking';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from './header/Header';
 import styles from './layout.module.scss';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { liveIndex } from '@/api/live';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from './header/Header';
 import LiveBanner from './banner/Banner';
 import Live from './Live';

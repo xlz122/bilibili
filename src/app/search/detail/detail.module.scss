@@ -8,30 +8,30 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: px2rem(40);
-  line-height: px2rem(40);
-  padding-inline: px2rem(18);
+  height: 2rem;
+  line-height: 2rem;
+  padding-inline: 0.9rem;
   background-color: #ffffff;
 }
 
 .tabItem {
-  font-size: px2rem(13.5);
+  font-size: 0.675rem;
   color: #757575;
 }
 
 .tabActiveItem {
   position: relative;
-  font-size: px2rem(13.5);
+  font-size: 0.675rem;
   color: #fb7299;
 
   &::before {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: px2rem(2);
+    bottom: 0.1rem;
     transform: translateX(-50%);
     width: 100%;
-    height: px2rem(2.5);
+    height: 0.125rem;
     background-color: #fb7299;
     border-radius: 4px;
   }
@@ -41,14 +41,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-inline: px2rem(18);
-  border-top: px2rem(2) solid #f4f4f4;
+  padding-inline: 0.9rem;
+  border-top: 0.1rem solid #f4f4f4;
   background-color: #f9f9f9;
 }
 
 .orderItem {
-  padding-block: px2rem(9);
-  font-size: px2rem(13.5);
+  padding-block: 0.45rem;
+  font-size: 0.675rem;
   color: #757575;
 }
 
@@ -79,6 +79,6 @@
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #757575;
 }

@@ -1,6 +1,6 @@
 .videoDetail {
   position: relative;
-  padding: px2rem(12) px2rem(14);
+  padding: 0.6rem 0.7rem;
 
   &::before {
     content: "";
@@ -15,8 +15,8 @@
 }
 
 .hot {
-  padding: px2rem(1) px2rem(6);
-  margin-right: px2rem(4);
+  padding: 0.05rem 0.3rem;
+  margin-right: 0.2rem;
   background-color: #f4f4f4;
   color: #fb7299;
   border-radius: 10px;
@@ -24,7 +24,7 @@
 
 .title {
   line-height: 1.5715;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #18191c;
 }
 
@@ -33,49 +33,49 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-top: px2rem(12)
+  margin-top: 0.6rem
 }
 
 .authorInfo {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: px2rem(8);
+  gap: 0.4rem;
 }
 
 .infoCover {
   position: relative;
-  width: px2rem(28);
-  height: px2rem(28);
+  width: 1.4rem;
+  height: 1.4rem;
   border-radius: 50%;
   overflow: hidden;
 }
 
 .infoName {
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #18191c;
 }
 
 .authorOther {
   display: flex;
   flex-direction: row;
-  gap: px2rem(10);
+  gap: 0.5rem;
 }
 
 .iconLike {
-  width: px2rem(24);
-  height: px2rem(24);
+  width: 1.2rem;
+  height: 1.2rem;
   background-image: url('../../../public/images/video/icon-like.svg');
 }
 
 .iconCollection {
-  width: px2rem(24);
-  height: px2rem(24);
+  width: 1.2rem;
+  height: 1.2rem;
   background-image: url('../../../public/images/video/icon-collection.svg');
 }
 
 .iconShare {
-  width: px2rem(24);
-  height: px2rem(24);
+  width: 1.2rem;
+  height: 1.2rem;
   background-image: url('../../../public/images/video/icon-share.svg');
 }

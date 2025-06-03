@@ -25,7 +25,7 @@ function Home(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const jumpVideoDetail = (item: ItemType): void => {
+  const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({

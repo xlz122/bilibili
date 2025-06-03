@@ -43,13 +43,13 @@ export const searchSuggest = ({
 type SearchType = {
   keyword: string;
   search_type: string;
-  order?: string;
+  order: string;
   page: number;
   size: number;
 };
 
 /**
- * @description 搜索 - 详情
+ * @description 搜索 - 搜索详情
  * @param { Object } params
  * @param { string } params.keyword - 搜索关键词
  * @param { string } params.search_type - 搜索类型(综合/番剧/UP主/影视)

@@ -1,6 +1,6 @@
 ## 环境要求
 
-需要 NodeJS 18.17.0+ 环境
+需要 NodeJS 20.11.0+ 环境
 
 ## 简介
 
@@ -11,7 +11,7 @@ master分支使用App Router进行重构, Pages Router可查看 [pages-router](h
 ## 项目使用技术栈
 
 * React
-* Next 14.2.10
+* Next 15.3.3
 * Redux
 * TypeScript
 
