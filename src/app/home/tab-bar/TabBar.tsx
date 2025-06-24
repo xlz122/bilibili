@@ -16,7 +16,7 @@ type Props = {
   }[];
 };
 
-type Tab = {
+type TabType = {
   navIndex: number;
   navSubIndex: number;
 };
@@ -24,7 +24,7 @@ type Tab = {
 function TabBar(props: Props): React.ReactElement {
   const params = useParams();
 
-  const [tab, setTab] = useState<Tab>({
+  const [tab, setTab] = useState<TabType>({
     navIndex: -1,
     navSubIndex: -1
   });
@@ -40,14 +40,11 @@ function TabBar(props: Props): React.ReactElement {
     setTab({ navIndex: index, navSubIndex: subIndex });
   }, [props.list]);
 
-  const tabChange = (index: number): void => {
-    setTab({
-      navIndex: index,
-      navSubIndex: 0
-    });
+  const tabChange = (index: number) => {
+    setTab({ navIndex: index, navSubIndex: 0 });
   };
 
-  const tabSubChange = (index: number): void => {
+  const tabSubChange = (index: number) => {
     setTab({ ...tab, navSubIndex: index });
   };
 

@@ -24,7 +24,7 @@ function VideoPlayer(props: Props): React.ReactElement {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [playing, setPlaying] = useState(false);
 
-  const handleVideoPlay = (): void => {
+  const handleVideoPlay = () => {
     setPlaying(true);
   };
 

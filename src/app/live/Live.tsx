@@ -23,9 +23,7 @@ type ItemType = {
   title: string;
   cover: string;
   uname: string;
-  watched_show: {
-    num: number;
-  };
+  watched_show: { num: number };
 };
 
 function Live(props: Props): React.ReactElement {
@@ -35,11 +33,11 @@ function Live(props: Props): React.ReactElement {
     router.push(`/live-list?parent_area_id=${id}&parent_area_name=${name}`);
   };
 
-  const jumpLiveArea = (): void => {
+  const jumpLiveArea = () => {
     router.push('/live-area');
   };
 
-  const jumpLiveDetail = (item: ItemType): void => {
+  const jumpLiveDetail = (item: ItemType) => {
     router.push(`/live-room?roomid=${item.roomid}`);
   };
 

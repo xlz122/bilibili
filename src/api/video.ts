@@ -1,16 +1,12 @@
 import axios from '@/utils/axios';
 import type { AxiosPromise } from 'axios';
 
-type VideoDetail = {
-  aid: string;
-};
-
 /**
  * @description 视频详情
  * @param { Object } params
  * @param { string } params.aid - 视频id
  */
-export const videoDetail = ({ aid }: VideoDetail): AxiosPromise => {
+export const videoDetail = ({ aid }: { aid: string }): AxiosPromise => {
   const params = { aid };
 
   return axios.request({
@@ -29,7 +25,7 @@ type VideoPlayurl = {
  * @description 视频详情 - 播放链接
  * @param { Object } params
  * @param { string } params.aid - 视频id
- * @param { number | undefined } params.cid - 视频详情获取
+ * @param { number | undefined } params.cid - 来自视频详情
  */
 export const videoPlayurl = ({ aid, cid }: VideoPlayurl): AxiosPromise => {
   const params = { aid, cid };
@@ -41,16 +37,12 @@ export const videoPlayurl = ({ aid, cid }: VideoPlayurl): AxiosPromise => {
   });
 };
 
-type VideoRecommend = {
-  aid: string;
-};
-
 /**
  * @description 视频详情 - 相关推荐
  * @param { Object } params
  * @param { string } params.aid - 视频id
  */
-export const videoRecommend = ({ aid }: VideoRecommend): AxiosPromise => {
+export const videoRecommend = ({ aid }: { aid: string }): AxiosPromise => {
   const params = { aid };
 
   return axios.request({

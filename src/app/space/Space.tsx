@@ -7,7 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store/index';
+import type { RootState } from '@/store';
 import type { ViewHistory } from '@/store/routineSlice';
 import styles from './space.module.scss';
 
@@ -26,7 +26,7 @@ function Space(): React.ReactElement {
     setTabIndex(index);
   };
 
-  const jumpVideoDetail = (item: ViewHistory): void => {
+  const jumpVideoDetail = (item: ViewHistory) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({

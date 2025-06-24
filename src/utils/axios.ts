@@ -14,9 +14,7 @@ class HttpRequest {
         typeof window === 'undefined'
           ? process.env.NEXT_PUBLIC_API_BASE_URL
           : '/api',
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
+      headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       withCredentials: true,
       timeout: 60000
     };

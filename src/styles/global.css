@@ -8,12 +8,11 @@ html {
 }
 
 body {
-  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
-  font-size: 12px;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
+  font-family: 'Microsoft YaHei', 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 12px;
+  color: #333333;
 }
 
 ul li {
@@ -22,12 +21,6 @@ ul li {
 
 a {
   text-decoration: none;
-  cursor: pointer;
-}
-
-input,
-textarea {
-  background-color: #ffffff;
 }
 
 i,

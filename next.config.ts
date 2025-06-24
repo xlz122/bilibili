@@ -1,12 +1,8 @@
-/** @type {import('next').NextConfig} */
+import type { NextConfig } from 'next';
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   basePath: process.env.NEXT_PUBLIC_BASE_URL,
   reactStrictMode: true,
-  // 全局sass
-  sassOptions: {
-    additionalData: '@import "@/styles/global.scss";'
-  },
   // 配置外部图像
   images: {
     remotePatterns: [

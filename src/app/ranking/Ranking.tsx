@@ -16,9 +16,7 @@ type ItemType = {
   pic: string;
   duration: number;
   title: string;
-  owner: {
-    name: string;
-  };
+  owner: { name: string };
   stat: {
     view: number;
     danmaku: number;
@@ -29,7 +27,7 @@ function Ranking(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const jumpVideoDetail = (item: ItemType): void => {
+  const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({

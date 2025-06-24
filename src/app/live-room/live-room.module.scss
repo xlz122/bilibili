@@ -11,14 +11,14 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: px2rem(8);
-  padding: px2rem(14);
+  gap: 0.4rem;
+  padding: 0.7rem;
 }
 
 .infoCover {
   position: relative;
-  width: px2rem(30);
-  height: px2rem(30);
+  width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -33,9 +33,9 @@
 }
 
 .follow {
-  padding: px2rem(4) px2rem(8);
+  padding: 0.2rem 0.4rem;
   background: linear-gradient(270deg, #fb7299, #ff6589);
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #ffffff;
   border-radius: 18px;
 }
@@ -43,7 +43,7 @@
 .roomVideo {
   position: relative;
   width: 100%;
-  height: px2rem(211);
+  height: 10.55rem;
   overflow: hidden;
 }
 
@@ -60,8 +60,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: px2rem(68);
-  height: px2rem(68);
+  width: 3.4rem;
+  height: 3.4rem;
 }
 
 .roomControl {
@@ -72,16 +72,16 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: px2rem(10);
+  gap: 0.5rem;
   width: 100%;
-  padding-inline: px2rem(10);
-  margin-block: px2rem(16);
+  padding-inline: 0.5rem;
+  margin-block: 0.8rem;
   box-sizing: border-box;
 }
 
 .controlInput {
   flex: 1;
-  padding: px2rem(5) px2rem(16);
+  padding: 0.25rem 0.8rem;
   background-color: rgba(0, 0, 0, 0.3);
   color: hsla(0, 0%, 100%, 0.5);
   border-radius: 30px;
@@ -89,6 +89,6 @@
 
 .iconGift {
   position: relative;
-  width: px2rem(28);
-  height: px2rem(28);
+  width: 1.4rem;
+  height: 1.4rem;
 }

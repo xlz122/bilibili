@@ -1,7 +1,9 @@
 import React from 'react';
 import { rankRegion } from '@/api/ranking';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Ranking from './Ranking';
+
+type SearchParams = Promise<{ rid: string }>;
 
 const props = {
   list: []
@@ -16,8 +18,9 @@ const getRankRegion = async ({ rid }: { rid: string }): Promise<void> => {
   props.list = data.list ?? [];
 };
 
-async function Page({ searchParams }: { searchParams: { rid: string } }) {
-  await getRankRegion({ rid: searchParams.rid });
+async function Page({ searchParams }: { searchParams: SearchParams }) {
+  const { rid } = await searchParams;
+  await getRankRegion({ rid });
 
   return <Ranking list={props.list} />;
 }
