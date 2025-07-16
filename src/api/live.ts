@@ -51,16 +51,12 @@ export const liveAreaList = ({
   });
 };
 
-type LiveInfo = {
-  roomid: string;
-};
-
 /**
  * @description 直播 - 房间信息
  * @param { Object } params
  * @param { string } params.roomid - 直播间id
  */
-export const liveInfo = ({ roomid }: LiveInfo): AxiosPromise => {
+export const liveInfo = ({ roomid }: { roomid: string }): AxiosPromise => {
   const params = { roomid };
 
   return axios.request({

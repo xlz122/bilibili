@@ -1,6 +1,6 @@
 import React from 'react';
 import { liveArea } from '@/api/live';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from '@/app/live/header/Header';
 import LiveArea from './LiveArea';
 import styles from './page.module.scss';

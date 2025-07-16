@@ -4,20 +4,16 @@ import React, { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
-import type { RootState } from '@/store/index';
-import type { InputChange, InputEnter } from '@/types/index';
+import type { RootState } from '@/store';
+import type { InputChange, InputEnter } from '@/types';
 import SearchHistory from './history/History';
 import SearchSuggest from './suggest/Suggest';
 import SearchDetail from './detail/Detail';
 import styles from './search.module.scss';
 
 type Props = {
-  default: {
-    show_name?: string;
-  };
-  hot: {
-    keyword: string;
-  }[];
+  default: { show_name?: string };
+  hot: { keyword: string }[];
 };
 
 function Search(props: Props): React.ReactElement {
@@ -30,7 +26,7 @@ function Search(props: Props): React.ReactElement {
   const keyword = useSearchParams().get('keyword') ?? '';
   const [searchValue, setSearchValue] = useState(keyword);
 
-  const handleInputChange = (e: InputChange): void => {
+  const handleInputChange = (e: InputChange) => {
     // 清空/搜索后再次输入
     if (!e.target.value || keyword) {
       router.push('/search');
@@ -39,12 +35,12 @@ function Search(props: Props): React.ReactElement {
     setSearchValue(e.target.value);
   };
 
-  const handleClear = (): void => {
+  const handleClear = () => {
     router.push('/search');
     setSearchValue('');
   };
 
-  const handleSearch = (value: string): void => {
+  const handleSearch = (value: string) => {
     setSearchValue(value);
 
     router.push(`/search?keyword=${value}`);
@@ -54,7 +50,7 @@ function Search(props: Props): React.ReactElement {
     });
   };
 
-  const handleEnterKey = (e: InputEnter): void => {
+  const handleEnterKey = (e: InputEnter) => {
     if (e.code !== 'Enter') {
       return;
     }
@@ -71,7 +67,7 @@ function Search(props: Props): React.ReactElement {
     });
   };
 
-  const cancel = (): void => {
+  const cancel = () => {
     router.push('/');
   };
 

@@ -48,7 +48,7 @@ export const indexRegion = ({ rid, day }: IndexRegion): AxiosPromise => {
 };
 
 type IndexArchive = {
-  rid: string | number;
+  rid: string;
   page: number;
 };
 

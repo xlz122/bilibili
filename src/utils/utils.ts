@@ -1,9 +1,9 @@
 /**
- * @description 格式化数字
- * @param { string } num - 数值
+ * @description 格式化数值
+ * @param { string } number - 数值
  */
-export function formatNumber(num: number): string {
-  const numStr = num.toString();
+export function formatNumber(number: number): string {
+  const numStr = number.toString();
 
   if (numStr.length <= 4) {
     return numStr;
@@ -24,7 +24,7 @@ export function formatNumber(num: number): string {
 }
 
 /**
- * @description 时间戳转视频时长
+ * @description 时间戳转时长
  * @param { number } timestamp - 时间戳
  * @return { string } 02:27/01:02:27
  */

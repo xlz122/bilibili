@@ -9,9 +9,7 @@ type Props = {
   list: {
     id: number;
     name: string;
-    entrance_icon: {
-      src: string;
-    };
+    entrance_icon: { src: string };
   }[];
 };
 

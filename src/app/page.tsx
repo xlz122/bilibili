@@ -1,6 +1,6 @@
 import React from 'react';
 import { partitions, indexList } from '@/api/home';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from '@/components/header/Header';
 import TabBar from '@/app/home/tab-bar/TabBar';
 import Home from '@/app/home/Home';

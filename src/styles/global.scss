@@ -1,7 +1,0 @@
-$color: #333333;
-
-$baseRem: 20;
-
-@function px2rem($px, $baseRem: $baseRem) {
-  @return ($px / $baseRem) * 1rem;
-}

@@ -6,20 +6,20 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: px2rem(18);
-  margin: px2rem(10) px2rem(12);
+  gap: 0.9rem;
+  margin: 0.5rem 0.6rem;
 }
 
 .item {
   display: flex;
   flex-direction: row;
-  gap: px2rem(12);
+  gap: 0.6rem;
 }
 
 .itemCover {
   position: relative;
-  width: px2rem(60);
-  height: px2rem(60);
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -28,15 +28,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: px2rem(6);
+  gap: 0.3rem;
 }
 
 .infoTitle {
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #212121;
 }
 
 .infoText {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #999999;
 }

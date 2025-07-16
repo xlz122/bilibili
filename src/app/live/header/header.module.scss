@@ -5,7 +5,7 @@
 }
 
 .logo {
-  padding: px2rem(6) px2rem(18);
+  padding: 0.3rem 0.9rem;
   border-bottom: 1px solid #e7e7e7;
 }
 
@@ -13,9 +13,9 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: px2rem(40);
-  line-height: px2rem(40);
-  padding-inline: px2rem(8);
+  height: 2rem;
+  line-height: 2rem;
+  padding-inline: 0.4rem;
 }
 
 .tabItem {
@@ -23,11 +23,11 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: px2rem(60);
+  width: 3rem;
   height: 100%;
 
   a {
-    font-size: px2rem(15);
+    font-size: 0.75rem;
     color: #000000;
   }
 }
@@ -42,7 +42,7 @@
     bottom: 0;
     transform: translateX(-50%);
     width: 100%;
-    height: px2rem(4);
+    height: 0.2rem;
     background-color: #fb7299;
     border-radius: 4px;
   }

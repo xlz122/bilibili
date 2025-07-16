@@ -1,7 +1,9 @@
 import React from 'react';
 import { indexRegion, indexArchive } from '@/api/home';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Channel from './Channel';
+
+type Params = Promise<{ channel: string }>;
 
 const props = {
   region: [],
@@ -26,9 +28,10 @@ const getIndexArchive = async ({ rid }: { rid: string }): Promise<void> => {
   props.archive = data.archives ?? [];
 };
 
-async function Page({ params }: { params: { channel: string[] } }) {
-  await getIndexRegion({ rid: params.channel[2] ?? params.channel[1] });
-  await getIndexArchive({ rid: params.channel[2] ?? params.channel[1] });
+async function Page({ params }: { params: Params }) {
+  const { channel } = await params;
+  await getIndexRegion({ rid: channel[2] ?? channel[1] });
+  await getIndexArchive({ rid: channel[2] ?? channel[1] });
 
   return <Channel region={props.region} archive={props.archive} />;
 }

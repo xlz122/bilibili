@@ -8,16 +8,14 @@ type Props = {
   onSearch: (value: string) => void;
 };
 
-type ListType = {
-  value: string;
-}[];
+type ItemType = { value: string };
 
 function SearchSuggest(props: Props): React.ReactElement {
-  const [list, setList] = useState<ListType>([]);
+  const [list, setList] = useState<ItemType[]>([]);
 
-  const getSearchSuggest = (): void => {
+  const getSearchSuggest = () => {
     searchSuggest({ keyword: props.keyword })
-      .then((res: ResponseType & { result?: { tag: ListType } }) => {
+      .then((res: ResponseType & { result?: { tag: ItemType[] } }) => {
         if (res?.code !== 0) {
           return;
         }

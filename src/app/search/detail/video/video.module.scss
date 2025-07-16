@@ -6,32 +6,32 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: px2rem(18);
-  margin: px2rem(10) px2rem(12);
+  gap: 0.9rem;
+  margin: 0.5rem 0.6rem;
 }
 
 .item {
   display: flex;
   flex-direction: row;
-  gap: px2rem(12);
+  gap: 0.6rem;
 }
 
 .itemCover {
   position: relative;
-  width: px2rem(140);
-  height: px2rem(88);
+  width: 7rem;
+  height: 4.4rem;
   border-radius: 4px;
   overflow: hidden;
 }
 
 .itemDuration {
   position: absolute;
-  right: px2rem(4);
-  bottom: px2rem(4);
-  padding-block: px2rem(1);
-  padding-inline: px2rem(2);
+  right: 0.2rem;
+  bottom: 0.2rem;
+  padding-block: 0.05rem;
+  padding-inline: 0.1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #ffffff;
   border-radius: 2px;
 }
@@ -40,11 +40,11 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: px2rem(6);
+  gap: 0.3rem;
 }
 
 .infoTitle {
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #222222;
   display: -webkit-box;
   line-clamp: 2;
@@ -64,28 +64,28 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: px2rem(6);
+  gap: 0.3rem;
 }
 
 .authorText {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #999999;
 }
 
 .infoCount {
   display: flex;
   flex-direction: row;
-  gap: px2rem(10);
+  gap: 0.5rem;
 }
 
 .countItem {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: px2rem(6);
+  gap: 0.3rem;
 }
 
 .countText {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #999999;
 }

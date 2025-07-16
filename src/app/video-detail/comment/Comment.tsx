@@ -14,9 +14,7 @@ type ItemType = {
     avatar: string;
     uname: string;
   };
-  content: {
-    message: string;
-  };
+  content: { message: string };
 };
 
 function VideoComment(props: Props): React.ReactElement {
