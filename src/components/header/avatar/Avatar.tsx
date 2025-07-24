@@ -2,12 +2,8 @@ import React from 'react';
 
 function Avatar(): React.ReactElement {
   return (
-    <svg
-      data-name="\u56FE\u5C42 1"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 80 80"
-    >
-      <title>default avatar</title>
+    <svg data-name="\u56FE\u5C42 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+      <title>avatar</title>
       <path fill="#e7e7e7" d="M0 0h80v80H0z" />
       <path
         d="M45.78 57.73h2.29a73.4 73.4 0 0 1 4.23 9.5 57.14 57.14 0 0 1 2.62 10.5

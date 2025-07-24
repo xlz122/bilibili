@@ -1,5 +1,5 @@
 import { partitions } from '@/api/home';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from '@/components/header/Header';
 import TabBar from '@/app/home/tab-bar/TabBar';
 import styles from './layout.module.scss';
@@ -9,12 +9,12 @@ const props = {
 };
 
 const getTabBar = async (): Promise<void> => {
-  const { code, data }: ResponseType = await partitions();
-  if (code !== 0) {
+  const res: ResponseType = await partitions();
+  if (res?.code !== 0) {
     return;
   }
 
-  props.tabbar = data ?? [];
+  props.tabbar = res.data ?? [];
 };
 
 async function Layout({ children }: { children: React.ReactNode }) {

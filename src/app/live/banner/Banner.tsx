@@ -5,17 +5,12 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-// 引入基础样式
 import 'swiper/css';
-// 引入分页器相关样式
 import 'swiper/css/pagination';
 import styles from './banner.module.scss';
 
 type Props = {
-  list: {
-    pic: string;
-    link: string;
-  }[];
+  list: { pic: string; link: string }[];
 };
 
 function LiveBanner(props: Props): React.ReactElement {
@@ -24,16 +19,16 @@ function LiveBanner(props: Props): React.ReactElement {
       <Swiper
         className={styles.swiper}
         loop={true}
-        pagination={{
-          clickable: true
-        }}
+        pagination={{ clickable: true }}
         modules={[Pagination]}
       >
         {props.list?.map?.((item, index) => {
+          if (!item.pic) return null;
+
           return (
             <SwiperSlide key={index}>
               <Link href={item.link}>
-                <Image src={item.pic} fill sizes="50%" priority alt="" />
+                <Image src={item.pic} fill priority sizes="50%" alt="" />
               </Link>
             </SwiperSlide>
           );

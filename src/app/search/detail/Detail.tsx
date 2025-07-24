@@ -14,18 +14,10 @@ import Movie from './movie/Movie';
 import styles from './detail.module.scss';
 
 type Detail = {
-  video: {
-    result: VideoItemType[];
-  };
-  fanju: {
-    result: FanjuItemType[];
-  };
-  up: {
-    result: UpItemType[];
-  };
-  movie: {
-    result: MovieItemType[];
-  };
+  video: { result: VideoItemType[] };
+  fanju: { result: FanjuItemType[] };
+  up: { result: UpItemType[] };
+  movie: { result: MovieItemType[] };
 };
 
 function SearchDetail(): React.ReactElement {
@@ -47,17 +39,17 @@ function SearchDetail(): React.ReactElement {
       { title: 'UP主', type: 'bili_user' },
       { title: '影视', type: 'media_ft' }
     ],
-    index: 0,
-    orderIndex: 0,
     type: 'video',
-    order: 'totalrank'
+    typeIndex: 0,
+    order: 'totalrank',
+    orderIndex: 0
   });
 
-  const tabChange = (index: number, type: string): void => {
-    setTab({ ...tab, type, index, orderIndex: 0, order: 'totalrank' });
+  const handleTabChange = (type: string, index: number) => {
+    setTab({ ...tab, type, typeIndex: index, order: 'totalrank', orderIndex: 0 });
   };
 
-  const orderChange = (index: number, type: string): void => {
+  const handleOrderChange = (type: string, index: number) => {
     setTab({ ...tab, order: type, orderIndex: index });
   };
 
@@ -65,44 +57,39 @@ function SearchDetail(): React.ReactElement {
   const [empty, setEmpty] = useState(false);
 
   // 获取搜索详情
-  const getSearchDetail = (): void => {
-    setEmpty(false);
-
-    searchType({
+  const getSearchDetail = async () => {
+    const res: ResponseType = await searchType({
       keyword: keyword,
       search_type: tab.type,
       order: tab.order,
       page: 1,
       size: 10
-    })
-      .then((res: ResponseType) => {
-        if (res?.code !== 0) {
-          return;
-        }
+    });
+    if (res?.code !== 0) {
+      return;
+    }
+    if (!res.data?.result || res.data?.result?.length === 0) {
+      setEmpty(true);
+      return;
+    }
 
-        if (!res.data?.result || res.data?.result?.length === 0) {
-          setEmpty(true);
-          return;
-        }
-
-        // 综合
-        if (tab.type === 'video') {
-          setDetail({ video: res.data ?? {} });
-        }
-        // 番剧
-        if (tab.type === 'media_bangumi') {
-          setDetail({ fanju: res.data ?? {} });
-        }
-        // up
-        if (tab.type === 'bili_user') {
-          setDetail({ up: res.data ?? {} });
-        }
-        // 影视
-        if (tab.type === 'media_ft') {
-          setDetail({ movie: res.data ?? {} });
-        }
-      })
-      .catch(() => ({}));
+    // 综合
+    if (tab.type === 'video') {
+      setDetail({ video: res.data ?? {} });
+    }
+    // 番剧
+    if (tab.type === 'media_bangumi') {
+      setDetail({ fanju: res.data ?? {} });
+    }
+    // up
+    if (tab.type === 'bili_user') {
+      setDetail({ up: res.data ?? {} });
+    }
+    // 影视
+    if (tab.type === 'media_ft') {
+      setDetail({ movie: res.data ?? {} });
+    }
+    setEmpty(false);
   };
 
   useEffect(() => {
@@ -115,11 +102,9 @@ function SearchDetail(): React.ReactElement {
         {tab.list?.map?.((item, index) => {
           return (
             <li
-              className={`${
-                tab.index === index ? styles.tabActiveItem : styles.tabItem
-              }`}
+              className={`${tab.typeIndex === index ? styles.tabActiveItem : styles.tabItem}`}
               key={index}
-              onClick={() => tabChange(index, item.type)}
+              onClick={() => handleTabChange(item.type, index)}
             >
               {item.title}
             </li>
@@ -127,14 +112,12 @@ function SearchDetail(): React.ReactElement {
         })}
       </ul>
       <ul className={styles.orderTab}>
-        {tab.list?.[tab.index]?.children?.map?.((item, index) => {
+        {tab.list?.[tab.typeIndex]?.children?.map?.((item, index) => {
           return (
             <li
-              className={`${styles.orderItem} ${
-                tab.orderIndex === index ? styles.orderActiveItem : ''
-              }`}
+              className={`${tab.orderIndex === index ? styles.orderActiveItem : styles.orderItem}`}
               key={index}
-              onClick={() => orderChange(index, item.type)}
+              onClick={() => handleOrderChange(item.type, index)}
             >
               {item.title}
             </li>
@@ -142,9 +125,7 @@ function SearchDetail(): React.ReactElement {
         })}
       </ul>
       {tab.type === 'video' && <Video list={detail.video?.result ?? []} />}
-      {tab.type === 'media_bangumi' && (
-        <Fanju list={detail.fanju?.result ?? []} />
-      )}
+      {tab.type === 'media_bangumi' && <Fanju list={detail.fanju?.result ?? []} />}
       {tab.type === 'bili_user' && <Up list={detail.up?.result ?? []} />}
       {tab.type === 'media_ft' && <Movie list={detail.movie?.result ?? []} />}
       {empty && (

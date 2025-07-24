@@ -16,20 +16,14 @@ function Panel(props: Props): React.ReactElement {
         <div className={styles.titleText}>{props.title}</div>
         <div
           className={styles.more}
-          style={{
-            visibility: props.subTitle ? 'visible' : 'hidden',
-            color: props.subColor
-          }}
+          style={{ visibility: props.subTitle ? 'visible' : 'hidden', color: props.subColor }}
         >
           <i
             className={`icon-ranking ${styles.subIcon}`}
             style={{ visibility: props.subIcon ? 'visible' : 'hidden' }}
           ></i>
           <div className={styles.moreText}>{props.subTitle}</div>
-          <i
-            className={`icon-down-arrow ${styles.moreIcon}`}
-            style={{ color: props.subColor }}
-          ></i>
+          <i className={`icon-down-arrow ${styles.moreIcon}`} style={{ color: props.subColor }}></i>
         </div>
       </div>
       {props.children}

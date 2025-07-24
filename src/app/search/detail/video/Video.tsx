@@ -23,7 +23,7 @@ function Video(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const jumpVideoDetail = (item: VideoItemType): void => {
+  const jumpVideoDetail = (item: VideoItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({
@@ -50,39 +50,19 @@ function Video(props: Props): React.ReactElement {
         <span className={styles.itemDuration}>{item.duration}</span>
       </div>
       <div className={styles.itemInfo}>
-        <p
-          className={styles.infoTitle}
-          dangerouslySetInnerHTML={{ __html: item.title }}
-        ></p>
+        <p className={styles.infoTitle} dangerouslySetInnerHTML={{ __html: item.title }} />
         <div className={styles.infoAuthor}>
-          <Image
-            width="15"
-            height="13"
-            src="/images/ranking/icon-up.png"
-            alt=""
-          />
+          <Image width="15" height="13" src="/images/ranking/icon-up.png" alt="" />
           <span className={styles.authorText}>{item.author}</span>
         </div>
         <div className={styles.infoCount}>
           <div className={styles.countItem}>
-            <Image
-              width="15"
-              height="13"
-              src="/images/ranking/icon-play.png"
-              alt=""
-            />
+            <Image width="15" height="13" src="/images/ranking/icon-play.png" alt="" />
             <span className={styles.countText}>{formatNumber(item.play)}</span>
           </div>
           <div className={styles.countItem}>
-            <Image
-              width="15"
-              height="13"
-              src="/images/ranking/icon-comment.png"
-              alt=""
-            />
-            <span className={styles.countText}>
-              {formatNumber(item.video_review)}
-            </span>
+            <Image width="15" height="13" src="/images/ranking/icon-comment.png" alt="" />
+            <span className={styles.countText}>{formatNumber(item.video_review)}</span>
           </div>
         </div>
       </div>

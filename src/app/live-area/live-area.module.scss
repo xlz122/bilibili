@@ -4,17 +4,17 @@
 }
 
 .title {
-  padding-inline: px2rem(16);
-  margin-top: px2rem(16);
-  margin-bottom: px2rem(33);
+  padding-inline: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.65rem;
   font-weight: normal;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
 }
 
 .list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(33%, 1fr));
-  row-gap: px2rem(50);
+  row-gap: 2.5rem;
 }
 
 .item {
@@ -26,12 +26,12 @@
 
 .itemCover {
   position: relative;
-  width: px2rem(60);
-  height: px2rem(60);
-  margin-bottom: px2rem(10);
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.5rem;
 }
 
 .itemText {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: gray;
 }

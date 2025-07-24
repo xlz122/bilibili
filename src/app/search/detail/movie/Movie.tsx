@@ -21,10 +21,7 @@ function Movie(props: Props): React.ReactElement {
         <Image src={item.cover} fill priority sizes="100%" alt="" />
       </div>
       <div className={styles.itemInfo}>
-        <p
-          className={styles.infoTitle}
-          dangerouslySetInnerHTML={{ __html: item.title }}
-        ></p>
+        <p className={styles.infoTitle} dangerouslySetInnerHTML={{ __html: item.title }} />
         <p className={styles.infoText}>{`地区: ${item.areas}`}</p>
         <p className={styles.infoText}>{`演员: ${item.cv}`}</p>
         <p className={styles.infoText}>{item.staff}</p>

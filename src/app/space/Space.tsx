@@ -7,17 +7,15 @@ import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store/index';
+import type { RootState } from '@/store';
 import type { ViewHistory } from '@/store/routineSlice';
 import styles from './space.module.scss';
 
 function Space(): React.ReactElement {
   const router = useRouter();
   const store = useStore();
+  const viewHistory = useSelector((state: RootState) => state.routine.viewHistory);
 
-  const viewHistory = useSelector(
-    (state: RootState) => state.routine.viewHistory
-  );
   const mounted = useMounted();
 
   const [tabIndex, setTabIndex] = useState(0);
@@ -26,7 +24,7 @@ function Space(): React.ReactElement {
     setTabIndex(index);
   };
 
-  const jumpVideoDetail = (item: ViewHistory): void => {
+  const jumpVideoDetail = (item: ViewHistory) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({
@@ -43,13 +41,10 @@ function Space(): React.ReactElement {
   const RenderItem = ({ item }: { item: ViewHistory }) => (
     <li className={styles.historyItem} onClick={() => jumpVideoDetail(item)}>
       <div className={styles.itemCover}>
-        <Image src={item.pic} fill sizes="50%" priority alt="" />
+        <Image src={item.pic} fill priority sizes="50%" alt="" />
       </div>
       <div className={styles.itemInfo}>
-        <span
-          className={styles.infoTitle}
-          dangerouslySetInnerHTML={{ __html: item.title }}
-        ></span>
+        <p className={styles.infoTitle} dangerouslySetInnerHTML={{ __html: item.title }} />
         <span className={styles.infoTime}>
           {dayjs(item.createTime).format('YYYY-MM-DD HH:mm:ss')}
         </span>
@@ -60,20 +55,12 @@ function Space(): React.ReactElement {
   return (
     <div className={styles.space}>
       <div className={styles.cover}>
-        <Image
-          src="/images/space/banner.png"
-          fill
-          priority
-          sizes="100%"
-          alt=""
-        />
+        <Image src="/images/space/banner.png" fill priority sizes="100%" alt="" />
       </div>
       <div className={styles.tabbar}>
         <div className={styles.tabItem}>
           <span
-            className={`${
-              tabIndex === 0 ? styles.activeText : styles.itemText
-            }`}
+            className={`${tabIndex === 0 ? styles.activeText : styles.itemText}`}
             onClick={() => handleTabChange(0)}
           >
             历史记录
@@ -81,9 +68,7 @@ function Space(): React.ReactElement {
         </div>
         <div className={styles.tabItem}>
           <span
-            className={`${
-              tabIndex === 1 ? styles.activeText : styles.itemText
-            }`}
+            className={`${tabIndex === 1 ? styles.activeText : styles.itemText}`}
             onClick={() => handleTabChange(1)}
           >
             我的投稿
@@ -101,13 +86,7 @@ function Space(): React.ReactElement {
         {tabIndex === 0 && mounted && viewHistory?.length === 0 && (
           <div className={styles.tip}>
             <div className={styles.tipCover}>
-              <Image
-                src="/images/space/tips.png"
-                fill
-                sizes="50%"
-                priority
-                alt=""
-              />
+              <Image src="/images/space/tips.png" fill priority sizes="50%" alt="" />
             </div>
             <div className={styles.tipText}>你还没有历史记录</div>
             <div className={styles.tipFindText}>
@@ -122,13 +101,7 @@ function Space(): React.ReactElement {
         {tabIndex === 1 && (
           <div className={styles.tip}>
             <div className={styles.tipCover}>
-              <Image
-                src="/images/space/tips.png"
-                fill
-                sizes="50%"
-                priority
-                alt=""
-              />
+              <Image src="/images/space/tips.png" fill priority sizes="50%" alt="" />
             </div>
             <div className={styles.tipText}>小哔睡着了~</div>
           </div>

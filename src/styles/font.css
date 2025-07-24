@@ -2,7 +2,7 @@
   font-family: "iconfont";
   src: url("/fonts/icon.eot") format("embedded-opentype"),
     url("/fonts/icon.ttf") format("truetype"),
-    url("/fonts/icon.woff") format("woff")
+    url("/fonts/icon.woff") format("woff");
 }
 
 /* use !important to prevent issues with browser extensions that change fonts */

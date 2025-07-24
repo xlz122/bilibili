@@ -9,15 +9,15 @@
 .cover {
   position: relative;
   width: 100%;
-  height: px2rem(128);
-  min-height: px2rem(128);
+  height: 6.4rem;
+  min-height: 6.4rem;
 }
 
 .tabbar {
   display: flex;
   flex-direction: row;
-  height: px2rem(40);
-  line-height: px2rem(40);
+  height: 2rem;
+  line-height: 2rem;
   border-bottom: 1px solid #efefef;
   background-color: #ffffff;
 }
@@ -25,30 +25,30 @@
 .tabItem {
   flex: 1;
   height: 100%;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   text-align: center;
 }
 
 .itemText {
   display: inline-block;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #212121;
 }
 
 .activeText {
   position: relative;
   display: inline-block;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #fb7299;
 
   &::before {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: px2rem(2);
+    bottom: 0.1rem;
     transform: translateX(-50%);
     width: 100%;
-    height: px2rem(2.5);
+    height: 0.125rem;
     background-color: #fb7299;
     border-radius: 4px;
   }
@@ -62,21 +62,21 @@
 .history {
   display: flex;
   flex-direction: column;
-  gap: px2rem(18);
-  padding: px2rem(12);
+  gap: 0.9rem;
+  padding: 0.6rem;
   background-color: #ffffff;
 }
 
 .historyItem {
   display: flex;
   flex-direction: row;
-  gap: px2rem(12);
+  gap: 0.6rem;
 }
 
 .itemCover {
   position: relative;
-  min-width: px2rem(116);
-  height: px2rem(72);
+  min-width: 5.8rem;
+  height: 3.6rem;
   border-radius: 4px;
   overflow: hidden;
 }
@@ -88,7 +88,7 @@
 }
 
 .infoTitle {
-  font-size: px2rem(13);
+  font-size: 0.65rem;
   color: #212121;
   display: -webkit-box;
   line-clamp: 2;
@@ -100,37 +100,37 @@
 }
 
 .infoTime {
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #999999;
 }
 
 .tip {
-  padding-inline: px2rem(47);
-  margin-top: px2rem(84);
+  padding-inline: 2.35rem;
+  margin-top: 4.2rem;
 }
 
 .tipCover {
   position: relative;
   width: 100%;
-  height: px2rem(159);
+  height: 7.95rem;
 }
 
 .tipText {
-  font-size: px2rem(16);
+  font-size: 0.8rem;
   color: #999999;
   text-align: center;
 }
 
 .tipFindText {
-  padding-left: px2rem(12);
-  font-size: px2rem(16);
+  padding-left: 0.6rem;
+  font-size: 0.8rem;
   color: #999999;
   text-align: center;
 }
 
 .tipFindLink {
-  margin-inline: px2rem(4);
-  font-size: px2rem(16);
+  margin-inline: 0.2rem;
+  font-size: 0.8rem;
   color: #fb7299;
   text-align: center;
 }

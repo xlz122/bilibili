@@ -9,9 +9,7 @@ type Props = {
   list: {
     id: number;
     name: string;
-    entrance_icon: {
-      src: string;
-    };
+    entrance_icon: { src: string };
   }[];
 };
 
@@ -31,18 +29,10 @@ function LiveArea(props: Props): React.ReactElement {
             <li
               className={styles.item}
               key={index}
-              onClick={() => {
-                jumpLiveAreaList({ id: item.id, name: item.name });
-              }}
+              onClick={() => jumpLiveAreaList({ id: item.id, name: item.name })}
             >
               <div className={styles.itemCover}>
-                <Image
-                  src={item.entrance_icon?.src}
-                  fill
-                  sizes="50%"
-                  priority
-                  alt=""
-                />
+                <Image src={item.entrance_icon?.src} fill priority sizes="50%" alt="" />
               </div>
               <p className={styles.itemText}>{item.name}</p>
             </li>

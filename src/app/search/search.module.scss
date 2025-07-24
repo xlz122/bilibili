@@ -3,9 +3,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: px2rem(16);
-  padding-block: px2rem(8);
-  padding-inline: px2rem(12);
+  gap: 0.8rem;
+  padding-block: 0.4rem;
+  padding-inline: 0.6rem;
   background-color: #ffffff;
 }
 
@@ -14,15 +14,15 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: px2rem(28);
-  padding-right: px2rem(10);
+  height: 1.4rem;
+  padding-right: 0.5rem;
   background-color: #f4f4f4;
   border-radius: 2px;
 }
 
 .inputIcon {
-  padding-inline: px2rem(8);
-  font-size: px2rem(18);
+  padding-inline: 0.4rem;
+  font-size: 0.9rem;
   color: #aaaaaa;
 }
 
@@ -35,19 +35,19 @@
 }
 
 .searchCancel {
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #fb7299;
 }
 
 .searchHot {
-  padding-inline: px2rem(12);
-  margin-top: px2rem(12);
-  margin-bottom: px2rem(22);
+  padding-inline: 0.6rem;
+  margin-top: 0.6rem;
+  margin-bottom: 1.1rem;
 }
 
 .hotTitle {
   font-weight: 400;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
   color: #999999;
 }
 
@@ -55,13 +55,13 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: px2rem(10);
-  margin-top: px2rem(12);
+  gap: 0.5rem;
+  margin-top: 0.6rem;
 }
 
 .hotItem {
-  padding: px2rem(8) px2rem(10);
+  padding: 0.4rem 0.5rem;
   border: 1px solid #cccccc;
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   border-radius: 50px;
 }

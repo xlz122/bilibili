@@ -1,6 +1,6 @@
 import React from 'react';
 import { partitions, indexList } from '@/api/home';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from '@/components/header/Header';
 import TabBar from '@/app/home/tab-bar/TabBar';
 import Home from '@/app/home/Home';
@@ -12,21 +12,21 @@ const props = {
 };
 
 const getTabBar = async (): Promise<void> => {
-  const { code, data }: ResponseType = await partitions();
-  if (code !== 0) {
+  const res: ResponseType = await partitions();
+  if (res?.code !== 0) {
     return;
   }
 
-  props.tabbar = data ?? [];
+  props.tabbar = res.data ?? [];
 };
 
 const getIndexList = async (): Promise<void> => {
-  const { code, data }: ResponseType = await indexList({ page: 1 });
-  if (code !== 0) {
+  const res: ResponseType = await indexList({ page: 1 });
+  if (res?.code !== 0) {
     return;
   }
 
-  props.list = data.slice?.(0, 20) ?? [];
+  props.list = res.data?.slice?.(0, 20) ?? [];
 };
 
 async function Page(): Promise<React.ReactElement> {

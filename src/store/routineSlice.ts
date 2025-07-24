@@ -28,16 +28,11 @@ const routineSlice = createSlice({
       state.searchHistory = action.payload;
       localStorage.setItem('searchHistory', JSON.stringify(action.payload));
     },
-    setViewHistory: (
-      state: RoutineState,
-      action: PayloadAction<ViewHistory>
-    ) => {
+    setViewHistory: (state: RoutineState, action: PayloadAction<ViewHistory>) => {
       const viewHistory = getLocalStorage('viewHistory', []);
 
       // 去重
-      const index = viewHistory.findIndex(
-        (item: ViewHistory) => item.aid === action.payload.aid
-      );
+      const index = viewHistory.findIndex((item: ViewHistory) => item.aid === action.payload.aid);
       if (index !== -1) {
         viewHistory.splice(index, 1);
       }
@@ -49,11 +44,11 @@ const routineSlice = createSlice({
   }
 });
 
-function getLocalStorage(key: string, defaultValue: unknown) {
+function getLocalStorage<T>(key: string, defaultValue: T) {
   if (typeof window === 'undefined') return;
 
   try {
-    return JSON.parse(localStorage.getItem(key) ?? '');
+    return JSON.parse(localStorage.getItem(key) ?? '') ?? defaultValue;
   } catch {
     return defaultValue;
   }

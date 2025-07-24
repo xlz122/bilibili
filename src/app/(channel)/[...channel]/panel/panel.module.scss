@@ -2,18 +2,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: px2rem(18);
+  margin-bottom: 0.9rem;
 }
 
 .title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: px2rem(8) px2rem(6) px2rem(10);
+  padding: 0.4rem 0.3rem 0.5rem;
 }
 
 .titleText {
-  font-size: px2rem(15);
+  font-size: 0.75rem;
   color: #212121;
 }
 
@@ -22,18 +22,18 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: px2rem(6);
+  gap: 0.3rem;
 }
 
 .subIcon {
-  font-size: px2rem(18);
+  font-size: 0.9rem;
 }
 
 .moreText {
-  font-size: px2rem(13);
+  font-size: 0.65rem;
 }
 
 .moreIcon {
-  font-size: px2rem(13);
+  font-size: 0.65rem;
   transform: rotate(-90deg);
 }

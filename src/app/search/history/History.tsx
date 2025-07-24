@@ -2,7 +2,7 @@ import React from 'react';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
 import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store/index';
+import type { RootState } from '@/store';
 import styles from './history.module.scss';
 
 type Props = {
@@ -11,13 +11,11 @@ type Props = {
 
 function SearchHistory(props: Props): React.ReactElement {
   const store = useStore();
+  const searchHistory = useSelector((state: RootState) => state.routine.searchHistory);
 
-  const searchHistory = useSelector(
-    (state: RootState) => state.routine.searchHistory
-  );
   const mounted = useMounted();
 
-  const handleClearHistory = (): void => {
+  const handleHistoryClear = () => {
     store.dispatch({ type: 'routine/setSearchHistory', payload: [] });
   };
 
@@ -29,11 +27,7 @@ function SearchHistory(props: Props): React.ReactElement {
           <ul className={styles.list}>
             {searchHistory.map?.((item, index) => {
               return (
-                <li
-                  className={styles.item}
-                  key={index}
-                  onClick={() => props.onSearch(item)}
-                >
+                <li className={styles.item} key={index} onClick={() => props.onSearch(item)}>
                   <Image
                     className={styles.itemIcon}
                     width="15"
@@ -46,7 +40,7 @@ function SearchHistory(props: Props): React.ReactElement {
               );
             })}
           </ul>
-          <div className={styles.clear} onClick={handleClearHistory}>
+          <div className={styles.clear} onClick={handleHistoryClear}>
             清除历史记录
           </div>
         </>

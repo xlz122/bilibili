@@ -1,6 +1,6 @@
 import React from 'react';
 import { liveIndex } from '@/api/live';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Header from './header/Header';
 import LiveBanner from './banner/Banner';
 import Live from './Live';
@@ -12,13 +12,13 @@ const props = {
 };
 
 const getLiveIndex = async (): Promise<void> => {
-  const { code, data }: ResponseType = await liveIndex();
-  if (code !== 0) {
+  const res: ResponseType = await liveIndex();
+  if (res?.code !== 0) {
     return;
   }
 
-  props.banner = data.module_list?.[0]?.list ?? [];
-  props.list = data.module_list?.slice?.(1) ?? [];
+  props.banner = res.data?.module_list?.[0]?.list ?? [];
+  props.list = res.data?.module_list?.slice?.(1) ?? [];
 };
 
 async function Page(): Promise<React.ReactElement> {

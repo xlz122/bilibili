@@ -14,7 +14,7 @@ export const rankNav = (): AxiosPromise => {
 /**
  * @description 排行榜 - 分类列表
  * @param { Object } params
- * @param { string } params.rid - 分类导航id
+ * @param { string } params.rid - 分类id
  */
 export const rankRegion = ({ rid }: { rid: string }): AxiosPromise => {
   const params = { rid };

@@ -1,18 +1,18 @@
 .liveList {
-  padding-inline: px2rem(12);
+  padding-inline: 0.6rem;
 }
 
 .title {
-  margin-block: px2rem(12);
+  margin-block: 0.6rem;
   font-weight: normal;
-  font-size: px2rem(14);
+  font-size: 0.7rem;
 }
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(px2rem(170), 1fr));
-  column-gap: px2rem(10);
-  row-gap: px2rem(12);
+  grid-template-columns: repeat(2, minmax(8.5rem, 1fr));
+  column-gap: 0.5rem;
+  row-gap: 0.6rem;
 }
 
 .item {
@@ -23,8 +23,8 @@
 .itemCover {
   position: relative;
   width: 100%;
-  height: px2rem(106);
-  margin-bottom: px2rem(6);
+  height: 5.3rem;
+  margin-bottom: 0.3rem;
   border-radius: 4px;
   overflow: hidden;
 
@@ -49,13 +49,13 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: px2rem(6);
+  padding: 0.3rem;
   box-sizing: border-box;
 }
 
 .infoName {
   flex: 1;
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #ffffff;
   display: -webkit-box;
   line-clamp: 1;
@@ -71,17 +71,17 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: px2rem(3);
-  min-width: px2rem(56);
+  gap: 0.15rem;
+  min-width: 2.8rem;
 }
 
 .itemCount {
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #ffffff;
 }
 
 .itemTitle {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #212121;
   display: -webkit-box;
   line-clamp: 2;
@@ -94,9 +94,9 @@
 
 .noMore {
   width: 100%;
-  height: px2rem(38);
+  height: 1.9rem;
   border: 1px solid #d3d3d3;
-  margin-block: px2rem(12);
+  margin-block: 0.6rem;
   background-color: #ffffff;
   color: #fb7299;
   border-radius: 6px;

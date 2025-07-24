@@ -1,8 +1,7 @@
 import React from 'react';
 import { searchDefault, searchHot } from '@/api/search';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import Search from './Search';
-import styles from './page.module.scss';
 
 const props = {
   default: {},
@@ -10,21 +9,21 @@ const props = {
 };
 
 const getSearchDefault = async (): Promise<void> => {
-  const { code, data }: ResponseType = await searchDefault();
-  if (code !== 0) {
+  const res: ResponseType = await searchDefault();
+  if (res?.code !== 0) {
     return;
   }
 
-  props.default = data ?? {};
+  props.default = res.data ?? {};
 };
 
 const getSearchHot = async (): Promise<void> => {
-  const { code, list }: ResponseType & { list?: never[] } = await searchHot();
-  if (code !== 0) {
+  const res: ResponseType & { list?: never[] } = await searchHot();
+  if (res?.code !== 0) {
     return;
   }
 
-  props.hot = list?.slice?.(0, 4) ?? [];
+  props.hot = res.list?.slice?.(0, 4) ?? [];
 };
 
 async function Page(): Promise<React.ReactElement> {

@@ -22,9 +22,7 @@ function Up(props: Props): React.ReactElement {
       </div>
       <div className={styles.itemInfo}>
         <p className={styles.infoTitle}>{item.uname}</p>
-        <p className={styles.infoText}>
-          {`粉丝: ${item.fans} 视频: ${item.videos}`}
-        </p>
+        <p className={styles.infoText}>{`粉丝: ${item.fans} 视频: ${item.videos}`}</p>
         <p className={styles.infoText}>{item.usign}</p>
       </div>
     </li>

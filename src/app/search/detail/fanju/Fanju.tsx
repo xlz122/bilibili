@@ -19,10 +19,7 @@ function Fanju(props: Props): React.ReactElement {
       </div>
       <div className={styles.itemInfo}>
         <p className={styles.infoLable}>番剧</p>
-        <p
-          className={styles.infoTitle}
-          dangerouslySetInnerHTML={{ __html: item.title }}
-        ></p>
+        <p className={styles.infoTitle} dangerouslySetInnerHTML={{ __html: item.title }} />
       </div>
     </li>
   );

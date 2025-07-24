@@ -1,9 +1,19 @@
-import { Inter } from 'next/font/google';
+import Script from 'next/script';
+import { Geist, Geist_Mono } from 'next/font/google';
 import type { Metadata, Viewport } from 'next';
-import Resize from '@/components/resize/Resize';
 import ReduxProvider from '@/store/ReduxProvider';
 import '@/styles/global.css';
 import '@/styles/font.css';
+
+const geistSans = Geist({
+  variable: '--font-geist-sans',
+  subsets: ['latin']
+});
+
+const geistMono = Geist_Mono({
+  variable: '--font-geist-mono',
+  subsets: ['latin']
+});
 
 export const metadata: Metadata = {
   title: '哔哩哔哩 (゜-゜)つロ 干杯~-bilibili',
@@ -17,18 +27,12 @@ export const viewport: Viewport = {
   userScalable: false
 };
 
-const inter = Inter({ subsets: ['latin'] });
-
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <Resize />
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <ReduxProvider>{children}</ReduxProvider>
+        <Script src="/resize.js" />
       </body>
     </html>
   );

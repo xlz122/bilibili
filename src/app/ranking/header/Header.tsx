@@ -6,10 +6,7 @@ import Link from 'next/link';
 import styles from './header.module.scss';
 
 type Props = {
-  list: {
-    rid: number;
-    name: string;
-  }[];
+  list: { rid: number; name: string }[];
 };
 
 function Header(props: Props): React.ReactElement {
@@ -26,14 +23,10 @@ function Header(props: Props): React.ReactElement {
         {props.list?.map?.((item, index) => {
           return (
             <li
-              className={`${
-                item.rid === Number(rid) ? styles.activeItem : styles.item
-              }`}
+              className={`${item.rid === Number(rid) ? styles.activeItem : styles.item}`}
               key={index}
             >
-              <Link href={{ pathname: '/ranking', query: { rid: item.rid } }}>
-                {item.name}
-              </Link>
+              <Link href={{ pathname: '/ranking', query: { rid: item.rid } }}>{item.name}</Link>
             </li>
           );
         })}

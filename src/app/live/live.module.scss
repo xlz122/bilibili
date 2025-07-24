@@ -1,9 +1,9 @@
 .panel {
   display: flex;
   flex-direction: column;
-  padding-inline: px2rem(12);
-  padding-bottom: px2rem(12);
-  margin-bottom: px2rem(12);
+  padding-inline: 0.6rem;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
   background-color: #ffffff;
 }
 
@@ -11,11 +11,11 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-block: px2rem(12);
+  margin-block: 0.6rem;
 }
 
 .titleText {
-  font-size: px2rem(15);
+  font-size: 0.75rem;
   color: #212121;
 }
 
@@ -23,23 +23,23 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: px2rem(4);
+  gap: 0.2rem;
 }
 
 .moreText {
-  font-size: px2rem(13);
+  font-size: 0.65rem;
   color: #919799;
 }
 
 .moreIcon {
-  font-size: px2rem(10);
+  font-size: 0.5rem;
 }
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(px2rem(170), 1fr));
-  column-gap: px2rem(10);
-  row-gap: px2rem(12);
+  grid-template-columns: repeat(2, minmax(8.5rem, 1fr));
+  column-gap: 0.5rem;
+  row-gap: 0.6rem;
 }
 
 .item {
@@ -50,8 +50,8 @@
 .itemCover {
   position: relative;
   width: 100%;
-  height: px2rem(106);
-  margin-bottom: px2rem(6);
+  height: 5.3rem;
+  margin-bottom: 0.3rem;
   border-radius: 4px;
   overflow: hidden;
 
@@ -76,13 +76,13 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: px2rem(6);
+  padding: 0.3rem;
   box-sizing: border-box;
 }
 
 .infoName {
   flex: 1;
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #ffffff;
   display: -webkit-box;
   line-clamp: 1;
@@ -98,17 +98,17 @@
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: px2rem(3);
-  min-width: px2rem(56);
+  gap: 0.15rem;
+  min-width: 2.8rem;
 }
 
 .itemCount {
-  font-size: px2rem(11);
+  font-size: 0.55rem;
   color: #ffffff;
 }
 
 .itemTitle {
-  font-size: px2rem(12);
+  font-size: 0.6rem;
   color: #212121;
   display: -webkit-box;
   line-clamp: 2;
@@ -123,14 +123,14 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  gap: px2rem(10);
-  padding: px2rem(14) px2rem(12);
+  gap: 0.5rem;
+  padding: 0.7rem 0.6rem;
   background-color: #ffffff;
 }
 
 .operateItem {
   flex: 1;
-  height: px2rem(38);
+  height: 1.9rem;
   border: 1px solid #d3d3d3;
   background-color: #ffffff;
   color: #fb7299;
