@@ -15,17 +15,14 @@ type ItemType = {
   aid: number;
   pic: string;
   title: string;
-  stat: {
-    view: number;
-    danmaku: number;
-  };
+  stat: { view: number; danmaku: number };
 };
 
 function Home(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const jumpVideoDetail = (item: ItemType): void => {
+  const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({
@@ -43,19 +40,15 @@ function Home(props: Props): React.ReactElement {
     return (
       <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
         <div className={styles.itemCover}>
-          <Image src={item.pic} fill sizes="50%" priority alt="" />
+          <Image src={item.pic} fill priority sizes="50%" alt="" />
           <div className={styles.info}>
             <div className={styles.infoItem}>
               <i className={`icon-play-count ${styles.itemIcon}`}></i>
-              <span className={styles.itmCount}>
-                {formatNumber(item.stat?.view)}
-              </span>
+              <span className={styles.itmCount}>{formatNumber(item.stat?.view)}</span>
             </div>
             <div className={styles.infoItem}>
               <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
-              <span className={styles.itmCount}>
-                {formatNumber(item.stat?.danmaku)}
-              </span>
+              <span className={styles.itmCount}>{formatNumber(item.stat?.danmaku)}</span>
             </div>
           </div>
         </div>

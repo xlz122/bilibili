@@ -10,13 +10,8 @@ import type {
 class HttpRequest {
   getInsideConfig(): AxiosRequestConfig {
     const config = {
-      baseURL:
-        typeof window === 'undefined'
-          ? process.env.NEXT_PUBLIC_API_BASE_URL
-          : '/api',
-      headers: {
-        'Content-Type': 'application/json;charset=UTF-8'
-      },
+      baseURL: typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_BASE_URL : '/api',
+      headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       withCredentials: true,
       timeout: 60000
     };
@@ -37,9 +32,7 @@ class HttpRequest {
     // 响应拦截
     instance.interceptors.response.use(
       (response: AxiosResponse) => {
-        const res = response.headers['content-type'].includes(
-          'application/json'
-        )
+        const res = response.headers['content-type'].includes('application/json')
           ? response.data
           : response;
 

@@ -1,37 +1,31 @@
 'use client';
 
 import React, { useState } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
-import type { RootState } from '@/store/index';
-import type { InputChange, InputEnter } from '@/types/index';
+import type { RootState } from '@/store';
+import type { InputChange, InputEnter } from '@/types';
 import SearchHistory from './history/History';
 import SearchSuggest from './suggest/Suggest';
 import SearchDetail from './detail/Detail';
 import styles from './search.module.scss';
 
 type Props = {
-  default: {
-    show_name?: string;
-  };
-  hot: {
-    keyword: string;
-  }[];
+  default: { show_name?: string };
+  hot: { keyword: string }[];
 };
 
 function Search(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
-  const searchHistory = useSelector(
-    (state: RootState) => state.routine.searchHistory
-  );
+  const searchHistory = useSelector((state: RootState) => state.routine.searchHistory);
 
   const keyword = useSearchParams().get('keyword') ?? '';
   const [searchValue, setSearchValue] = useState(keyword);
 
-  const handleInputChange = (e: InputChange): void => {
-    // 清空/搜索后再次输入
+  const handleInputChange = (e: InputChange) => {
+    // 搜索/清空后再次输入
     if (!e.target.value || keyword) {
       router.push('/search');
     }
@@ -39,12 +33,12 @@ function Search(props: Props): React.ReactElement {
     setSearchValue(e.target.value);
   };
 
-  const handleClear = (): void => {
+  const handleClear = () => {
     router.push('/search');
     setSearchValue('');
   };
 
-  const handleSearch = (value: string): void => {
+  const handleSearch = (value: string) => {
     setSearchValue(value);
 
     router.push(`/search?keyword=${value}`);
@@ -54,24 +48,20 @@ function Search(props: Props): React.ReactElement {
     });
   };
 
-  const handleEnterKey = (e: InputEnter): void => {
-    if (e.code !== 'Enter') {
-      return;
-    }
+  const handleEnterKey = (e: InputEnter) => {
+    if (e.code !== 'Enter') return;
 
-    const defaultValue = props.default?.show_name;
+    const defaultValue = props.default?.show_name ?? '';
 
-    setSearchValue(e.target.value || defaultValue || '');
+    setSearchValue(e.target.value || defaultValue);
     router.push(`/search?keyword=${e.target.value || defaultValue}`);
     store.dispatch({
       type: 'routine/setSearchHistory',
-      payload: Array.from(
-        new Set([e.target.value || defaultValue, ...searchHistory])
-      )
+      payload: Array.from(new Set([e.target.value || defaultValue, ...searchHistory]))
     });
   };
 
-  const cancel = (): void => {
+  const handleCancel = () => {
     router.push('/');
   };
 
@@ -93,12 +83,12 @@ function Search(props: Props): React.ReactElement {
               width="16"
               height="16"
               src="/images/search/icon-clear.png"
-              onClick={handleClear}
               alt=""
+              onClick={handleClear}
             />
           )}
         </div>
-        <span className={styles.searchCancel} onClick={cancel}>
+        <span className={styles.searchCancel} onClick={handleCancel}>
           取消
         </span>
       </div>
@@ -123,9 +113,7 @@ function Search(props: Props): React.ReactElement {
           <SearchHistory onSearch={handleSearch} />
         </>
       )}
-      {!keyword && searchValue && (
-        <SearchSuggest keyword={searchValue} onSearch={handleSearch} />
-      )}
+      {!keyword && searchValue && <SearchSuggest keyword={searchValue} onSearch={handleSearch} />}
       {keyword && <SearchDetail />}
     </>
   );

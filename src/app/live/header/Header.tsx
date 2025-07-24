@@ -16,7 +16,7 @@ function Header(): React.ReactElement {
         <li className={styles.tabItem}>
           <Link href="/channel/1/1">频道</Link>
         </li>
-        <li className={`${styles.tabItem} ${styles.activeItem}`}>
+        <li className={`${styles.tabItem} ${styles.tabActiveItem}`}>
           <Link href="/live">直播</Link>
         </li>
         <li className={styles.tabItem}>

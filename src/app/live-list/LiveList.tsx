@@ -16,34 +16,25 @@ type ItemType = {
   title: string;
   cover: string;
   uname: string;
-  watched_show: {
-    num: number;
-  };
+  watched_show: { num: number };
 };
 
 function LiveList(props: Props): React.ReactElement {
   const router = useRouter();
 
-  const jumpLiveDetail = (item: ItemType): void => {
+  const jumpLiveDetail = (item: ItemType) => {
     router.push(`/live-room?roomid=${item.roomid}`);
   };
 
   const RenderItem = ({ item }: { item: ItemType }) => (
     <div className={styles.item} onClick={() => jumpLiveDetail(item)}>
       <div className={styles.itemCover}>
-        <Image src={item.cover} fill sizes="50%" priority alt="" />
+        <Image src={item.cover} fill priority sizes="50%" alt="" />
         <div className={styles.info}>
           <div className={styles.infoName}>{item.uname}</div>
           <div className={styles.infoItem}>
-            <Image
-              width="8"
-              height="8"
-              src="/images/live/icon-eye.png"
-              alt=""
-            />
-            <span className={styles.itemCount}>
-              {formatNumber(item.watched_show?.num)}
-            </span>
+            <Image width="8" height="8" src="/images/live/icon-eye.png" alt="" />
+            <span className={styles.itemCount}>{formatNumber(item.watched_show?.num)}</span>
           </div>
         </div>
       </div>
@@ -59,9 +50,7 @@ function LiveList(props: Props): React.ReactElement {
           return <RenderItem key={index} item={item} />;
         })}
       </div>
-      {props.list?.length < 30 && (
-        <button className={styles.noMore}>没有更多直播间了</button>
-      )}
+      {props.list?.length < 30 && <button className={styles.noMore}>没有更多直播间了</button>}
     </div>
   );
 }

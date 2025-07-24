@@ -6,10 +6,7 @@ type Props = {
   detail: Partial<{
     cid: number;
     title: string;
-    owner: {
-      face: string;
-      name: string;
-    };
+    owner: { face: string; name: string };
   }>;
 };
 
@@ -21,13 +18,7 @@ function VideoDetail(props: Props): React.ReactElement {
       <div className={styles.author}>
         <div className={styles.authorInfo}>
           <div className={styles.infoCover}>
-            <Image
-              src={props.detail.owner?.face ?? ''}
-              fill
-              priority
-              sizes="100%"
-              alt=""
-            />
+            <Image src={props.detail.owner?.face ?? ''} fill priority sizes="100%" alt="" />
           </div>
           <span className={styles.infoName}>{props.detail.owner?.name}</span>
         </div>

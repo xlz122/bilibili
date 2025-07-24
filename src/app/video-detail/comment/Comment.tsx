@@ -10,20 +10,15 @@ type Props = {
 
 type ItemType = {
   ctime: number;
-  member: {
-    avatar: string;
-    uname: string;
-  };
-  content: {
-    message: string;
-  };
+  member: { avatar: string; uname: string };
+  content: { message: string };
 };
 
 function VideoComment(props: Props): React.ReactElement {
   const RenderItem = ({ item }: { item: ItemType }) => (
     <li className={styles.item}>
       <div className={styles.itemCover}>
-        <Image src={item.member.avatar} fill sizes="50%" priority alt="" />
+        <Image src={item.member.avatar} fill priority sizes="50%" alt="" />
       </div>
       <div className={styles.itemInfo}>
         <div className={styles.itemAvatar}>

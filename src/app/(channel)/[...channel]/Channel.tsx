@@ -19,17 +19,14 @@ type ItemType = {
   play: number;
   video_review: number;
   title: string;
-  stat: {
-    danmaku: number;
-    view: number;
-  };
+  stat: { danmaku: number; view: number };
 };
 
 function Channel(props: Props): React.ReactElement {
   const router = useRouter();
   const store = useStore();
 
-  const jumpVideoDetail = (item: ItemType): void => {
+  const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
     store.dispatch({
@@ -47,7 +44,7 @@ function Channel(props: Props): React.ReactElement {
     return (
       <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
         <div className={styles.itemCover}>
-          <Image src={item.pic} fill sizes="50%" priority alt="" />
+          <Image src={item.pic} fill priority sizes="50%" alt="" />
           <div className={styles.info}>
             <div className={styles.infoItem}>
               <i className={`icon-play-count ${styles.itemIcon}`}></i>
@@ -55,9 +52,7 @@ function Channel(props: Props): React.ReactElement {
             </div>
             <div className={styles.infoItem}>
               <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
-              <span className={styles.itmCount}>
-                {formatNumber(item.video_review)}
-              </span>
+              <span className={styles.itmCount}>{formatNumber(item.video_review)}</span>
             </div>
           </div>
         </div>
@@ -70,19 +65,15 @@ function Channel(props: Props): React.ReactElement {
     return (
       <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
         <div className={styles.itemCover}>
-          <Image src={item.pic} fill sizes="50%" priority alt="" />
+          <Image src={item.pic} fill priority sizes="50%" alt="" />
           <div className={styles.info}>
             <div className={styles.infoItem}>
               <i className={`icon-play-count ${styles.itemIcon}`}></i>
-              <span className={styles.itmCount}>
-                {formatNumber(item.stat.view)}
-              </span>
+              <span className={styles.itmCount}>{formatNumber(item.stat.view)}</span>
             </div>
             <div className={styles.infoItem}>
               <i className={`icon-barrage-count ${styles.itemIcon}`}></i>
-              <span className={styles.itmCount}>
-                {formatNumber(item.stat.danmaku)}
-              </span>
+              <span className={styles.itmCount}>{formatNumber(item.stat.danmaku)}</span>
             </div>
           </div>
         </div>

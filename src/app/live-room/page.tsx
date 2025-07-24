@@ -1,23 +1,26 @@
 import React from 'react';
 import { liveInfo } from '@/api/live';
-import type { ResponseType } from '@/types/index';
+import type { ResponseType } from '@/types';
 import LiveRoom from './LiveRoom';
+
+type SearchParams = Promise<{ roomid: string }>;
 
 const props = {
   data: {}
 };
 
 const getLiveInfo = async ({ roomid }: { roomid: string }): Promise<void> => {
-  const { code, data }: ResponseType = await liveInfo({ roomid });
-  if (code !== 0) {
+  const res: ResponseType = await liveInfo({ roomid });
+  if (res?.code !== 0) {
     return;
   }
 
-  props.data = data ?? {};
+  props.data = res.data ?? {};
 };
 
-async function Page({ searchParams }: { searchParams: { roomid: string } }) {
-  await getLiveInfo({ roomid: searchParams.roomid });
+async function Page({ searchParams }: { searchParams: SearchParams }) {
+  const { roomid } = await searchParams;
+  await getLiveInfo({ roomid });
 
   return <LiveRoom data={props.data} />;
 }
