@@ -38,21 +38,21 @@ function LiveBanner(props: Props): React.ReactElement {
         {`
           .swiper-pagination {
             left: inherit !important;
-            right: 5px;
-            bottom: 5px !important;
+            right: 10px;
+            bottom: 10px !important;
             text-align: right;
           }
 
           .swiper-pagination-bullet {
-            width: 6px !important;
-            height: 6px !important;
-            margin-inline: 2px !important;
-            background-color: #ffffff;
+            width: 12px !important;
+            height: 12px !important;
+            margin-inline: 4px !important;
+            background-color: #FFFFFF;
             opacity: 1;
           }
 
           .swiper-pagination-bullet-active {
-            background-color: #fb7299;
+            background-color: #FB7299;
           }
         `}
       </style>

@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    [
+      "postcss-mobile-forever",
+      {
+        "viewportWidth": 750,
+        "mobileUnit": "vw",
+        "maxDisplayWidth": 750,
+        "propList": ["*"],
+        "selectorBlackList": []
+      }
+    ]
+  ]
+}

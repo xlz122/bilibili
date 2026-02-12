@@ -6,29 +6,28 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint",
+    "lint:fix": "eslint --fix"
   },
   "dependencies": {
-    "@reduxjs/toolkit": "^2.8.2",
-    "axios": "^1.11.0",
-    "dayjs": "^1.11.13",
-    "next": "15.4.3",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-redux": "^9.2.0",
-    "swiper": "^11.2.10"
+    "axios": "^1.13.5",
+    "next": "16.1.6",
+    "postcss-mobile-forever": "^5.0.0",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "swiper": "^12.1.2"
   },
   "devDependencies": {
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.3",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.3",
-    "@eslint/eslintrc": "^3",
-    "prettier": "^3.6.2",
-    "sass": "^1.89.2",
-    "typescript": "^5"
+    "@types/node": "^25.3.2",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "babel-plugin-react-compiler": "1.0.0",
+    "dayjs": "^1.11.19",
+    "eslint": "^9.39.3",
+    "eslint-config-next": "16.1.6",
+    "eslint-plugin-prettier": "^5.5.5",
+    "prettier": "^3.8.1",
+    "sass": "^1.97.3",
+    "typescript": "^5.9.3"
   }
 }

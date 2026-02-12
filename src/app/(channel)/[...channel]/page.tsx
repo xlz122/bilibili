@@ -7,7 +7,7 @@ type Params = Promise<{ channel: string }>;
 
 const props = {
   region: [],
-  archive: []
+  archive: [],
 };
 
 const getIndexRegion = async ({ rid }: { rid: string }): Promise<void> => {

@@ -7,7 +7,7 @@ import type { AxiosPromise } from 'axios';
 export const searchDefault = (): AxiosPromise => {
   return axios.request({
     url: '/search/default',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -17,7 +17,7 @@ export const searchDefault = (): AxiosPromise => {
 export const searchHot = (): AxiosPromise => {
   return axios.request({
     url: '/search/hot',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -32,7 +32,7 @@ export const searchSuggest = ({ keyword }: { keyword: string }): AxiosPromise =>
   return axios.request({
     url: '/search/suggest',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -58,13 +58,13 @@ export const searchType = ({
   search_type,
   order,
   page,
-  size
+  size,
 }: SearchType): AxiosPromise => {
   const params = { keyword, search_type, order, page, size };
 
   return axios.request({
     url: '/search/type',
     method: 'get',
-    params
+    params,
   });
 };

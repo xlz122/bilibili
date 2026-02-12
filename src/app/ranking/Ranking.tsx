@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useStore } from 'react-redux';
 import Image from 'next/image';
+import useLocalStorage from '@/hooks/useLocalStorage';
+import type { ViewHistory } from '@/app/space/Space';
 import { timeStampToDuration, formatNumber } from '@/utils/utils';
 import styles from './ranking.module.scss';
 
@@ -22,27 +23,35 @@ type ItemType = {
 
 function Ranking(props: Props): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
+  const [viewHistory, setViewHistory] = useLocalStorage<ViewHistory[]>('viewHistory', []);
 
   const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
-    store.dispatch({
-      type: 'routine/setViewHistory',
-      payload: {
+    setViewHistory([
+      ...viewHistory,
+      {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
-    });
+        createTime: new Date().getTime(),
+      },
+    ]);
   };
 
   const RenderItem = ({ item, index }: { item: ItemType; index: number }) => (
     <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
       <div className={styles.itemIndex}>
         {index < 3 && (
-          <Image width="20" height="32" src={`/images/ranking/rank${index + 1}.png`} alt="" />
+          <div className={styles.rankIcon}>
+            <Image
+              src={`/images/ranking/rank-0${index + 1}.png`}
+              fill
+              priority
+              sizes="50%"
+              alt=""
+            />
+          </div>
         )}
         {index >= 3 && <p>{index + 1}</p>}
       </div>
@@ -54,16 +63,22 @@ function Ranking(props: Props): React.ReactElement {
         <div className={styles.itemInfo}>
           <p className={styles.infoTitle}>{item.title}</p>
           <div className={styles.infoAuthor}>
-            <Image width="15" height="13" src="/images/ranking/icon-up.png" alt="" />
+            <div className={styles.authorIcon}>
+              <Image src="/images/ranking/icon-up.png" fill priority sizes="50%" alt="" />
+            </div>
             <span className={styles.authorText}>{item.owner?.name}</span>
           </div>
           <div className={styles.infoCount}>
             <div className={styles.countItem}>
-              <Image width="15" height="13" src="/images/ranking/icon-play.png" alt="" />
+              <div className={styles.countIcon}>
+                <Image src="/images/ranking/icon-play.png" fill priority sizes="50%" alt="" />
+              </div>
               <span className={styles.countText}>{formatNumber(item.stat.view)}</span>
             </div>
             <div className={styles.countItem}>
-              <Image width="15" height="13" src="/images/ranking/icon-comment.png" alt="" />
+              <div className={styles.countIcon}>
+                <Image src="/images/ranking/icon-comment.png" fill priority sizes="50%" alt="" />
+              </div>
               <span className={styles.countText}>{formatNumber(item.stat.danmaku)}</span>
             </div>
           </div>

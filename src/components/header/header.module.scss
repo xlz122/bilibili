@@ -1,34 +1,32 @@
 .header {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0.4rem 0.6rem;
-  background-color: #ffffff;
+  padding: 16px 24px;
+  background-color: #FFFFFF;
 }
 
 .logo {
-  width: 3.1rem;
-  height: 1.4rem;
-  margin-left: 0.3rem;
+  width: 124px;
+  height: 56px;
+  margin-left: 12px;
 }
 
 .other {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 0.9rem;
+  gap: 36px;
 }
 
 .search {
-  width: 1rem;
-  height: 1rem;
-  font-size: 1rem;
+  width: 40px;
+  height: 40px;
+  font-size: 40px;
 }
 
 .avatar {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   overflow: hidden;
 }

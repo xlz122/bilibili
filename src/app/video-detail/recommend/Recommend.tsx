@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useStore } from 'react-redux';
 import Image from 'next/image';
+import useLocalStorage from '@/hooks/useLocalStorage';
+import type { ViewHistory } from '@/app/space/Space';
 import { formatNumber } from '@/utils/utils';
 import styles from './recommend.module.scss';
 
@@ -20,20 +21,20 @@ type ItemType = {
 
 function VideoRecommend(props: Props): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
+  const [viewHistory, setViewHistory] = useLocalStorage<ViewHistory[]>('viewHistory', []);
 
   const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
-    store.dispatch({
-      type: 'routine/setViewHistory',
-      payload: {
+    setViewHistory([
+      ...viewHistory,
+      {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
-    });
+        createTime: new Date().getTime(),
+      },
+    ]);
   };
 
   const RenderItem = ({ item }: { item: ItemType }) => (
@@ -61,7 +62,9 @@ function VideoRecommend(props: Props): React.ReactElement {
         <div className={styles.titleText}>相关推荐</div>
         <div className={styles.more}>
           <p className={styles.moreText}>查看更多</p>
-          <Image width="12" height="12" src="/images/video/icon-arrow.svg" alt="" />
+          <div className={styles.moreIcon}>
+            <Image src="/images/video/icon-arrow.svg" fill priority sizes="50%" alt="" />
+          </div>
         </div>
       </div>
       <ul className={styles.list}>

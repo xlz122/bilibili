@@ -1,0 +1,85 @@
+[class^="icon-"],
+[class*="icon-"] {
+  font-family: var(--iconfont);
+  font-style: normal;
+}
+
+.icon-down-arrow {
+  color: #AAAAAA;
+}
+
+.icon-down-arrow:before {
+  content: "\e900";
+}
+
+.icon-up-arrow {
+  color: #AAAAAA;
+}
+
+.icon-up-arrow:before {
+  content: "\e902";
+}
+
+.icon-right-arrow {
+  color: #AAAAAA;
+}
+
+.icon-right-arrow:before {
+  content: "\e901";
+}
+
+.icon-play-count {
+  color: #FFFFFF;
+}
+
+.icon-play-count:before {
+  content: "\e904";
+}
+
+.icon-barrage-count {
+  color: #FFFFFF;
+}
+
+.icon-barrage-count:before {
+  content: "\e903";
+}
+
+.icon-ranking {
+  color: #FFA726;
+}
+
+.icon-ranking:before {
+  content: "\e905";
+}
+
+.icon-search {
+  color: #CCCCCC;
+}
+
+.icon-search:before {
+  content: "\e906";
+}
+
+.icon-sex-man {
+  color: #89CFF0;
+}
+
+.icon-sex-man:before {
+  content: "\e907";
+}
+
+.icon-sex-secrecy {
+  color: #CE21E8;
+}
+
+.icon-sex-secrecy:before {
+  content: "\e908";
+}
+
+.icon-sex-woman {
+  color: #FB7299;
+}
+
+.icon-sex-woman:before {
+  content: "\e909";
+}

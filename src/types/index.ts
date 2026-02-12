@@ -1,7 +1,7 @@
 export type ResponseType<T = any> = {
   code?: number;
   data: T;
-  msg?: string;
+  message?: string;
 };
 
 export type InputChange = React.ChangeEvent<HTMLInputElement>;

@@ -6,7 +6,7 @@ import LiveArea from './LiveArea';
 import styles from './page.module.scss';
 
 const props = {
-  list: []
+  list: [],
 };
 
 const getLiveArea = async (): Promise<void> => {

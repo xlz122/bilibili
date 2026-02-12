@@ -1,18 +1,18 @@
 .liveList {
-  padding-inline: 0.6rem;
+  padding-inline: 24px;
 }
 
 .title {
-  margin-block: 0.6rem;
+  margin-block: 24px;
   font-weight: normal;
-  font-size: 0.7rem;
+  font-size: 28px;
 }
 
 .list {
   display: grid;
-  grid-template-columns: repeat(2, minmax(8.5rem, 1fr));
-  column-gap: 0.5rem;
-  row-gap: 0.6rem;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+  row-gap: 24px;
 }
 
 .item {
@@ -23,9 +23,9 @@
 .itemCover {
   position: relative;
   width: 100%;
-  height: 5.3rem;
-  margin-bottom: 0.3rem;
-  border-radius: 4px;
+  height: 212px;
+  margin-bottom: 12px;
+  border-radius: 8px;
   overflow: hidden;
 
   &::before {
@@ -46,17 +46,16 @@
   bottom: 0;
   z-index: 2;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: 0.3rem;
+  padding: 12px;
   box-sizing: border-box;
 }
 
 .infoName {
   flex: 1;
-  font-size: 0.55rem;
-  color: #ffffff;
+  font-size: 22px;
+  color: #FFFFFF;
   display: -webkit-box;
   line-clamp: 1;
   -webkit-line-clamp: 1;
@@ -68,20 +67,25 @@
 
 .infoItem {
   display: flex;
-  flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  gap: 0.15rem;
-  min-width: 2.8rem;
+  gap: 6px;
+  min-width: 112px;
 }
 
-.itemCount {
-  font-size: 0.55rem;
-  color: #ffffff;
+.countIcon {
+  position: relative;
+  width: 16px;
+  height: 16px;
+}
+
+.countText {
+  font-size: 22px;
+  color: #FFFFFF;
 }
 
 .itemTitle {
-  font-size: 0.6rem;
+  font-size: 24px;
   color: #212121;
   display: -webkit-box;
   line-clamp: 2;
@@ -94,10 +98,10 @@
 
 .noMore {
   width: 100%;
-  height: 1.9rem;
-  border: 1px solid #d3d3d3;
-  margin-block: 0.6rem;
-  background-color: #ffffff;
-  color: #fb7299;
-  border-radius: 6px;
+  height: 76px;
+  border: 2px solid #D3D3D3;
+  margin-block: 24px;
+  background-color: #FFFFFF;
+  color: #FB7299;
+  border-radius: 12px;
 }
