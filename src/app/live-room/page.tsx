@@ -6,7 +6,7 @@ import LiveRoom from './LiveRoom';
 type SearchParams = Promise<{ roomid: string }>;
 
 const props = {
-  data: {}
+  data: {},
 };
 
 const getLiveInfo = async ({ roomid }: { roomid: string }): Promise<void> => {

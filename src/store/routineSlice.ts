@@ -14,7 +14,7 @@ export type ViewHistory = {
 
 const initialState: RoutineState = {
   searchHistory: getLocalStorage('searchHistory', []),
-  viewHistory: getLocalStorage('viewHistory', [])
+  viewHistory: getLocalStorage('viewHistory', []),
 };
 
 const routineSlice = createSlice({
@@ -23,7 +23,7 @@ const routineSlice = createSlice({
   reducers: {
     setSearchHistory: (
       state: RoutineState,
-      action: PayloadAction<RoutineState['searchHistory']>
+      action: PayloadAction<RoutineState['searchHistory']>,
     ) => {
       state.searchHistory = action.payload;
       localStorage.setItem('searchHistory', JSON.stringify(action.payload));
@@ -40,8 +40,8 @@ const routineSlice = createSlice({
 
       state.viewHistory = viewHistory;
       localStorage.setItem('viewHistory', JSON.stringify(viewHistory));
-    }
-  }
+    },
+  },
 });
 
 function getLocalStorage<T>(key: string, defaultValue: T) {

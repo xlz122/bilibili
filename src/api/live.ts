@@ -7,7 +7,7 @@ import type { AxiosPromise } from 'axios';
 export const liveIndex = (): AxiosPromise => {
   return axios.request({
     url: '/live/index',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -17,7 +17,7 @@ export const liveIndex = (): AxiosPromise => {
 export const liveArea = (): AxiosPromise => {
   return axios.request({
     url: '/live/area',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -40,14 +40,14 @@ export const liveAreaList = ({
   parent_area_id,
   area_id,
   page,
-  size
+  size,
 }: LiveAreaList): AxiosPromise => {
   const params = { parent_area_id, area_id, page, size };
 
   return axios.request({
     url: '/live/area/list',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -62,6 +62,6 @@ export const liveInfo = ({ roomid }: { roomid: string }): AxiosPromise => {
   return axios.request({
     url: '/live/info',
     method: 'get',
-    params
+    params,
   });
 };

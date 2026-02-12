@@ -33,8 +33,8 @@ function Ranking(props: Props): React.ReactElement {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
+        createTime: new Date().getTime(),
+      },
     });
   };
 
@@ -42,7 +42,7 @@ function Ranking(props: Props): React.ReactElement {
     <li className={styles.item} onClick={() => jumpVideoDetail(item)}>
       <div className={styles.itemIndex}>
         {index < 3 && (
-          <Image width="20" height="32" src={`/images/ranking/rank${index + 1}.png`} alt="" />
+          <Image width="20" height="32" src={`/images/ranking/rank-0${index + 1}.png`} alt="" />
         )}
         {index >= 3 && <p>{index + 1}</p>}
       </div>

@@ -32,17 +32,17 @@ function SearchDetail(): React.ReactElement {
           { title: '默认排序', type: 'totalrank' },
           { title: '播放多', type: 'click' },
           { title: '新发布', type: 'pubdate' },
-          { title: '弹幕多', type: 'dm' }
-        ]
+          { title: '弹幕多', type: 'dm' },
+        ],
       },
       { title: '番剧', type: 'media_bangumi' },
       { title: 'UP主', type: 'bili_user' },
-      { title: '影视', type: 'media_ft' }
+      { title: '影视', type: 'media_ft' },
     ],
     type: 'video',
     typeIndex: 0,
     order: 'totalrank',
-    orderIndex: 0
+    orderIndex: 0,
   });
 
   const handleTabChange = (type: string, index: number) => {
@@ -63,7 +63,7 @@ function SearchDetail(): React.ReactElement {
       search_type: tab.type,
       order: tab.order,
       page: 1,
-      size: 10
+      size: 10,
     });
     if (res?.code !== 0) {
       return;

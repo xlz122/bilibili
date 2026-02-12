@@ -8,7 +8,7 @@ import styles from './page.module.scss';
 
 const props = {
   banner: [],
-  list: []
+  list: [],
 };
 
 const getLiveIndex = async (): Promise<void> => {

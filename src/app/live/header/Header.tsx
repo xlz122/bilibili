@@ -7,7 +7,9 @@ function Header(): React.ReactElement {
   return (
     <div className={styles.header}>
       <Link className={styles.logo} href="/">
-        <Image width="58" height="26" src="/images/live/logo.png" alt="" />
+        <div className={styles.logoCover}>
+          <Image src="/images/live/logo.png" fill priority sizes="50%" alt="" />
+        </div>
       </Link>
       <ul className={styles.tabbar}>
         <li className={styles.tabItem}>

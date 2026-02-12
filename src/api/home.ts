@@ -12,7 +12,7 @@ export const indexList = ({ page }: { page: number }): AxiosPromise => {
   return axios.request({
     url: '/index',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -22,7 +22,7 @@ export const indexList = ({ page }: { page: number }): AxiosPromise => {
 export const partitions = (): AxiosPromise => {
   return axios.request({
     url: '/partitions',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -43,7 +43,7 @@ export const indexRegion = ({ rid, day }: IndexRegion): AxiosPromise => {
   return axios.request({
     url: '/index/region',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -64,6 +64,6 @@ export const indexArchive = ({ rid, page }: IndexArchive): AxiosPromise => {
   return axios.request({
     url: '/index/archive',
     method: 'get',
-    params
+    params,
   });
 };

@@ -8,32 +8,32 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 2rem;
-  line-height: 2rem;
-  padding-inline: 0.9rem;
-  background-color: #ffffff;
+  height: 80px;
+  padding-inline: 36px;
+  background-color: #FFFFFF;
 }
 
 .tabItem {
-  font-size: 0.675rem;
+  font-size: 27px;
   color: #757575;
+  line-height: 80px;
 }
 
 .tabActiveItem {
   position: relative;
-  font-size: 0.675rem;
-  color: #fb7299;
+  font-size: 27px;
+  color: #FB7299;
 
   &::before {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: 0.1rem;
+    bottom: 4px;
     transform: translateX(-50%);
     width: 100%;
-    height: 0.125rem;
-    background-color: #fb7299;
-    border-radius: 4px;
+    height: 5px;
+    background-color: #FB7299;
+    border-radius: 8px;
   }
 }
 
@@ -41,21 +41,21 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-inline: 0.9rem;
-  border-top: 0.1rem solid #f4f4f4;
-  background-color: #f9f9f9;
+  padding-inline: 36px;
+  border-top: 4px solid #F4F4F4;
+  background-color: #F9F9F9;
 }
 
 .orderItem {
-  padding-block: 0.45rem;
-  font-size: 0.675rem;
+  padding-block: 18px;
+  font-size: 27px;
   color: #757575;
 }
 
 .orderActiveItem {
-  padding-block: 0.45rem;
-  font-size: 0.675rem;
-  color: #fb7299;
+  padding-block: 18px;
+  font-size: 27px;
+  color: #FB7299;
 }
 
 .emity {
@@ -66,7 +66,7 @@
   transform: translateX(-50%);
   width: 100%;
   height: 100vh;
-  background-color: #f4f4f4;
+  background-color: #F4F4F4;
 }
 
 .emityImage {
@@ -81,6 +81,6 @@
   top: 65%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 0.6rem;
+  font-size: 24px;
   color: #757575;
 }

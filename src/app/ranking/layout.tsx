@@ -4,7 +4,7 @@ import Header from './header/Header';
 import styles from './layout.module.scss';
 
 const props = {
-  tabbar: []
+  tabbar: [],
 };
 
 const getTabBar = async (): Promise<void> => {

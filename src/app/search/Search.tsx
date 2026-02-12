@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useStore, useSelector } from 'react-redux';
-import Image from 'next/image';
 import type { RootState } from '@/store';
+import Image from 'next/image';
 import type { InputChange, InputEnter } from '@/types';
 import SearchHistory from './history/History';
 import SearchSuggest from './suggest/Suggest';
@@ -44,7 +44,7 @@ function Search(props: Props): React.ReactElement {
     router.push(`/search?keyword=${value}`);
     store.dispatch({
       type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([value, ...searchHistory]))
+      payload: Array.from(new Set([value, ...searchHistory])),
     });
   };
 
@@ -57,7 +57,7 @@ function Search(props: Props): React.ReactElement {
     router.push(`/search?keyword=${e.target.value || defaultValue}`);
     store.dispatch({
       type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([e.target.value || defaultValue, ...searchHistory]))
+      payload: Array.from(new Set([e.target.value || defaultValue, ...searchHistory])),
     });
   };
 

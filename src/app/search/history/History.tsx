@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStore, useSelector } from 'react-redux';
+import type { RootState } from '@/store';
 import Image from 'next/image';
 import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store';
 import styles from './history.module.scss';
 
 type Props = {

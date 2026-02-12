@@ -31,8 +31,8 @@ function Home(props: Props): React.ReactElement {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
+        createTime: new Date().getTime(),
+      },
     });
   };
 

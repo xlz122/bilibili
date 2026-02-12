@@ -3,12 +3,12 @@
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useStore, useSelector } from 'react-redux';
+import type { RootState } from '@/store';
+import type { ViewHistory } from '@/store/routineSlice';
 import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
 import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store';
-import type { ViewHistory } from '@/store/routineSlice';
 import styles from './space.module.scss';
 
 function Space(): React.ReactElement {
@@ -33,8 +33,8 @@ function Space(): React.ReactElement {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
+        createTime: new Date().getTime(),
+      },
     });
   };
 

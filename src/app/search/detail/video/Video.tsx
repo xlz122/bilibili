@@ -32,8 +32,8 @@ function Video(props: Props): React.ReactElement {
         aid: item.aid,
         pic: item.pic.includes('http') ? item.pic : `http:${item.pic}`,
         title: item.title,
-        createTime: new Date().getTime()
-      }
+        createTime: new Date().getTime(),
+      },
     });
   };
 

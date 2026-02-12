@@ -10,7 +10,7 @@ export function formatNumber(number: number): string {
   }
 
   let wholeNumber = numStr.substring(0, numStr.length - 4);
-  let thousands = numStr.substring(numStr.length - 4);
+  const thousands = numStr.substring(numStr.length - 4);
   let decimalNumber = Number(thousands.substring(0, 1) + '.' + thousands.substring(1)).toFixed(0);
 
   if (decimalNumber.length === 2) {

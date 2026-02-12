@@ -50,7 +50,7 @@ function Live(props: Props): React.ReactElement {
           onClick={() => {
             jumpLiveAreaList({
               id: item.module_info.area_v2_parent_id,
-              name: item.module_info.title
+              name: item.module_info.title,
             });
           }}
         >

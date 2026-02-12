@@ -1,18 +1,15 @@
 ## 环境要求
 
-需要 NodeJS 20.11.0+ 环境
+需要 NodeJS 24.12.0+ 环境
 
 ## 简介
-
-master分支使用App Router进行重构, Pages Router可查看 [pages-router](https://github.com/xlz122/bilibili/tree/pages-router) 分支
 
 项目接口及接口文档请查看 [bilibili-server](https://github.com/xlz122/bilibili-server)
 
 ## 项目使用技术栈
 
+* Next
 * React
-* Next 15.4.3
-* Redux
 * TypeScript
 
 ## 加入项目
