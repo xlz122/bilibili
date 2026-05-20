@@ -2,9 +2,8 @@
 
 import React, { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useStore, useSelector } from 'react-redux';
 import Image from 'next/image';
-import type { RootState } from '@/store';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import type { InputChange, InputEnter } from '@/types';
 import SearchHistory from './history/History';
 import SearchSuggest from './suggest/Suggest';
@@ -18,8 +17,7 @@ type Props = {
 
 function Search(props: Props): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
-  const searchHistory = useSelector((state: RootState) => state.routine.searchHistory);
+  const [searchHistory, setSearchHistory] = useLocalStorage<string[]>('searchHistory', []);
 
   const keyword = useSearchParams().get('keyword') ?? '';
   const [searchValue, setSearchValue] = useState(keyword);
@@ -42,10 +40,7 @@ function Search(props: Props): React.ReactElement {
     setSearchValue(value);
 
     router.push(`/search?keyword=${value}`);
-    store.dispatch({
-      type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([value, ...searchHistory]))
-    });
+    setSearchHistory(Array.from(new Set([value, ...searchHistory])));
   };
 
   const handleEnterKey = (e: InputEnter) => {
@@ -55,10 +50,7 @@ function Search(props: Props): React.ReactElement {
 
     setSearchValue(e.target.value || defaultValue);
     router.push(`/search?keyword=${e.target.value || defaultValue}`);
-    store.dispatch({
-      type: 'routine/setSearchHistory',
-      payload: Array.from(new Set([e.target.value || defaultValue, ...searchHistory]))
-    });
+    setSearchHistory(Array.from(new Set([e.target.value || defaultValue, ...searchHistory])));
   };
 
   const handleCancel = () => {
@@ -78,14 +70,9 @@ function Search(props: Props): React.ReactElement {
             placeholder={props.default?.show_name}
           />
           {searchValue && (
-            <Image
-              className={styles.clearIcon}
-              width="16"
-              height="16"
-              src="/images/search/icon-clear.png"
-              alt=""
-              onClick={handleClear}
-            />
+            <div className={styles.clearIcon} onClick={handleClear}>
+              <Image src="/images/search/icon-clear.png" fill priority sizes="50%" alt="" />
+            </div>
           )}
         </div>
         <span className={styles.searchCancel} onClick={handleCancel}>

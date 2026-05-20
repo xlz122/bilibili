@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useStore } from 'react-redux';
 import Image from 'next/image';
+import useLocalStorage from '@/hooks/useLocalStorage';
+import type { ViewHistory } from '@/app/space/Space';
 import { formatNumber } from '@/utils/utils';
 import styles from './video.module.scss';
 
@@ -21,20 +22,20 @@ export type VideoItemType = {
 
 function Video(props: Props): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
+  const [viewHistory, setViewHistory] = useLocalStorage<ViewHistory[]>('viewHistory', []);
 
   const jumpVideoDetail = (item: VideoItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
-    store.dispatch({
-      type: 'routine/setViewHistory',
-      payload: {
+    setViewHistory([
+      ...viewHistory,
+      {
         aid: item.aid,
         pic: item.pic.includes('http') ? item.pic : `http:${item.pic}`,
         title: item.title,
-        createTime: new Date().getTime()
-      }
-    });
+        createTime: new Date().getTime(),
+      },
+    ]);
   };
 
   const RenderItem = ({ item }: { item: VideoItemType }) => (
@@ -52,16 +53,22 @@ function Video(props: Props): React.ReactElement {
       <div className={styles.itemInfo}>
         <p className={styles.infoTitle} dangerouslySetInnerHTML={{ __html: item.title }} />
         <div className={styles.infoAuthor}>
-          <Image width="15" height="13" src="/images/ranking/icon-up.png" alt="" />
+          <div className={styles.authorIcon}>
+            <Image src="/images/ranking/icon-up.png" fill priority sizes="50%" alt="" />
+          </div>
           <span className={styles.authorText}>{item.author}</span>
         </div>
         <div className={styles.infoCount}>
           <div className={styles.countItem}>
-            <Image width="15" height="13" src="/images/ranking/icon-play.png" alt="" />
+            <div className={styles.countIcon}>
+              <Image src="/images/ranking/icon-play.png" fill priority sizes="100%" alt="" />
+            </div>
             <span className={styles.countText}>{formatNumber(item.play)}</span>
           </div>
           <div className={styles.countItem}>
-            <Image width="15" height="13" src="/images/ranking/icon-comment.png" alt="" />
+            <div className={styles.countIcon}>
+              <Image src="/images/ranking/icon-comment.png" fill priority sizes="50%" alt="" />
+            </div>
             <span className={styles.countText}>{formatNumber(item.video_review)}</span>
           </div>
         </div>

@@ -2,21 +2,22 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useStore, useSelector } from 'react-redux';
 import Link from 'next/link';
 import Image from 'next/image';
 import dayjs from 'dayjs';
-import useMounted from '@/hooks/useMounted';
-import type { RootState } from '@/store';
-import type { ViewHistory } from '@/store/routineSlice';
+import useLocalStorage from '@/hooks/useLocalStorage';
 import styles from './space.module.scss';
+
+export type ViewHistory = {
+  aid: number;
+  pic: string;
+  title: string;
+  createTime: number;
+};
 
 function Space(): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
-  const viewHistory = useSelector((state: RootState) => state.routine.viewHistory);
-
-  const mounted = useMounted();
+  const [viewHistory, setViewHistory] = useLocalStorage<ViewHistory[]>('viewHistory', []);
 
   const [tabIndex, setTabIndex] = useState(0);
 
@@ -26,16 +27,15 @@ function Space(): React.ReactElement {
 
   const jumpVideoDetail = (item: ViewHistory) => {
     router.push(`/video-detail?aid=${item.aid}`);
-
-    store.dispatch({
-      type: 'routine/setViewHistory',
-      payload: {
+    setViewHistory((state) => [
+      ...state,
+      {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
-    });
+        createTime: new Date().getTime(),
+      },
+    ]);
   };
 
   const RenderItem = ({ item }: { item: ViewHistory }) => (
@@ -76,14 +76,14 @@ function Space(): React.ReactElement {
         </div>
       </div>
       <div className={styles.spaceMain}>
-        {tabIndex === 0 && mounted && viewHistory?.length > 0 && (
+        {tabIndex === 0 && viewHistory?.length > 0 && (
           <ul className={styles.history}>
             {viewHistory.map?.((item, index) => {
               return <RenderItem key={index} item={item} />;
             })}
           </ul>
         )}
-        {tabIndex === 0 && mounted && viewHistory?.length === 0 && (
+        {tabIndex === 0 && viewHistory?.length === 0 && (
           <div className={styles.tip}>
             <div className={styles.tipCover}>
               <Image src="/images/space/tips.png" fill priority sizes="50%" alt="" />

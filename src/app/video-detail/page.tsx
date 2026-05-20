@@ -11,14 +11,14 @@ type SearchParams = Promise<{ aid: string }>;
 
 const props = {
   detail: {
-    cid: undefined
+    cid: undefined,
   },
   url: '',
   recommend: [],
   comment: {
     replies: [],
-    count: 0
-  }
+    count: 0,
+  },
 };
 
 const getVideoDetail = async ({ aid }: { aid: string }): Promise<void> => {

@@ -6,7 +6,7 @@ import Ranking from './Ranking';
 type SearchParams = Promise<{ rid: string }>;
 
 const props = {
-  list: []
+  list: [],
 };
 
 const getRankRegion = async ({ rid }: { rid: string }): Promise<void> => {

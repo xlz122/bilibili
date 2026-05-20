@@ -4,7 +4,7 @@ import type {
   AxiosInstance,
   InternalAxiosRequestConfig,
   AxiosResponse,
-  AxiosError
+  AxiosError,
 } from 'axios';
 
 class HttpRequest {
@@ -13,7 +13,7 @@ class HttpRequest {
       baseURL: typeof window === 'undefined' ? process.env.NEXT_PUBLIC_API_BASE_URL : '/api',
       headers: { 'Content-Type': 'application/json;charset=UTF-8' },
       withCredentials: true,
-      timeout: 60000
+      timeout: 60000,
     };
 
     return config;
@@ -27,7 +27,7 @@ class HttpRequest {
       },
       (error: AxiosError) => {
         return Promise.reject(error);
-      }
+      },
     );
     // 响应拦截
     instance.interceptors.response.use(
@@ -40,7 +40,7 @@ class HttpRequest {
       },
       (error: AxiosError) => {
         return Promise.reject(error);
-      }
+      },
     );
   }
 

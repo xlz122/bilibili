@@ -2,8 +2,9 @@
 
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { useStore } from 'react-redux';
 import Image from 'next/image';
+import useLocalStorage from '@/hooks/useLocalStorage';
+import type { ViewHistory } from '@/app/space/Space';
 import { formatNumber } from '@/utils/utils';
 import Panel from './panel/Panel';
 import styles from './channel.module.scss';
@@ -24,20 +25,20 @@ type ItemType = {
 
 function Channel(props: Props): React.ReactElement {
   const router = useRouter();
-  const store = useStore();
+  const [viewHistory, setViewHistory] = useLocalStorage<ViewHistory[]>('viewHistory', []);
 
   const jumpVideoDetail = (item: ItemType) => {
     router.push(`/video-detail?aid=${item.aid}`);
 
-    store.dispatch({
-      type: 'routine/setViewHistory',
-      payload: {
+    setViewHistory([
+      ...viewHistory,
+      {
         aid: item.aid,
         pic: item.pic,
         title: item.title,
-        createTime: new Date().getTime()
-      }
-    });
+        createTime: new Date().getTime(),
+      },
+    ]);
   };
 
   const RenderRegionItem = ({ item }: { item: ItemType }) => {

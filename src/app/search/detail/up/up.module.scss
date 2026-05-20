@@ -1,25 +1,25 @@
 .up {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin: 0.5rem 0.6rem;
+  gap: 36px;
+  margin: 20px 24px;
 }
 
 .item {
   display: flex;
-  flex-direction: row;
-  gap: 0.6rem;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .itemCover {
   position: relative;
-  width: 3rem;
-  height: 3rem;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -28,15 +28,15 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 12px;
 }
 
 .infoTitle {
-  font-size: 0.7rem;
+  font-size: 28px;
   color: #212121;
 }
 
 .infoText {
-  font-size: 0.6rem;
+  font-size: 24px;
   color: #999999;
 }

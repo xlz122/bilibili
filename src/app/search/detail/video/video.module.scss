@@ -1,50 +1,49 @@
 .video {
   width: 100%;
-  background-color: #ffffff;
+  background-color: #FFFFFF;
 }
 
 .list {
   display: flex;
   flex-direction: column;
-  gap: 0.9rem;
-  margin: 0.5rem 0.6rem;
+  gap: 36px;
+  margin: 20px 24px;
 }
 
 .item {
   display: flex;
-  flex-direction: row;
-  gap: 0.6rem;
+  gap: 24px;
 }
 
 .itemCover {
   position: relative;
-  width: 7rem;
-  height: 4.4rem;
-  border-radius: 4px;
+  width: 280px;
+  height: 176px;
+  border-radius: 8px;
   overflow: hidden;
 }
 
 .itemDuration {
   position: absolute;
-  right: 0.2rem;
-  bottom: 0.2rem;
-  padding-block: 0.05rem;
-  padding-inline: 0.1rem;
+  right: 8px;
+  bottom: 8px;
+  padding-block: 2px;
+  padding-inline: 4px;
   background-color: rgba(0, 0, 0, 0.5);
-  font-size: 0.55rem;
-  color: #ffffff;
-  border-radius: 2px;
+  font-size: 22px;
+  color: #FFFFFF;
+  border-radius: 4px;
 }
 
 .itemInfo {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 12px;
 }
 
 .infoTitle {
-  font-size: 0.7rem;
+  font-size: 28px;
   color: #222222;
   display: -webkit-box;
   line-clamp: 2;
@@ -56,36 +55,46 @@
 
   em {
     font-style: normal;
-    color: #fb7299;
+    color: #FB7299;
   }
 }
 
 .infoAuthor {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 0.3rem;
+  gap: 12px;
+}
+
+.authorIcon {
+  position: relative;
+  width: 30px;
+  height: 26px;
 }
 
 .authorText {
-  font-size: 0.6rem;
+  font-size: 24px;
   color: #999999;
 }
 
 .infoCount {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .countItem {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  gap: 0.3rem;
+  gap: 12px;
+}
+
+.countIcon {
+  position: relative;
+  width: 30px;
+  height: 26px;
 }
 
 .countText {
-  font-size: 0.6rem;
+  font-size: 24px;
   color: #999999;
 }

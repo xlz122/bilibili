@@ -12,7 +12,7 @@ export const videoDetail = ({ aid }: { aid: string }): AxiosPromise => {
   return axios.request({
     url: '/video/detail',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -33,7 +33,7 @@ export const videoPlayurl = ({ aid, cid }: VideoPlayurl): AxiosPromise => {
   return axios.request({
     url: '/video/playurl',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -48,7 +48,7 @@ export const videoRecommend = ({ aid }: { aid: string }): AxiosPromise => {
   return axios.request({
     url: '/video/recommend',
     method: 'get',
-    params
+    params,
   });
 };
 
@@ -69,6 +69,6 @@ export const videoComment = ({ aid, page }: VideoComment): AxiosPromise => {
   return axios.request({
     url: '/video/comment',
     method: 'get',
-    params
+    params,
   });
 };

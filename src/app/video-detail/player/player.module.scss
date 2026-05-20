@@ -1,6 +1,6 @@
 .videoPlayer {
   width: 100%;
-  height: 10.6rem;
+  height: 424px;
 }
 
 .video {
@@ -19,8 +19,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 96px;
+  height: 96px;
 }
 
 .tip {
@@ -29,10 +29,10 @@
   bottom: 0;
   z-index: 1;
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
+  align-items: center;
+  gap: 20px;
   width: 100%;
-  padding: 0.6rem;
+  padding: 24px;
   box-sizing: border-box;
 
   &::before {
@@ -42,18 +42,18 @@
     bottom: 0;
     z-index: -1;
     width: 100%;
-    height: 4rem;
+    height: 160px;
     background-image: linear-gradient(180deg, transparent 2%, rgba(0, 0, 0, 0.7) 98%);
   }
 }
 
 .tipText {
-  font-size: 0.6rem;
-  color: #ffffff;
+  font-size: 24px;
+  color: #FFFFFF;
 }
 
 .tipTime {
   position: absolute;
-  right: 0.6rem;
-  color: #ffffff;
+  right: 24px;
+  color: #FFFFFF;
 }

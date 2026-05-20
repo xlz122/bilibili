@@ -6,7 +6,7 @@ function Logo(): React.ReactElement {
       data-name="\u56FE\u5C42 1"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 62 28"
-      fill="#de698c"
+      fill="#DE698C"
     >
       <title>logo</title>
       <g id="Page-1">

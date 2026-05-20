@@ -8,7 +8,7 @@ import styles from './page.module.scss';
 
 const props = {
   tabbar: [],
-  list: []
+  list: [],
 };
 
 const getTabBar = async (): Promise<void> => {

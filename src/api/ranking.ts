@@ -7,7 +7,7 @@ import type { AxiosPromise } from 'axios';
 export const rankNav = (): AxiosPromise => {
   return axios.request({
     url: '/ranking/nav',
-    method: 'get'
+    method: 'get',
   });
 };
 
@@ -22,6 +22,6 @@ export const rankRegion = ({ rid }: { rid: string }): AxiosPromise => {
   return axios.request({
     url: '/ranking/region',
     method: 'get',
-    params
+    params,
   });
 };

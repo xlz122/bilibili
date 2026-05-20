@@ -15,7 +15,7 @@ function SearchSuggest(props: Props): React.ReactElement {
 
   const getSearchSuggest = async () => {
     const res: ResponseType & { result?: { tag: ItemType[] } } = await searchSuggest({
-      keyword: props.keyword
+      keyword: props.keyword,
     });
     if (res?.code !== 0) {
       return;

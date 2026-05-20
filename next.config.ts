@@ -1,8 +1,8 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  basePath: process.env.NEXT_PUBLIC_BASE_URL,
-  reactStrictMode: true,
+  basePath: '',
+  reactCompiler: true,
   // 配置外部图像
   images: {
     remotePatterns: [
@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.biliimg.com'
+        hostname: '**.biliimg.com',
       },
       {
         protocol: 'http',
@@ -20,37 +20,22 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: '**.hdslb.com'
-      }
-    ]
+        hostname: '**.hdslb.com',
+      },
+    ],
   },
   // 跨域
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`
-      }
-    ]
+        destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/:path*`,
+      },
+    ];
   },
-  // 安全标头
-  async headers() {
-    return [
-      {
-        source: '/:path*',
-        headers: [
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          }
-        ]
-      }
-    ]
-  },
-  // 删除console.*
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production' ? true : false
-  }
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
 };
 
 export default nextConfig;

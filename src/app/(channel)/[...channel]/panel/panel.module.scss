@@ -2,38 +2,36 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-bottom: 0.9rem;
+  margin-bottom: 36px;
 }
 
 .title {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding: 0.4rem 0.3rem 0.5rem;
+  padding: 16px 12px 20px;
 }
 
 .titleText {
-  font-size: 0.75rem;
+  font-size: 30px;
   color: #212121;
 }
 
 .more {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 0.3rem;
+  gap: 12px;
 }
 
 .subIcon {
-  font-size: 0.9rem;
+  font-size: 36px;
 }
 
 .moreText {
-  font-size: 0.65rem;
+  font-size: 26px;
 }
 
 .moreIcon {
-  font-size: 0.65rem;
+  font-size: 26px;
   transform: rotate(-90deg);
 }

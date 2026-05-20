@@ -5,7 +5,7 @@ import Search from './Search';
 
 const props = {
   default: {},
-  hot: []
+  hot: [],
 };
 
 const getSearchDefault = async (): Promise<void> => {

@@ -50,18 +50,14 @@ function Live(props: Props): React.ReactElement {
           onClick={() => {
             jumpLiveAreaList({
               id: item.module_info.area_v2_parent_id,
-              name: item.module_info.title
+              name: item.module_info.title,
             });
           }}
         >
           <div className={styles.moreText}>进来看看</div>
-          <Image
-            className={styles.moreIcon}
-            width="16"
-            height="16"
-            src="/images/live/icon-arrow.png"
-            alt=""
-          />
+          <div className={styles.moreIcon}>
+            <Image src="/images/live/icon-arrow.png" fill priority sizes="50%" alt="" />
+          </div>
         </div>
       </div>
       <div className={styles.list}>
@@ -79,8 +75,10 @@ function Live(props: Props): React.ReactElement {
         <div className={styles.info}>
           <div className={styles.infoName}>{item.uname}</div>
           <div className={styles.infoItem}>
-            <Image width="8" height="8" src="/images/live/icon-eye.png" alt="" />
-            <span className={styles.itemCount}>{formatNumber(item.watched_show?.num)}</span>
+            <div className={styles.countIcon}>
+              <Image src="/images/live/icon-eye.png" fill priority sizes="50%" alt="" />
+            </div>
+            <span className={styles.countText}>{formatNumber(item.watched_show?.num)}</span>
           </div>
         </div>
       </div>

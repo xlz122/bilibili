@@ -23,13 +23,13 @@ function TabBar(props: Props): React.ReactElement {
 
   const [tab, setTab] = useState<TabType>({
     navIndex: -1,
-    navSubIndex: -1
+    navSubIndex: -1,
   });
 
   useLayoutEffect(() => {
     const index = props.list.findIndex((item) => String(item.tid) === params.channel?.[1]);
     const subIndex = props.list?.[index]?.children?.findIndex(
-      (item) => String(item.rid) === (params.channel?.[2] ?? params.channel?.[1])
+      (item) => String(item.rid) === (params.channel?.[2] ?? params.channel?.[1]),
     );
 
     setTab({ navIndex: index, navSubIndex: subIndex });

@@ -33,8 +33,10 @@ function LiveList(props: Props): React.ReactElement {
         <div className={styles.info}>
           <div className={styles.infoName}>{item.uname}</div>
           <div className={styles.infoItem}>
-            <Image width="8" height="8" src="/images/live/icon-eye.png" alt="" />
-            <span className={styles.itemCount}>{formatNumber(item.watched_show?.num)}</span>
+            <div className={styles.countIcon}>
+              <Image src="/images/live/icon-eye.png" fill priority sizes="50%" alt="" />
+            </div>
+            <span className={styles.countText}>{formatNumber(item.watched_show?.num)}</span>
           </div>
         </div>
       </div>

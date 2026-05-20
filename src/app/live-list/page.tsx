@@ -7,7 +7,7 @@ import LiveList from './LiveList';
 type SearchParams = Promise<{ parent_area_id: string; parent_area_name: string }>;
 
 const props = {
-  list: []
+  list: [],
 };
 
 const getLiveList = async ({ parent_area_id }: { parent_area_id: string }) => {
